@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title>厦门创欣佳软件开发有限公司</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="jquery.dropotron-1.0.js"></script>
+<script type="text/javascript" src="jquery.slidertron-1.1.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('#menu > ul').dropotron({
+			mode: 'fade',
+			globalOffsetY: 11,
+			offsetY: -15
+		});
+		$('#slider').slidertron({
+			viewerSelector: '.viewer',
+			indicatorSelector: '.indicator span',
+			reelSelector: '.reel',
+			slidesSelector: '.slide',
+			speed: 'slow',
+			advanceDelay: 4000
+		});
+	});
+</script>
+<script type="text/javascript"> 
+	function contactList(jsons){
+		var arr = eval(jsons);
+		for(var i=0; i<arr.length; i++){
+			var jsonObj = arr[i]; //获取json对象
+			document.getElementById("gsqc").innerHTML = jsonObj.gsqc;
+			document.getElementById("sy").innerHTML = jsonObj.sy;
+			document.getElementById("cpsy").innerHTML = jsonObj.cpsy;
+			document.getElementById("hyld").innerHTML = jsonObj.hyld;
+			document.getElementById("gsjs1").innerHTML = jsonObj.gsjs1;
+			document.getElementById("gsjs2").innerHTML = jsonObj.gsjs2;
+			document.getElementById("zxbb").innerHTML = jsonObj.zxbb;
+			document.getElementById("zxbb1").innerHTML = jsonObj.zxbb1;
+			document.getElementById("zxbb2").innerHTML = jsonObj.zxbb2; 
+			document.getElementById("zxbb3").innerHTML = jsonObj.zxbb3; 
+			document.getElementById("zxbb4").innerHTML = jsonObj.zxbb4; 
+			document.getElementById("zxbb5").innerHTML = jsonObj.zxbb5; 
+			document.getElementById("gsdz").innerHTML = jsonObj.gsdz; 
+			document.getElementById("lxdh").innerHTML = jsonObj.lxdh;
+		}
+	}
+
+	function pageInit(){
+		var contact = "";
+		var changeLanguage = document.getElementById("language").value;
+		if(changeLanguage == null || changeLanguage == "0")
+		{
+			contact = "[{gsqc:'厦门创欣佳软件开发有限公司',"
+								+ "sy:'首页'," 
+								+ "cpsy:'产品'," 
+								+ "hyld:'欢迎来到厦门创欣佳软件开发有限公司'," 
+								+ "gsjs1:'厦门创欣佳软件开发有限公司（下面简称“创欣佳”）成立于2012年，是厦门一家专业代码自动生成插件的公司。公司根据客户需求，自动生成代码的插件，该插件属于eclipse工具的插件包，可以跟eclipse工具完美的结合起来。公司以“创新为目标，诚信求发展”为核心价值，希望通过我们的专业水平和不懈努力，为用户节约成本、提高效率。'," 
+								+ "gsjs2:'“创欣佳”一直秉承以客户需求为核心，在一年的市场调研和两年的开发时间的基础上，开发了jmr产品。在一年的市场调研中，发现了客户普片存在着开发成本高、开发周期长、开发效率低的情况，而发生这样的情况是由于成本高、项目待定时间长、开发重复代码多、开发风格不统一和代码升级困难等的原因下产生的。于是在公司的不懈努力下，开发了jmr产品来解决这些问题。'," 
+								+ "zxbb:'最新版本'," 
+								+ "zxbb1:'jmr1.1版本',"  
+								+ "zxbb2:'jmr文档',"  
+								+ "zxbb3:'jmr模板1',"  
+								+ "zxbb4:'jmr模板2'," 
+								+ "zxbb5:'jmr视频'," 
+								+ "gsdz:'公司地址：厦门软件园二期望海路61号N9-C10'," 
+								+ "lxdh:'联系电话：13600925953，13616048690'" 
+								+ "}]";
+		}else
+		{
+			contact = "[{gsqc:'Xiamen ChuangXinJia software development co., LTD',"
+								+ "sy:'Home'," 
+								+ "cpsy:'Product'," 
+								+ "hyld:'Welcome to Xiamen ChuangXinJia software development co., LTD'," 
+								+ "gsjs1:'Xiamen ChuangXinJia software development co., LTD About us: ChuangXinJia is a company that  specialized in code automatically generated plug-in company which located in Xiamen founded in 2012 register capital of 1 million RMB. We according to customers requirements automatically generated code plug-in, the plug-in as a part of the eclipse tool plug-in kit, can perfect compatible with eclipse tool. Innovation as the goal, good faith development as core value. Hope through our professional quality and Unremitting efforts to reduce customers cost and improve their efficiency.'," 
+								+ "gsjs2:'ChuangXinJia always adhering to the customer demand as the core. Base on in a year of market researched and two years of development time, we developed ’Jmr’ product. During a  year of market researched, we found customer generally have high develop cost, long develop  time and low efficiency development problems.  This situation is due to high cost, long project backlog time, the development of repeat code, haven’t a unified development style and code upgrade difficult and so on, So Under ChuangXinJia unremitting efforts, has developed Jmr products to solve these problems.'," 
+								+ "zxbb:'New Version'," 
+								+ "zxbb1:'jmr1.1banben',"  
+								+ "zxbb2:'jmrwendang',"  
+								+ "zxbb3:'jmrmuban1',"  
+								+ "zxbb4:'jmrmuban2'," 
+								+ "zxbb5:'jmrshipin',"  
+								+ "gsdz:'Address:N9-C10,No.16,Wanghai Road, Second period, Software Park ,Xiamen.'," 
+								+ "lxdh:'Tel:'" 
+								+ "}]";
+		}
+		contactList(contact);
+	}
+</script>
+</head>
+<body onload="pageInit();">
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1><a href="#"><span id="gsqc"></span></a></h1>
+		</div>
+		<div id="slogan">
+			<h2>
+				<select onchange="pageInit();" id="language">
+					<option selected value="0">中文</option>
+					<option value="1">English</option>
+				</select>
+			</h2>
+		</div>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="first">
+				<span class="opener"><span id="sy"></span></span>
+			</li>
+			<li><a href="../index.html"><span id="cpsy"></span></a></li>
+		</ul>
+		<br class="clearfix" />
+	</div>
+	<div id="slider">
+		<div class="viewer">
+			<div class="reel">
+				<div class="slide">
+					<img src="images/slide01.jpg" alt="" />
+				</div>
+				<div class="slide">
+					<img src="images/slide02.jpg" alt="" />
+				</div>
+				<div class="slide">
+					<img src="images/slide03.jpg" alt="" />
+				</div>
+				<div class="slide">
+					<img src="images/slide04.jpg" alt="" />
+				</div>
+				<div class="slide">
+					<img src="images/slide05.jpg" alt="" />
+				</div>
+			</div>
+		</div>
+		<div class="indicator">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+	</div>
+	<div id="page">
+		<div id="content">
+			<div class="box">
+				<h3><span id="hyld"></span></h3>
+				<p>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="gsjs1"></span> <br/> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="gsjs2"></span> 
+				</p>
+			</div>
+		</div>
+		<div id="sidebar">
+			<div class="box">
+				<h3><span id="zxbb"></span></h3>
+				<ul class="list">
+					<li class="first"><a href="#"><span id="zxbb1"></span></a></li>
+					<li><a href="#"><span id="zxbb2"></span></a></li>
+					<li><a href="#"><span id="zxbb3"></span></a></li>
+					<li><a href="#"><span id="zxbb4"></span></a></li>
+					<li class="last"><a href="#"><span id="zxbb5"></span></a></li>
+				</ul>
+			</div>
+		</div>
+		<br class="clearfix" />
+	</div>
+	<div id="page-bottom">
+		<div id="page-bottom-content">
+			<p>
+				<span id="gsdz"></span><br/>
+				<span id="lxdh"></span><br/>
+			</p>
+		</div>
+		<div id="page-bottom-sidebar">
+		</div>
+		<br class="clearfix" />
+	</div>
+</div>
+</body>
+</html>

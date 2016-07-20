@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Jmr产品</title>
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<script type="text/javascript"> 
+			function contactList(jsons){
+				var arr = eval(jsons);
+				for(var i=0; i<arr.length; i++){
+					var jsonObj = arr[i]; //获取json对象
+					document.getElementById("sy").innerHTML = jsonObj.sy;
+					document.getElementById("wzsy").innerHTML = jsonObj.wzsy;
+					document.getElementById("xz").innerHTML = jsonObj.xz;
+					document.getElementById("jc").innerHTML = jsonObj.jc;
+					document.getElementById("yfry1").innerHTML = jsonObj.yfry1;
+					document.getElementById("zp1").innerHTML = jsonObj.zp1;
+					document.getElementById("yx").innerHTML = jsonObj.yx;
+					document.getElementById("qqh1").innerHTML = jsonObj.qqh1; 
+					document.getElementById("zp2").innerHTML = jsonObj.zp2; 
+					document.getElementById("cyj").innerHTML = jsonObj.cyj; 
+					document.getElementById("qqh2").innerHTML = jsonObj.qqh2; 
+					document.getElementById("bblb").innerHTML = jsonObj.bblb;  
+					document.getElementById("hyld").innerHTML = jsonObj.hyld;  
+					document.getElementById("cpjs1").innerHTML = jsonObj.cpjs1;  
+					document.getElementById("cpjs2").innerHTML = jsonObj.cpjs2;  
+					document.getElementById("gfqq").innerHTML = jsonObj.gfqq;  
+					document.getElementById("gflt").innerHTML = jsonObj.gflt; 
+					document.getElementById("gsdz").innerHTML = jsonObj.gsdz; 
+					document.getElementById("lxdh").innerHTML = jsonObj.lxdh;
+				}
+			}
+		
+			function pageInit(){
+				var contact = "";
+				var changeLanguage = document.getElementById("language").value;
+				if(changeLanguage == null || changeLanguage == "0")
+				{
+					contact = "[{sy:'首页',"
+										+ "wzsy:'公司'," 
+										+ "xz:'下载'," 
+										+ "jc:'教程'," 
+										+ "yfry1:'研发人员'," 
+										+ "zp1:'照片'," 
+										+ "yx:'余欣：Jmr产品创始人，钻石王老五。',"  
+										+ "qqh1:'QQ：',"  
+										+ "zp2:'照片'," 
+										+ "cyj:'陈亚佳：Jmr产品宣传人。',"  
+										+ "qqh2:'QQ：'," 
+										+ "bblb:'版本列表',"  
+										+ "hyld:'欢迎来到'," 
+										+ "cpjs1:'伴随着互联网时代的来临，越来越多软件公司的创立，公司对软件人才的需求日益剧增，现在已经体现出供不应求的情况，而在这供不应求的情况下，公司普片存在着开发成本高、开发周期长、开发效率低的情况，而发生这样的情况是由于成本高、项目待定时间长、开发重复代码多、开发风格不统一和代码升级困难等的原因下产生的。于是在公司的不懈努力下，开发了jmr产品来解决这些问题。'," 
+										+ "cpjs2:'jmr产品是软件自动化生成的工具，该产品是在eclipse工具下的工具包，产品通过可视化的模式，让用户自主操作，然后把设置好模板通过工具自动化生成代码，而设置好的模板，可以下次继续使用，只要按“生成”的按钮就可以再继续生成代码，或者可以在操作界面上进行复制黏贴，然后根据新的需求，相应的修改模板的部分内容，最后按“生成”按钮，就可以获得新的代码。通过上述的介绍，用户可以通过jmr产品快速、高效、简单的方式自动生成相应的代码。',"  
+										+ "gfqq:'官方QQ群：',"  
+										+ "gflt:'官方论坛：'," 
+										+ "gsdz:'公司地址：厦门软件园二期望海路61号N9-C10'," 
+										+ "lxdh:'联系电话：13600925953，13616048690'" 
+										+ "}]";
+				}else
+				{
+					contact = "[{sy:'Home',"
+										+ "wzsy:'Company'," 
+										+ "xz:'Download'," 
+										+ "jc:'Curriculum'," 
+										+ "yfry1:'Designer'," 
+										+ "zp1:'pictures'," 
+										+ "yx:'yuxin',"  
+										+ "qqh1:'QQ:',"  
+										+ "zp2:'pictures'," 
+										+ "cyj:'chenyajia',"  
+										+ "qqh2:'QQ:'," 
+										+ "bblb:'Version List',"  
+										+ "hyld:'Welcome to '," 
+										+ "cpjs1:'with the advent of the Internet, more and more software company founded, the company growing demand for software talents, now reflects the short supply situation, under this situation the company’s piece there is a high development cost, long development cycle, low development efficiency , and this situation is due to high cost, long project backlog time, the development of repeat code, haven’t a unified development style and code upgrade difficult and so on, So Under ChuangXinJia unremitting efforts, has developed Jmr products to solve these problems.'," 
+										+ "cpjs2:'Jmr is a tool that for automatic generation software, the product is a tools kit under the eclipse, products through visual pattern, let the user independent operation, then through set up the template automatic generation code tool, and the template, you can continue to use the next time, just press ’generate’ button to continue to generate code, or you can copy paste on the operation interface, and then according to the new requirements, the corresponding modify part of the template, finally press the ’generate’ button, you can obtain a new code. Through the introduction of the above, the user can through the Jmr products rapid, efficient and simple way to automatically generate the corresponding code.',"
+										+ "gfqq:'Official QQ:'," 
+										+ "gflt:'Official BBS:',"
+										+ "gsdz:'Address:N9-C10,No.16,Wanghai Road, Second period, Software Park ,Xiamen.'," 
+										+ "lxdh:'Tel:'" 
+										+ "}]";
+				}
+				contactList(contact);
+			}
+		</script>
+    </head>
+    <body onload="pageInit();">
+		<div id="bg">
+			<div id="outer">
+				<div id="header">
+					<div id="logo">
+						<h1>
+							<a href="#">JMR</a>
+						</h1>
+					</div>
+					<div id="nav">
+						<ul>
+							<li class="first active">
+								<a href="#"><span id="sy"></span></a>
+							</li>
+							<li>
+								<a href="/company/index.html"><span id="wzsy"></span></a>
+							</li>
+							<li>
+								<a href="#"><span id="xz"></span></a>
+							</li>
+							<li>
+								<a href="#"><span id="jc"></span></a>
+							</li>
+							<li>
+								<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</li>
+							<li>
+								<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</li>
+							<li>
+								<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</li>
+							<li>
+								<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</li>
+							<li class="last">
+								<select onchange="pageInit();" id="language">
+									<option selected value="0">中文</option>
+									<option value="1">English</option>
+								</select>
+							</li>
+						</ul>
+						<br class="clear" />
+					</div> 
+				</div>
+				<div id="banner">
+					<img src="images/pic1.jpg" width="1124" height="212" alt="" />
+				</div>
+				<div id="main">
+					<div id="sidebar1">
+						<h3>
+							Jmr<span id="yfry1"></span>
+						</h3>
+						<ul class="linkedList">
+							<li class="first">
+								<span id="zp1"></span>：
+							</li>
+							<li>
+								<span id="yx"></span>
+							</li>
+							<li>
+								<span id="qqh1"></span>
+							</li>
+							<li>
+								<br/><br/>
+								<span id="zp2"></span>：
+							</li>
+							<li>
+								<span id="cyj"></span>
+							</li>
+							<li>
+								<span id="qqh2"></span>
+							</li>
+						</ul>
+					</div>
+					<div id="sidebar2">
+						<h3>
+							<span id="bblb"></span>
+						</h3>
+						<ul class="linkedList">
+							<li class="first">
+								<a href="#">jmr1.1</a>
+							</li>
+							<li>
+								<a href="#">jmr1.2</a>
+							</li>
+							<li>
+								<a href="#">jmr1.3</a>
+							</li>
+							<li>
+								<a href="#">jmr1.4</a>
+							</li>
+							<li>
+								<a href="#">jmr1.5</a>
+							</li>
+							<li class="last">
+								<a href="#">jmr1.6</a>
+							</li>
+						</ul>
+					</div>
+					<div id="content">
+						<div id="box1">
+							<h2>
+								<span id="hyld"></span>JMR
+							</h2><img class="left" src="images/pic2.jpg" width="100" height="115" alt="" />
+							<p>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="cpjs1"></span><br/>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="cpjs2"></span><br/> 
+								<br/><br/><br/>
+								<span id="gfqq"></span><br/>
+ 								<span id="gflt"></span><br/>
+ 							</p>
+						</div>
+					</div>
+				</div>
+				<div id="footer">
+					<div id="footerContent">
+						<p>
+							<span id="gsdz"></span><br/>
+							<span id="lxdh"></span><br/>
+						</p>
+					</div>
+					<br class="clear" />
+				</div>
+			</div>
+		</div>
+    </body>
+</html>
