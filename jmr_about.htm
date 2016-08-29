@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head lang="en">
+    <meta charset="UTF-8">
+    <title>JMR</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="jmr_files/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="jmr_files/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="jmr_files/public.css" type="text/css">
+    <link rel="stylesheet" href="jmr_files/main.css" type="text/css">
+    <link type="image/x-icon" rel="icon" href="jmr_files/jmrimg11.gif">
+    <script type="text/javascript" src="jmr_files/utils.js"></script>
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+	  <script type="text/javascript" src="jquery.dropotron-1.0.js"></script>
+	  <script type="text/javascript" src="jquery.slidertron-1.1.js"></script>
+    <script type="text/javascript">
+        platform();
+        var targetProtocol = "https:";
+        var domain = window.location.host;
+        if (window.location.protocol != targetProtocol)
+            if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
+                window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
+        window._projectId = bugCloseStorage.getItem('project_id');
+    </script>
+     
+     <script type="text/javascript"> 
+			function contactList(jsons){
+			var arr = eval(jsons);
+			for(var i=0; i<arr.length; i++){
+				var jsonObj = arr[i]; //获取json对象
+				document.getElementById("jmrhome").innerHTML = jsonObj.jmrhome;
+				document.getElementById("about").innerHTML = jsonObj.about;
+				document.getElementById("down").innerHTML = jsonObj.down;
+				document.getElementById("word").innerHTML = jsonObj.word;
+				document.getElementById("about1").innerHTML = jsonObj.about1;
+				document.getElementById("about1content1").innerHTML = jsonObj.about1content1;
+				document.getElementById("about1content2").innerHTML = jsonObj.about1content2;
+				document.getElementById("team").innerHTML = jsonObj.team;
+				document.getElementById("teamyx").innerHTML = jsonObj.teamyx;
+				document.getElementById("teamcyj").innerHTML = jsonObj.teamcyj;
+				document.getElementById("contact").innerHTML = jsonObj.contact;
+				document.getElementById("address1").innerHTML = jsonObj.address1; 
+				document.getElementById("address2").innerHTML = jsonObj.address2;
+				document.getElementById("worktime").innerHTML = jsonObj.worktime;
+				document.getElementById("online").innerHTML = jsonObj.online;
+				document.getElementById("business").innerHTML = jsonObj.business;
+				document.getElementById("official").innerHTML = jsonObj.official;
+				document.getElementById("wechat").innerHTML = jsonObj.wechat;
+				document.getElementById("company").innerHTML = jsonObj.company;
+				document.getElementById("qq").innerHTML = jsonObj.qq;
+				document.getElementById("address").innerHTML = jsonObj.address;
+				
+			}
+		}
+		
+			function pageInit(){
+				var contact = "";
+				var changeLanguage = document.getElementById("language").value;
+				if(changeLanguage == null || changeLanguage == "0")
+				{
+					contact = "[{jmrhome:'首页'," 
+										+ "about:'关于我们'," 
+										+ "down:'下载'," 
+										+ "word:'说明文档'," 
+										+ "about1:'关于我们'," 
+										+ "about1content1:'JMR是由厦门创欣佳软件开发有限公司开发的一款软件自动化生成代码工具， 与其他软件自动化生成代码工具不同，JMR是一款能为公司提高效率，减少成本，解决开发问题的跨框架，跨语言，跨项目且简单易学的软件自动化生成代码工具。'," 
+										+ "about1content2:'我们是一个朝气蓬勃的团队，成员有着6年以上开发经验。我们专注于软件自动化生成代码工具，开发出符合发展潮流的产品。本着简而轻的原则，把产品做到最好!'," 
+										+ "team:'核心团队'," 
+										+ "teamyx:'余欣：产品创始人，主要负责项目和产品的研发。曾经就职于Cocos2dx引擎团队，工具开发专家，开发过Cocos Code IDE和其他游戏工具，具有国内顶尖的工具开发理念和新的技术的研发能力。'," 
+										+ "teamcyj:'陈亚佳：产品创始人，主要负责市场推广。曾经就职某知名软件公司的架构师，后到某互联网公司担任产品市场运营总监，资深的敏捷开发专家。'," 
+										+ "contact:'联系我们'," 
+										+ "address1:'厦门软件园二期',"  
+										+ "address2:'望海路61号N9C10'," 
+										+ "worktime:'周一至周五 9:30～19:00'," 
+										+ "online:'在线客服'," 
+										+ "business:'商务合作'," 
+										+ "official:'官方群'," 
+										+ "wechat:'微信公众号',"
+										+ "company:'厦门创欣佳软件开发有限公司'," 
+										+ "qq:'QQ群'," 
+										+ "address:'厦门软件园二期望海路61号N9C10'" 
+										
+										+ "}]";
+				}else
+				{
+					contact = "[{jmrhome:'Home',"
+										+ "about:'About'," 
+										+ "down:'Down'," 
+										+ "word:'Word',"
+										+ "about1:'About'," 
+										+ "about1content1:'JMR is a software developed by Xiamen Chuang Xin Jia Software Development Co., Ltd. developed a software automated code generation tools, unlike other software automated code generation tools, JMR is a can for the company to improve the efficiency, reduce the cost, solve the problems of the development of inter frame, cross language, cross project and easy to learn software automated code generation tools.'," 
+										+ "about1content2:'We are a team full of youthful spirit, members have more than 6 years of development experience. We focus on software automation code generation tools, developed to meet the development trend of the product. The principle of simple and easy to do the best products!'," 
+										+ "team:'Team'," 
+										+ "teamyx:'XinYu：Product founder, mainly responsible for the development of projects and products. Once worked on the Cocos2dx engine team, tool development specialist, developed Cocos Code IDE and other game tools, domestic top tool development concept and new technology R & D capability'," 
+										+ "teamcyj:'YaJiaChen：Product founder, Mainly responsible for market promotion. Once the inauguration of a well-known software company architect, after a Internet Co as a product marketing operations director, a senior expert on agile development.'," 
+										+ "contact:'Contact'," 
+										+ "address1:'Xiamen software park two',"  
+										+ "address2:'Wang Hai Road No. 61 N9C10'," 
+										+ "worktime:'Monday to Friday 9:30 ~ 19:00'," 
+										+ "online:'Online Service'," 
+										+ "business:'Business Cooperation'," 
+										+ "official:'Official Group'," 
+										+ "wechat:'WeChat Public Number'," 
+										+ "company:'Xiamen Chuang Xin Jia Software Development Co., Ltd.'," 
+										+ "qq:'QQ'," 
+										+ "address:'Xiamen software park two Wang Hai Road No. 61 N9C10'" 
+										
+										+ "}]";
+				}
+				contactList(contact);
+			}
+		</script>
+      
+<link style="" id="layui_layer_skinlayercss" href="jmr_files/layer.css" rel="stylesheet"></head>
+<body onload="pageInit();">
+    <div id="wrapper">
+        <!-- top start -->
+        <div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
+            <div class="bugclose-width">
+                <div class="logo"><img src="jmr_files/editor-A.gif"> </div>
+                <div class="nav">
+                    <div class="menu">
+                        <a href="jmr.htm"><span id="jmrhome"></span></a>
+                        <a href="https://www.bugclose.com/console.html">工作台</a>
+                        <a href="https://www.bugclose.com/deploy.html" target="_blank">独立部署</a>
+                        <a href="jmr_down.htm" target="_blank"><span id="down"></span></a>
+                        <a href="jmr_word.htm" target="_blank"><span id="word"></span></a>
+                        <div class="reg-login" style=""> 
+                         	<select onchange="pageInit();" id="language">
+														<option selected value="0">中文</option>
+														<option value="1">English</option>
+													</select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top end -->
+        <!-- banner 开始 -->
+        <div class="site-banner site-banner-about">
+            <div class="bugclose-width">
+                <div class="solgon" style="padding-top:200px;">
+                    <span id="about"></span>
+                </div>
+            </div>
+        </div>
+        <!-- banner 结束 -->
+        <!-- container start -->
+        <div class="container-fluid">
+            <div class="cell bugclose-width bugclose-about">
+                <p class="title"><span id="about1"></span></p>
+                <div class="about">
+                    <p><span id="about1content1"></span></p>
+                    <p class="pd12"><span id="about1content2"></span></p>
+                </div>
+                <p class="title"><span id="team"></span></p>
+                <div class="about">
+                    <p><span id="teamyx"></span></p>
+                    <p class="pd12"><span id="teamcyj"></span></p>
+                </div>
+                <p class="title"><span id="contact"></span></p>
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <dl>
+                            <dt><img src="jmr_files/profile_1.png"></dt>
+                            <dd><span id="address1"></span></dd>
+                            <dd><span id="address2"></span></dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <dl>
+                            <dt><img src="jmr_files/profile_2.png"></dt>
+                            <dd><span id="worktime"></span></dd>
+                            <dd>13600925953</dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <dl>
+                            <dt><img src="jmr_files/profile_3.png"></dt>
+                            <dd><span id="online"></span> QQ:86638131</dd>
+                            <dd><span id="business"></span> QQ :86638131</dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <dl>
+                            <dt><img src="jmr_files/profile_4.png"></dt>
+                            <dd><span id="official"></span>：212108669</dd>
+                            <dd><span id="wechat"></span>：</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- container end -->
+        <!-- footer start -->
+        <footer class="site-footer" id="site-footer">
+            <div class="linkUs">
+                <div class="bugclose-width">
+                 	  <div>
+                        <img src="jmr_files/jmrimg10.png"> JMR：<span id="company"></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg6.png"> <span id="qq"></span>：212108669
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg7.png"> job_jmr@163.com
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg8.png"> <span id="address"></span>
+                    </div>  
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
+    </div>
+    <script type="text/javascript" src="jmr_files/jquery.js"></script>
+    <script type="text/javascript" src="jmr_files/bootstrap.js"></script>
+    <script type="text/javascript" src="jmr_files/utils_002.js"></script>
+    <script type="text/javascript" src="jmr_files/xml.js"></script>
+    <script type="text/javascript" src="jmr_files/layer.js"></script>
+    <script type="text/javascript" src="jmr_files/main.js"></script>
+    
+</body></html>

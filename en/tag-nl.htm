@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html><head lang="en">
+    <meta charset="UTF-8">
+    <title>JMR</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="../jmr_files/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../jmr_files/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="../jmr_files/public.css" type="text/css">
+    <link rel="stylesheet" href="../jmr_files/main.css" type="text/css">
+    <link type="image/x-icon" rel="icon" href="../jmr_files/jmrimg11.gif">
+    <script type="text/javascript" src="../jmr_files/utils.js"></script>
+    <script type="text/javascript" src="../jmr_files/jquery-1.6.min.js"></script>
+	  <script type="text/javascript" src="../jmr_files/jquery.dropotron-1.0.js"></script>
+	  <script type="text/javascript" src="../jmr_files/jquery.slidertron-1.1.js"></script> 
+	  <script type="text/javascript" src="../jmr_files/SimpleTree.js"></script>
+	  <link rel="stylesheet" type="text/css" href="../jmr_files/tree_themes/SimpleTree.css"/>
+    <script type="text/javascript">
+        platform();
+        var targetProtocol = "https:";
+        var domain = window.location.host;
+        if (window.location.protocol != targetProtocol)
+            if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
+                window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
+        window._projectId = bugCloseStorage.getItem('project_id');
+    </script>
+     
+      <script type="text/javascript">
+			$(function(){
+				$(".st_tree").SimpleTree({
+					click:function(a){
+					}
+				});
+			});
+			
+			function treego(a){
+				window.location.href=a;
+			}
+			</script>
+     
+     <script type="text/javascript"> 
+			function pageInit(){
+				var contact = "";
+				var changeLanguage = document.getElementById("language").value;
+				if(changeLanguage == null || changeLanguage == "0")
+				{
+					window.location.href="../cn/preface.htm";
+				}else
+				{
+					
+				}
+			}
+		</script>
+      
+<link style="" id="layui_layer_skinlayercss" href="jmr_files/layer.css" rel="stylesheet"></head>
+<body>
+    <div id="wrapper">
+        <!-- top start -->
+        <div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
+            <div class="bugclose-width">
+                <div class="logo"><img src="../jmr_files/editor-A.gif"> </div>
+                <div class="nav">
+                    <div class="menu">
+                        <a href="../jmr.htm">Home</a>
+                        <a href="https://www.bugclose.com/console.html">工作台</a>
+                        <a href="https://www.bugclose.com/deploy.html" target="_blank">独立部署</a>
+                        <a href="../jmr_down.htm" target="_blank">Down</a>
+                        <a href="../jmr_about.htm" target="_blank">About</a> 
+                        <div class="reg-login" style=""> 
+                         	<select onchange="pageInit();" id="language">
+														<option selected value="0">中文</option>
+														<option value="1">English</option>
+													</select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top end -->
+        <!-- banner 开始 -->
+        <div class="site-banner site-banner-about">
+            <div class="bugclose-width">
+                <div class="solgon" style="padding-top:200px;">
+                    Word
+                </div>
+            </div>
+        </div>
+        <!-- banner 结束 -->
+        <!-- container start -->
+         <div class="container-fluid">	
+            <div class="cell bugclose-width">	
+                <div class="row">
+                 	<br/>
+                 	<div style="margin: 0 auto;">
+                 		<h1>头部广告位置</h1>
+                 	</div> 
+                 	<br/>
+                 	<div style="float:left; text-align:left; margin:0 50px 0 0; border:3px solid #999; padding:20px; width:20%; overflow:auto;" class="st_tree">
+                 		<ul>
+                 			<li>
+                 				<a href="#" onclick="treego('preface.htm')">前言2222</a>
+                 			</li>
+                 			
+                 			<li>
+                 				<a href="#" onclick="treego('head-experience-tour.htm')">体验之旅</a>
+                 			</li>
+                 			
+                 			
+                 				<ul>
+		                 			<li>
+		                 				<a href="#" onclick="treego('HelloJmr.htm')">Hello Jmr</a>
+		                 			</li> 
+		                 			
+		                 			<li>
+		                 				<a href="#" onclick="treego('actual-combat-demo.htm')">实战演示</a> 
+		                 			</li>
+		                 			
+		                 			
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('demo-java.htm')">java web</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 		</ul>
+                 			
+                 			
+                 			<li>
+                 				<a href="#" onclick="treego('head-template.htm')">模板</a>
+                 			</li>
+                 			
+                 			
+                 				<ul show="true"> 
+                 					<li>  
+                 						<a href="#" onclick="treego('template-preface.htm')">概览</a>
+                 					</li>
+                 					
+                 					<li>  
+                 						<a href="#" onclick="treego('head-template-standard.htm')">规范</a>
+                 					</li>
+                 					
+                 					
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('template-name.htm')">模板命名规范</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>  
+                 						<a href="#" onclick="treego('head-template-instruction.htm')">指令</a>
+                 					</li>
+                 					
+                 					
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('template-compile.htm')">编译声明</a>
+		                 					</li>
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('template-import.htm')">导入声明</a>
+		                 					</li> 
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('template-comment.htm')">注释</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>  
+                 						<a href="#" onclick="treego('head-template-script.htm')">脚本标签</a>
+                 					</li>
+                 					
+                 					
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('script-declare.htm')">&lt;%! %&gt; - 声明</a>
+		                 					</li>
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('script-script.htm')">&lt;% %&gt; - 脚本</a>
+		                 					</li> 
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('script-expression.htm')">&lt;%&#61; %&gt; - 表达式</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>  
+                 						<a href="#" onclick="treego('head-template-object.htm')">内置对象</a>
+                 					</li>
+                 					
+                 					
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('out.htm')">out - 打印</a>
+		                 					</li>
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('head-template-context.htm')">context - 参数容器</a>
+		                 					</li> 
+		                 					
+		                 					
+		                 						<ul show="true"> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('template-var.htm')">var - 模板参数</a>
+				                 					</li>
+				                 					
+				                 					<li>  
+				                 						<a href="#" onclick="treego('template-session-var.htm')">sessionVar - 全局参数</a>
+				                 					</li> 
+				                 				</ul>
+		                 					
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>  
+                 						<a href="#" onclick="treego('head-template-tag.htm')">Jmr标签</a>
+                 					</li>
+                 					
+                 					
+		                 				<ul show="true"> 
+		                 					<li>  
+		                 						嵌套标签
+		                 					</li>
+		                 					
+		                 					  
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-include.htm')">include - 嵌套模板</a>
+				                 					</li>
+				                 				</ul>
+		                 					 
+		                 					
+		                 					<li>  
+		                 						常规标签
+		                 					</li> 
+		                 					
+		                 					
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-get.htm')">get - 获取参数</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-set.htm')">set - 设置参数</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-if.htm')">if - 判断</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-elseif.htm')">elseif - 判断</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-else.htm')">else - 判断</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-for.htm')">for - 循环迭代</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-delimiter.htm')">delimiter - 是否打印分割符</a>
+				                 					</li>
+				                 				</ul>
+		                 					 
+		                 					
+		                 					<li>  
+		                 						排版标签
+		                 					</li> 
+		                 					
+		                 					  
+		                 						<ul show="true"> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-ws.htm')">ws - 空格</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-nl.htm')">nl - 换行</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-tab.htm')">tab - 制表</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-f.htm')">f - 格式化</a>
+				                 					</li> 
+				                 				</ul>
+		                 					 
+		                 					
+		                 					<li>  
+		                 						格式化标签
+		                 					</li> 
+		                 					
+		                 					 
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-f-date.htm')">f:date - 格式化时间</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-f-number.htm')">f:number - 格式化数字</a>
+				                 					</li> 
+				                 				</ul>
+		                 					 
+		                 					
+		                 					<li>  
+		                 						实体标签
+		                 					</li> 
+		                 					
+		                 					 
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-entity.htm')">entity - 实体对象</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-field.htm')">field - 字段</a>
+				                 					</li> 
+				                 				</ul>
+		                 					
+		                 					
+		                 					<li>  
+		                 						合并标签
+		                 					</li> 
+		                 					
+		                 					  
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-m-insert.htm')">m:insert - 插入</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-m-update.htm')">m:update - 更新</a>
+				                 					</li> 
+				                 				</ul>
+		                 					 
+		                 					
+		                 					<li>  
+		                 						xml标签
+		                 					</li> 
+		                 					
+		                 					 
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml.htm')">xml - xml对象</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml-get.htm')">xml:get - 获取xml参数</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml-set.htm')">xml:set - 设置xml参数</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml-if.htm')">xml:if - xml判断</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml-elseif.htm')">xml:elseif - xml判断</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml-else.htm')">xml:else - xml判断</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-xml-for.htm')">xml:for - xml循环迭代</a>
+				                 					</li> 
+				                 				</ul>
+		                 					
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('head-tag-java.htm')">java标签</a>
+		                 					</li> 
+		                 					
+		                 					 
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-java-package.htm')">java:package - 得到包名</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-java-class.htm')">java:class - 得到类名</a>
+				                 					</li> 
+				                 				</ul>
+		                 					
+		                 					
+		                 					<li>  
+		                 						<a href="#" onclick="treego('head-tag-task.htm')">任务标签</a>
+		                 					</li> 
+		                 					
+		                 					  
+		                 						<ul> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-group.htm')">t:group - 模型组</a>
+				                 					</li>
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-action.htm')">t:action - action类</a>
+				                 					</li> 
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-template.htm')">t:template - 模板路径</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-directory.htm')">t:directory - 生成文件所在目录</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-name.htm')">t:name - 生成文件名</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-ext.htm')">t:ext - 生成文件扩展名</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-encoding.htm')">t:encoding - 生成文件编码</a>
+				                 					</li>  
+				                 					<li>  
+				                 						<a href="#" onclick="treego('tag-task-mode.htm')">t:mode - 生成文件模式</a>
+				                 					</li> 
+				                 				</ul>
+		                 					
+		                 				</ul>
+		                 			
+                 				</ul>
+                 			
+                 			
+                 			<li>
+                 				<a href="#" onclick="treego('head-model.htm')">模型</a>
+                 			</li>
+                 			
+                 			
+                 				<ul>
+		                 			<li>
+		                 				<a href="#" onclick="treego('head-model-transform.htm')">生成</a>
+		                 			</li> 
+		                 			
+		                 			
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-db.htm')">数据库</a>
+		                 					</li>
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-java.htm')">java类</a>
+		                 					</li> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-xml.htm')">xml</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>
+		                 				<a href="#" onclick="treego('head-model-structure.htm')">结构</a>
+		                 			</li> 
+		                 			
+		                 			
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-db.htm')">数据库</a>
+		                 					</li>
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-java.htm')">java类</a>
+		                 					</li> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-structure-xml.htm')">xml</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>
+		                 				<a href="#" onclick="treego('head-model-init.htm')">预设</a>
+		                 			</li> 
+		                 			
+		                 			
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-init-mapping.htm')">映射和转换</a>
+		                 					</li>
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-init-plan.htm')">预设方案</a>
+		                 					</li> 
+		                 				</ul>
+		                 			
+		                 			
+		                 			<li>
+		                 				<a href="#" onclick="treego('head-model-api.htm')">模型API</a>
+		                 			</li> 
+		                 			
+		                 			
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-api-entity.htm')">entity</a>
+		                 					</li>
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-api-property.htm')">property</a>
+		                 					</li> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-api-field.htm')">field</a>
+		                 					</li>  
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-api-data.htm')">data</a>
+		                 					</li>  
+		                 					<li>  
+		                 						<a href="#" onclick="treego('model-api-column.htm')">column</a>
+		                 					</li> 
+		                 				</ul>
+		                 			
+		                 		</ul>
+                 			
+                 			
+                 			<li>
+                 				<a href="#" onclick="treego('model-action.htm')">action</a>
+                 			</li>
+                 			
+                 			<li>
+                 				<a href="#" onclick="treego('head-task.htm')">任务管理</a>
+                 			</li>
+                 			
+                 			
+                 				<ul>
+		                 			<li>
+		                 				<a href="#" onclick="treego('task-set.htm')">配置</a>
+		                 			</li> 
+		                 			
+		                 			<li>
+		                 				<a href="#" onclick="treego('task-run.htm')">运行</a>
+		                 			</li>  
+		                 			
+		                 			<li>
+		                 				<a href="#" onclick="treego('head-task-type.htm')">类型</a>
+		                 			</li> 
+		                 			
+		                 			
+		                 				<ul> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('task-type-new.htm')">新建</a>
+		                 					</li>
+		                 					<li>  
+		                 						<a href="#" onclick="treego('task-type-merge.htm')">合并</a>
+		                 					</li> 
+		                 					<li>  
+		                 						<a href="#" onclick="treego('task-type-overlay.htm')">覆盖</a>
+		                 					</li>
+		                 				</ul>
+		                 			
+		                 		</ul>
+		                 	
+		                 	
+		                 	<li>
+                 				<a href="#" onclick="treego('question-and-answer.htm')">常见问题解答</a>
+                 			</li> 
+                 			
+                 			<li>
+                 				<a href="#" onclick="treego('install-and-uninstall.htm')">安装与卸载</a>
+                 			</li>
+                 			
+                 		</ul>
+                 	</div> 
+                 	<div style="float:left; text-align:left; width:60%; line-height: 3;" >
+                 		<iframe src="tag-nl.html" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
+                 	</div> 
+                 	<div style="float:left; text-align:left; border:1px solid #999; padding:20px; width:15%;">
+                 		<h1>右边广告位置</h1>
+                 	</div>
+                </div>
+                <br/>
+               	<div style="margin: 0 auto;">
+               		<h1>尾部广告位置</h1>
+               	</div> 
+            </div>
+        </div>
+        <!-- container end -->
+        <!-- footer start -->
+        <footer class="site-footer" id="site-footer">
+            <div class="linkUs">
+                <div class="bugclose-width">
+                 	  <div>
+                        <img src="../jmr_files/jmrimg10.png"> JMR：Xiamen Chuang Xin Jia Software Development Co., Ltd.
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg6.png"> QQ：212108669
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg7.png"> job_jmr@163.com
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg8.png"> Xiamen software park two Wang Hai Road No. 61 N9C10
+                    </div>  
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
+    </div>
+    <script type="text/javascript" src="../jmr_files/jquery.js"></script>
+    <script type="text/javascript" src="../jmr_files/bootstrap.js"></script>
+    <script type="text/javascript" src="../jmr_files/utils_002.js"></script>
+    <script type="text/javascript" src="../jmr_files/xml.js"></script>
+    <script type="text/javascript" src="../jmr_files/layer.js"></script>
+    <script type="text/javascript" src="../jmr_files/main.js"></script>
+     
+    <script type="text/javascript">
+     	 window.onload = function() {
+					SetWinHeight();
+				}; 
+       	
+     	function SetWinHeight()   
+    	{  
+	     	var doc=document.getElementById("if");
+	     	if (doc && !window.opera)
+	     	{
+					if (doc.contentDocument && doc.contentDocument.body.offsetHeight)
+					{
+						doc.height = doc.contentDocument.body.offsetHeight;
+					} 
+					else if (doc.Document && doc.Document.body.scrollHeight)
+					{
+						doc.height = doc.Document.body.scrollHeight;
+					}
+				} 
+     	}
+    </script>
+    
+</body></html>
