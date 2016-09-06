@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../jmr_files/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="../jmr_files/public.css" type="text/css">
     <link rel="stylesheet" href="../jmr_files/main.css" type="text/css">
-    <link type="image/x-icon" rel="icon" href="../jmr_files/jmrimg11.gif">
+    <link type="image/x-icon" rel="icon" href="">
     <script type="text/javascript" src="../jmr_files/utils.js"></script>
     <script type="text/javascript" src="../jmr_files/jquery-1.6.min.js"></script>
 	  <script type="text/javascript" src="../jmr_files/jquery.dropotron-1.0.js"></script>
@@ -46,7 +46,7 @@
 			function pageInit(){
 				var contact = "";
 				var changeLanguage = document.getElementById("language").value;
-				if(changeLanguage == null || changeLanguage == "0")
+				if(changeLanguage == null || changeLanguage == "1")
 				{
 					window.location.href="../cn/preface.htm";
 				}else
@@ -70,8 +70,8 @@
                         <a href="../jmr_about.htm" target="_blank">About</a> 
                         <div class="reg-login" style=""> 
                          	<select onchange="pageInit();" id="language">
-														<option selected value="0">中文</option>
-														<option value="1">English</option>
+														<option value="1">中文</option>
+														<option selected value="0">English</option>
 													</select>
                         </div>
                     </div>
@@ -92,33 +92,34 @@
          <div class="container-fluid">	
             <div class="cell bugclose-width">	
                 <div class="row">
+                 	<span id="0"></span>
                  	<br/>
                  	<div style="margin: 0 auto;">
                  		<h1>头部广告位置</h1>
                  	</div> 
                  	<br/>
                  	<div style="float:left; text-align:left; margin:0 50px 0 0; border:3px solid #999; padding:20px; width:20%; overflow:auto;" class="st_tree">
-                 		<ul>
-                 			<li>
-                 				<a href="#" onclick="treego('preface.htm')">前言2222</a>
+                 		<ul name="treeshow">
+                 			<li name="treeshowli">
+                 				<a href="#" onclick="treego('preface.htm')">前言</a>
                  			</li>
                  			
-                 			<li>
+                 			<li name="treeshowli">
                  				<a href="#" onclick="treego('head-experience-tour.htm')">体验之旅</a>
                  			</li>
                  			
                  			
-                 				<ul>
+                 				<ul name="treeshow">
 		                 			<li>
 		                 				<a href="#" onclick="treego('HelloJmr.htm')">Hello Jmr</a>
 		                 			</li> 
 		                 			
-		                 			<li>
+		                 			<li name="treeshowli">
 		                 				<a href="#" onclick="treego('actual-combat-demo.htm')">实战演示</a> 
 		                 			</li>
 		                 			
 		                 			
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('demo-java.htm')">java web</a>
 		                 					</li>
@@ -127,34 +128,34 @@
 		                 		</ul>
                  			
                  			
-                 			<li>
+                 			<li name="treeshowli">
                  				<a href="#" onclick="treego('head-template.htm')">模板</a>
                  			</li>
                  			
                  			
-                 				<ul show="true"> 
+                 				<ul name="treeshow"> 
                  					<li>  
                  						<a href="#" onclick="treego('template-preface.htm')">概览</a>
                  					</li>
                  					
-                 					<li>  
+                 					<li name="treeshowli">  
                  						<a href="#" onclick="treego('head-template-standard.htm')">规范</a>
                  					</li>
                  					
                  					
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('template-name.htm')">模板命名规范</a>
 		                 					</li>
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>  
+		                 			<li name="treeshowli">  
                  						<a href="#" onclick="treego('head-template-instruction.htm')">指令</a>
                  					</li>
                  					
                  					
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('template-compile.htm')">编译声明</a>
 		                 					</li>
@@ -169,12 +170,12 @@
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>  
+		                 			<li name="treeshowli">  
                  						<a href="#" onclick="treego('head-template-script.htm')">脚本标签</a>
                  					</li>
                  					
                  					
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('script-declare.htm')">&lt;%! %&gt; - 声明</a>
 		                 					</li>
@@ -189,22 +190,22 @@
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>  
+		                 			<li name="treeshowli">  
                  						<a href="#" onclick="treego('head-template-object.htm')">内置对象</a>
                  					</li>
                  					
                  					
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('out.htm')">out - 打印</a>
 		                 					</li>
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						<a href="#" onclick="treego('head-template-context.htm')">context - 参数容器</a>
 		                 					</li> 
 		                 					
 		                 					
-		                 						<ul show="true"> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('template-var.htm')">var - 模板参数</a>
 				                 					</li>
@@ -217,30 +218,30 @@
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>  
+		                 			<li name="treeshowli">  
                  						<a href="#" onclick="treego('head-template-tag.htm')">Jmr标签</a>
                  					</li>
                  					
                  					
-		                 				<ul> 
-		                 					<li>  
+		                 				<ul name="treeshow"> 
+		                 					<li name="treeshowli">  
 		                 						嵌套标签
 		                 					</li>
 		                 					
 		                 					  
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-include.htm')">include - 嵌套模板</a>
 				                 					</li>
 				                 				</ul>
 		                 					 
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						常规标签
 		                 					</li> 
 		                 					
 		                 					
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-get.htm')">get - 获取参数</a>
 				                 					</li>
@@ -265,12 +266,12 @@
 				                 				</ul>
 		                 					 
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						排版标签
 		                 					</li> 
 		                 					
 		                 					  
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-ws.htm')">ws - 空格</a>
 				                 					</li>
@@ -286,12 +287,12 @@
 				                 				</ul>
 		                 					 
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						格式化标签
 		                 					</li> 
 		                 					
 		                 					 
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-f-date.htm')">f:date - 格式化时间</a>
 				                 					</li>
@@ -301,12 +302,12 @@
 				                 				</ul>
 		                 					 
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						实体标签
 		                 					</li> 
 		                 					
 		                 					 
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-entity.htm')">entity - 实体对象</a>
 				                 					</li>
@@ -316,12 +317,12 @@
 				                 				</ul>
 		                 					
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						合并标签
 		                 					</li> 
 		                 					
 		                 					  
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-m-insert.htm')">m:insert - 插入</a>
 				                 					</li>
@@ -331,12 +332,12 @@
 				                 				</ul>
 		                 					 
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						xml标签
 		                 					</li> 
 		                 					
 		                 					 
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-xml.htm')">xml - xml对象</a>
 				                 					</li>
@@ -361,12 +362,12 @@
 				                 				</ul>
 		                 					
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						<a href="#" onclick="treego('head-tag-java.htm')">java标签</a>
 		                 					</li> 
 		                 					
 		                 					 
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-java-package.htm')">java:package - 得到包名</a>
 				                 					</li>
@@ -376,12 +377,12 @@
 				                 				</ul>
 		                 					
 		                 					
-		                 					<li>  
+		                 					<li name="treeshowli">  
 		                 						<a href="#" onclick="treego('head-tag-task.htm')">任务标签</a>
 		                 					</li> 
 		                 					
 		                 					  
-		                 						<ul> 
+		                 						<ul name="treeshow"> 
 				                 					<li>  
 				                 						<a href="#" onclick="treego('tag-task-group.htm')">t:group - 模型组</a>
 				                 					</li>
@@ -413,18 +414,18 @@
                  				</ul>
                  			
                  			
-                 			<li>
+                 			<li name="treeshowli">
                  				<a href="#" onclick="treego('head-model.htm')">模型</a>
                  			</li>
                  			
                  			
-                 				<ul>
-		                 			<li>
+                 				<ul name="treeshow">
+		                 			<li name="treeshowli">
 		                 				<a href="#" onclick="treego('head-model-transform.htm')">生成</a>
 		                 			</li> 
 		                 			
 		                 			
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('model-db.htm')">数据库</a>
 		                 					</li>
@@ -437,12 +438,12 @@
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>
+		                 			<li name="treeshowli">
 		                 				<a href="#" onclick="treego('head-model-structure.htm')">结构</a>
 		                 			</li> 
 		                 			
 		                 			
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('model-db.htm')">数据库</a>
 		                 					</li>
@@ -455,12 +456,12 @@
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>
+		                 			<li name="treeshowli">
 		                 				<a href="#" onclick="treego('head-model-init.htm')">预设</a>
 		                 			</li> 
 		                 			
 		                 			
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('model-init-mapping.htm')">映射和转换</a>
 		                 					</li>
@@ -470,12 +471,12 @@
 		                 				</ul>
 		                 			
 		                 			
-		                 			<li>
+		                 			<li name="treeshowli">
 		                 				<a href="#" onclick="treego('head-model-api.htm')">模型API</a>
 		                 			</li> 
 		                 			
 		                 			
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('model-api-entity.htm')">entity</a>
 		                 					</li>
@@ -500,12 +501,12 @@
                  				<a href="#" onclick="treego('model-action.htm')">action</a>
                  			</li>
                  			
-                 			<li>
+                 			<li name="treeshowli">
                  				<a href="#" onclick="treego('head-task.htm')">任务管理</a>
                  			</li>
                  			
                  			
-                 				<ul>
+                 				<ul name="treeshow">
 		                 			<li>
 		                 				<a href="#" onclick="treego('task-set.htm')">配置</a>
 		                 			</li> 
@@ -514,12 +515,12 @@
 		                 				<a href="#" onclick="treego('task-run.htm')">运行</a>
 		                 			</li>  
 		                 			
-		                 			<li>
+		                 			<li name="treeshowli">
 		                 				<a href="#" onclick="treego('head-task-type.htm')">类型</a>
 		                 			</li> 
 		                 			
 		                 			
-		                 				<ul> 
+		                 				<ul name="treeshow"> 
 		                 					<li>  
 		                 						<a href="#" onclick="treego('task-type-new.htm')">新建</a>
 		                 					</li>
@@ -583,7 +584,79 @@
     <script type="text/javascript">
      	 window.onload = function() {
 					SetWinHeight();
+					document.getElementById('0').scrollIntoView();	//锚点
+					treecontext();
 				}; 
+				
+			function treecontext()
+			{
+				//获取树的内容
+					var cookie_val = getTreeCookie("treecookie");
+					if(cookie_val != null && cookie_val != "")
+					{
+						cookie_val = cookie_val.substring(0,cookie_val.length - 1);
+						//字符串转为数组
+						var cookie_val2 = cookie_val.split(",");     
+						var cookie_val3 = "";
+						var cookie_val4 = "";
+						var treeshow = document.getElementsByName('treeshow'); 
+						var treeshowli = document.getElementsByName('treeshowli'); 
+						for(i=0;i<cookie_val2.length;i++){
+			       //cookie_val3 += cookie_val2[i] + ";";
+			       cookie_val4 += treeshow[i].getAttribute("show") + ",";
+			       treeshow[i].setAttribute("show",cookie_val2[i]);
+			       cookie_val3 += treeshow[i].getAttribute("show") + ";";
+			       if(cookie_val2[i] == "true")
+			       {
+			       		treeshow[i].setAttribute("style", "display:block;"); 
+			       		treeshowli[i].setAttribute("class", "folder open"); 
+			       }
+			       else
+			       {
+			        	if(i > 1)
+			        	{
+			        		treeshowli[i].setAttribute("class", "folder");
+			        	}
+			       }
+			       
+			   		}
+					}
+			}
+				
+			window.onbeforeunload = onbeforeunload_handler;  
+			function onbeforeunload_handler()
+			{
+				//记录树
+					var treeshow = document.getElementsByName('treeshow'); 
+			    var str = "";
+			    for(i=0;i<treeshow.length;i++){
+			        str += treeshow[i].getAttribute("show") + ",";
+			    }
+			    setTreeCookie("treecookie", str, 365);
+			}
+			
+			function setTreeCookie(treename, treevalue, exdays){
+			    document.cookie = treename + "="+ treevalue;
+		     	var d = new Date();
+			    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			    var expires = "expires="+d.toUTCString();
+			    document.cookie = treename + "=" + treevalue + "; " + expires;
+			}
+			
+			function getTreeCookie(treename){
+			     var name = treename + "=";
+				    var ca = document.cookie.split(';');
+				    for(var i=0; i<ca.length; i++) {
+				        var c = ca[i];
+				        while (c.charAt(0)==' ') c = c.substring(1);
+				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				    }
+				    return "";
+			} 
+			
+			function clearcookie(){
+			    setTreeCookie('treecookie', '');
+			} 
        	
      	function SetWinHeight()   
     	{  

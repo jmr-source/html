@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="jmr_files/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="jmr_files/public.css" type="text/css">
     <link rel="stylesheet" href="jmr_files/main.css" type="text/css">
-    <link type="image/x-icon" rel="icon" href="jmr_files/jmrimg11.gif">
+    <link type="image/x-icon" rel="icon" href="">
     <script type="text/javascript" src="jmr_files/utils.js"></script>
     <script type="text/javascript" src="jmr_files/jquery-1.7.1.min.js"></script>
 	  <script type="text/javascript" src="jmr_files/jquery.dropotron-1.0.js"></script>
@@ -25,6 +25,50 @@
             if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
                 window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
         window._projectId = bugCloseStorage.getItem('project_id');
+         
+          
+        //设置cookie
+				function setCookie(clanguage, cvalue, exdays) {
+				    var d = new Date();
+				    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				    var expires = "expires="+d.toUTCString();
+				    document.cookie = clanguage + "=" + cvalue + "; " + expires;
+				}
+				//获取cookie
+				function getCookie(cname) {
+				    var name = cname + "=";
+				    var ca = document.cookie.split(';');
+				    for(var i=0; i<ca.length; i++) {
+				        var c = ca[i];
+				        while (c.charAt(0)==' ') c = c.substring(1);
+				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				    }
+				    return "";
+				}
+				//清除cookie  
+				function clearCookie(name) {  
+				    setCookie(name, "", -1);  
+				}  
+				function checkCookie() {
+				    var clanguage = getCookie("clanguage");
+				    if (clanguage != "") {
+				    } else {
+				     	   var languagetype=navigator.appName;
+				     	   if (languagetype=="Netscape"){
+								    var languagelang = navigator.language;
+								}
+								else{
+								    var languagelang = navigator.userLanguage;
+								}
+								var languagelang2 = languagelang.substr(0,2);
+								if (languagelang2 == "en"){
+									setCookie("clanguage", 0, 365);
+								}else{
+									setCookie("clanguage", 1, 365);
+								}
+				    }
+				}
+				checkCookie(); 
     </script>
     
      <script type="text/javascript"> 
@@ -52,8 +96,20 @@
 			function pageInit(){
 				var contact = "";
 				var changeLanguage = document.getElementById("language").value;
-				if(changeLanguage == null || changeLanguage == "0")
+				if(changeLanguage == null || changeLanguage == "" )
 				{
+						//获取cookie
+						var clanguage = getCookie("clanguage");
+						if (clanguage != "") {
+				        changeLanguage  = clanguage;
+				    } else {
+				        setCookie("clanguage", 0, 365);
+				    }
+				}
+				if(changeLanguage == "1")
+				{
+					setCookie("clanguage", 1, 365);
+					document.getElementById("language").value = 1;
 					contact = "[{sitebanner:'site-banner'," 
 										+ "about:'关于我们'," 
 										+ "down:'下载'," 
@@ -71,6 +127,8 @@
 										+ "}]";
 				}else
 				{
+					setCookie("clanguage", 0, 365);
+					document.getElementById("language").value = 0;
 					contact = "[{sitebanner:'site-banner-en',"
 										+ "about:'About'," 
 										+ "down:'Down',"
@@ -104,8 +162,9 @@
                         <a href="cn/preface.htm" target="_blank"><span id="word"></span></a>
                         <div class="reg-login" style=""> 
                          	<select onchange="pageInit();" id="language">
-														<option selected value="0">中文</option>
-														<option value="1">English</option>
+                         		<option value="">请选择</option>
+														<option value="1">中文</option>
+														<option value="0">English</option>
 													</select>
                         </div>
                     </div>
