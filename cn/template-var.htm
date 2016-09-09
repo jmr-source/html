@@ -87,7 +87,7 @@
                     <span id="0"></span>
                 </div>
             </div>
-        </div>
+        </div>>
         <!-- banner 结束 -->
         <!-- container start -->
          <div class="container-fluid">	
@@ -584,7 +584,9 @@
     <script type="text/javascript">
      	 window.onload = function() {
 					SetWinHeight();
-					document.getElementById('0').scrollIntoView();	//锚点
+					//document.getElementById('0').scrollIntoView(true);	//锚点;
+					window.location.hash = document.getElementById('0').scrollIntoView(true);
+					window.location = window.location;
 					treecontext();
 				}; 
 				
