@@ -89,7 +89,7 @@
                  		<iframe src="advertisement-top.html" width="100%" frameBorder="0" scrolling="no"></iframe>
                  	</div>  
                  	<br/>
-                 	<div style="float:left; text-align:left; margin:0 50px 0 0; border:3px solid #999; padding:20px; width:20%; overflow:auto;" class="st_tree">
+                 	<div id="treediv" style="float:left; text-align:left; margin:0 50px 0 0; border:3px solid #999; padding:20px; width:20%; overflow:auto;" class="st_tree">
                  		<ul name="treeshow">
                  			<li name="treeshowli">
                  				<a href="#" onclick="treego('preface.htm')">前言</a>
@@ -611,6 +611,12 @@
 			       
 			   		}
 					}
+					//获取滚动条位置
+					var cookie_valx = getTreeCookie("treexcookie"); 
+					if(cookie_valx != null && cookie_valx != "")
+					{ 
+						document.getElementById('treediv').scrollTop=cookie_valx;//通过scrollTop设置滚动
+					}
 			}
 				
 			window.onbeforeunload = onbeforeunload_handler;  
@@ -619,10 +625,14 @@
 				//记录树
 					var treeshow = document.getElementsByName('treeshow'); 
 			    var str = "";
+			    var strx = "";
+			    var stry = "";
 			    for(i=0;i<treeshow.length;i++){
 			        str += treeshow[i].getAttribute("show") + ",";
-			    }
+			    } 
+			    var strx = document.getElementById("treediv").scrollTop;
 			    setTreeCookie("treecookie", str, 365);
+			    setTreeCookie("treexcookie", strx, 365); 
 			}
 			
 			function setTreeCookie(treename, treevalue, exdays){
@@ -645,7 +655,8 @@
 			} 
 			
 			function clearcookie(){
-			    setTreeCookie('treecookie', '');
+			    setTreeCookie('treecookie', '','');
+			    setTreeCookie('treexcookie', '','');
 			} 
        	
      	function SetWinHeight()   

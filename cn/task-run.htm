@@ -576,10 +576,6 @@
      	 window.onload = function() {
 					SetWinHeight();
 					treecontext();
-					var nx = document.getElementById("treediv").scrollWidth;
-					var ny = document.getElementById('treediv').scrollHeight;
-					document.getElementById('treediv').scrollTop=nx;//通过scrollTop设置滚动
-  				document.getElementById('treediv').scrollLeft=ny;//通过scrollTop设置滚动
 				};
 				
 			function treecontext()
@@ -615,6 +611,12 @@
 			       
 			   		}
 					}
+					//获取滚动条位置
+					var cookie_valx = getTreeCookie("treexcookie"); 
+					if(cookie_valx != null && cookie_valx != "")
+					{ 
+						document.getElementById('treediv').scrollTop=cookie_valx;//通过scrollTop设置滚动
+					}
 			}
 				
 			window.onbeforeunload = onbeforeunload_handler;  
@@ -623,10 +625,14 @@
 				//记录树
 					var treeshow = document.getElementsByName('treeshow'); 
 			    var str = "";
+			    var strx = "";
+			    var stry = "";
 			    for(i=0;i<treeshow.length;i++){
 			        str += treeshow[i].getAttribute("show") + ",";
-			    }
+			    } 
+			    var strx = document.getElementById("treediv").scrollTop;
 			    setTreeCookie("treecookie", str, 365);
+			    setTreeCookie("treexcookie", strx, 365); 
 			}
 			
 			function setTreeCookie(treename, treevalue, exdays){
@@ -649,8 +655,9 @@
 			} 
 			
 			function clearcookie(){
-			    setTreeCookie('treecookie', '');
-			}  
+			    setTreeCookie('treecookie', '','');
+			    setTreeCookie('treexcookie', '','');
+			} 
        	
      	function SetWinHeight()   
     	{  
