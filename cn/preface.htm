@@ -537,7 +537,7 @@
                  		</ul>
                  	</div> 
                  	<div style="float:left; text-align:left; width:60%; line-height: 3;" > 
-										<iframe src="preface.html" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
+										<iframe target="main" src="preface.html" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
                  	</div> 
                  	<div style="float:left; text-align:left; border:1px solid #999; padding:20px; width:15%;">
                  		<iframe src="advertisement-right.html" width="100%" frameBorder="0" scrolling="no"></iframe>
@@ -577,6 +577,10 @@
      	 window.onload = function() {
 					SetWinHeight();
 					treecontext();
+					var nx = document.getElementById("treediv").scrollWidth;
+					var ny = document.getElementById('treediv').scrollHeight;
+					document.getElementById('treediv').scrollTop=nx;//通过scrollTop设置滚动
+  				document.getElementById('treediv').scrollLeft=ny;//通过scrollTop设置滚动
 				}; 
 			
 			function treecontext()
