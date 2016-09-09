@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html><head lang="en">
     <meta charset="UTF-8">
     <title>JMR</title>
@@ -27,14 +27,14 @@
         window._projectId = bugCloseStorage.getItem('project_id');
          
           
-        //ÉèÖÃcookie
+        //è®¾ç½®cookie
 				function setCookie(clanguage, cvalue, exdays) {
 				    var d = new Date();
 				    d.setTime(d.getTime() + (exdays*24*60*60*1000));
 				    var expires = "expires="+d.toUTCString();
 				    document.cookie = clanguage + "=" + cvalue + "; " + expires;
 				}
-				//»ñÈ¡cookie
+				//è·å–cookie
 				function getCookie(cname) {
 				    var name = cname + "=";
 				    var ca = document.cookie.split(';');
@@ -45,7 +45,7 @@
 				    }
 				    return "";
 				}
-				//Çå³ıcookie  
+				//æ¸…é™¤cookie  
 				function clearCookie(name) {  
 				    setCookie(name, "", -1);  
 				}  
@@ -75,7 +75,7 @@
 			function contactList(jsons){
 			var arr = eval(jsons);
 			for(var i=0; i<arr.length; i++){
-				var jsonObj = arr[i]; //»ñÈ¡json¶ÔÏó
+				var jsonObj = arr[i]; //è·å–jsonå¯¹è±¡
 				document.getElementById("sitebanner").className = jsonObj.sitebanner;
 				document.getElementById("about").innerHTML = jsonObj.about;
 				document.getElementById("down").innerHTML = jsonObj.down;
@@ -98,7 +98,7 @@
 				var changeLanguage = document.getElementById("language").value;
 				if(changeLanguage == null || changeLanguage == "" )
 				{
-						//»ñÈ¡cookie
+						//è·å–cookie
 						var clanguage = getCookie("clanguage");
 						if (clanguage != "") {
 				        changeLanguage  = clanguage;
@@ -111,18 +111,18 @@
 					setCookie("clanguage", 1, 365);
 					document.getElementById("language").value = 1;
 					contact = "[{sitebanner:'site-banner'," 
-										+ "about:'¹ØÓÚÎÒÃÇ'," 
-										+ "down:'ÏÂÔØ'," 
-										+ "word:'°ïÖúÎÄµµ'," 
-										+ "container:'¼òµ¥£¬´´ĞÂ£¬°²È«£¬×¨Òµ'," 
-										+ "simple:'¼òµ¥Ò×ÓÃ'," 
-										+ "innovative:'´´ĞÂ¹¦ÄÜ'," 
-										+ "safe:'°²È«ÎÈ¶¨'," 
-										+ "professional:'×¨ÒµËØÖÊ'," 
-										//+ "containerfluid:'È«ĞÂµÄ¼¼Êõ£¬²»Ò»ÑùµÄÌåÑé'," 
-										+ "company:'ÏÃÃÅ´´ĞÀ¼ÑÈí¼ş¿ª·¢ÓĞÏŞ¹«Ë¾'," 
-										+ "qq:'QQÈº'," 
-										+ "address:'ÏÃÃÅÈí¼şÔ°¶şÆÚÍûº£Â·61ºÅN9C10'" 
+										+ "about:'å…³äºæˆ‘ä»¬'," 
+										+ "down:'ä¸‹è½½'," 
+										+ "word:'å¸®åŠ©æ–‡æ¡£'," 
+										+ "container:'ç®€å•ï¼Œåˆ›æ–°ï¼Œå®‰å…¨ï¼Œä¸“ä¸š'," 
+										+ "simple:'ç®€å•æ˜“ç”¨'," 
+										+ "innovative:'åˆ›æ–°åŠŸèƒ½'," 
+										+ "safe:'å®‰å…¨ç¨³å®š'," 
+										+ "professional:'ä¸“ä¸šç´ è´¨'," 
+										//+ "containerfluid:'å…¨æ–°çš„æŠ€æœ¯ï¼Œä¸ä¸€æ ·çš„ä½“éªŒ'," 
+										+ "company:'å¦é—¨åˆ›æ¬£ä½³è½¯ä»¶å¼€å‘æœ‰é™å…¬å¸'," 
+										+ "qq:'QQç¾¤'," 
+										+ "address:'å¦é—¨è½¯ä»¶å›­äºŒæœŸæœ›æµ·è·¯61å·N9C10'" 
 										
 										+ "}]";
 				}else
@@ -162,8 +162,8 @@
                         <a href="cn/preface.htm" target="_blank"><span id="word"></span></a>
                         <div class="reg-login" style=""> 
                          	<select onchange="pageInit();" id="language">
-                         		<option value="">ÇëÑ¡Ôñ</option>
-														<option value="1">ÖĞÎÄ</option>
+                         		<option value="">è¯·é€‰æ‹©</option>
+														<option value="1">ä¸­æ–‡</option>
 														<option value="0">English</option>
 													</select>
                         </div>
@@ -172,10 +172,10 @@
             </div>
         </div>
         <!-- top end -->
-        <!-- banner ¿ªÊ¼ -->
+        <!-- banner å¼€å§‹ -->
         <div id='sitebanner'>
         </div>
-        <!-- banner ½áÊø -->
+        <!-- banner ç»“æŸ -->
         <!-- container start -->
         <div class="container-fluid">
             <div class="cell bugclose-width">
@@ -185,36 +185,36 @@
                         <i class="b1"></i>
                         <dl>
                             <dt><b><span id="simple"></span></b></dt>
-                            <dd>°²×°¼´ÓÃ¡¢ÎŞĞè²¿Êğ</dd>
-                            <dd>Áé»î×éÖ¯¿ò¼ÜºÍÏîÄ¿</dd>
-                            <dd>Ö»×ö±ØÒªµÄÄ£°åºÍ²Ù×÷</dd>
+                            <dd>å®‰è£…å³ç”¨ã€æ— éœ€éƒ¨ç½²</dd>
+                            <dd>çµæ´»ç»„ç»‡æ¡†æ¶å’Œé¡¹ç›®</dd>
+                            <dd>åªåšå¿…è¦çš„æ¨¡æ¿å’Œæ“ä½œ</dd>
                         </dl>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <i class="b2"></i>
                         <dl>
                             <dt><b><span id="innovative"></span></b></dt>
-                            <dd>¿ÉÎŞÏŞÀ©Õ¹µÄÄ£ĞÍÅäÖÃ</dd>
-                            <dd>¿É¿çÓïÑÔµÄÄ£°å±àĞ´</dd>
-                            <dd>¿É¶ÔÉú³É½øĞĞ¶Ô±È¡¢É¾³ıºÍ»Ø¹ö</dd>
+                            <dd>å¯æ— é™æ‰©å±•çš„æ¨¡å‹é…ç½®</dd>
+                            <dd>å¯è·¨è¯­è¨€çš„æ¨¡æ¿ç¼–å†™</dd>
+                            <dd>å¯å¯¹ç”Ÿæˆè¿›è¡Œå¯¹æ¯”ã€åˆ é™¤å’Œå›æ»š</dd>
                         </dl>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <i class="b3"></i>
                         <dl>
                             <dt><b><span id="safe"></span></b></dt>
-                            <dd>»ùÓÚÄ£ĞÍÇı¶¯¿ª·¢</dd>
-                            <dd>Á¼ºÃµÄÎÈ¶¨ĞÔºÍÀ©Õ¹ĞÔ</dd>
-                            <dd>Éú³É×Ô¼º·ç¸ñ°²È«¿É¿¿</dd>
+                            <dd>åŸºäºæ¨¡å‹é©±åŠ¨å¼€å‘</dd>
+                            <dd>è‰¯å¥½çš„ç¨³å®šæ€§å’Œæ‰©å±•æ€§</dd>
+                            <dd>ç”Ÿæˆè‡ªå·±é£æ ¼å®‰å…¨å¯é </dd>
                         </dl>
                     </div>
                     <div class="col-sm-3 col-xs-6">
                         <i class="b4"></i>
                         <dl>
                             <dt><b><span id="professional"></span></b></dt>
-                            <dd>¿ª·¢¹¤¾ß¶àÄê¾­Ñé</dd>
-                            <dd>ÎªÃô½İ¿ª·¢Á¿Éí¶¨×ö</dd>
-                            <dd>×¨×¢·şÎñËùÓĞÓÃ»§</dd>
+                            <dd>å¼€å‘å·¥å…·å¤šå¹´ç»éªŒ</dd>
+                            <dd>ä¸ºæ•æ·å¼€å‘é‡èº«å®šåš</dd>
+                            <dd>ä¸“æ³¨æœåŠ¡æ‰€æœ‰ç”¨æˆ·</dd>
                         </dl>
                     </div>
                 </div>
@@ -234,8 +234,8 @@
             <div class="linkUs">
                 <div class="bugclose-width">
                  	  <div>
-                        <img src="jmr_files/jmrimg10.png"> JMR£º<span id="company"></span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg6.png"> <span id="qq"></span>£º212108669
+                        <img src="jmr_files/jmrimg10.png"> JMRï¼š<span id="company"></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg6.png"> <span id="qq"></span>ï¼š212108669
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg7.png"> job_jmr@163.com
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg8.png"> <span id="address"></span>
                     </div>  
