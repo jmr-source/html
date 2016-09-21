@@ -1,0 +1,3 @@
+var OX_6212c230 = '';
+OX_6212c230 += "<"+"a href=\'//gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=4484__zoneid=60__cb=f2caeff094__oadest=http%3A%2F%2Fbaichuan.taobao.com%2Fproduct%2Fhotfix.htm%3Fchannel%3D51cto\' target=\'_blank\'>阿里百川Hotfix全面公测<"+"/a><"+"div id=\'beacon_f2caeff094\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'//gg.51cto.com/www/delivery/lg.php?bannerid=4484&amp;campaignid=983&amp;zoneid=60&amp;loc=1&amp;referer=http%3A%2F%2Fwww.51cto.com%2F&amp;cb=f2caeff094\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div>\n";
+document.write(OX_6212c230);

@@ -1,0 +1,3 @@
+var OX_4752d270 = '';
+OX_4752d270 += "<"+"a href=\'//gg.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=4434__zoneid=61__cb=dae8556c33__oadest=http%3A%2F%2Fcloud.51cto.com%2Fact%2Fibm%2F201608\' target=\'_blank\'>IBM developerWorksÖĞ¹úÍøÕ¾<"+"/a><"+"div id=\'beacon_dae8556c33\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'//gg3.51cto.com/www/delivery/lg.php?bannerid=4434&amp;campaignid=974&amp;zoneid=61&amp;loc=1&amp;referer=http%3A%2F%2Fwww.51cto.com%2F&amp;cb=dae8556c33\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div>\n";
+document.write(OX_4752d270);

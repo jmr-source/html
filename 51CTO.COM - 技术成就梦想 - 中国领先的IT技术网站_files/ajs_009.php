@@ -1,0 +1,3 @@
+var OX_ef04ceef = '';
+OX_ef04ceef += "<"+"a href=\'//gg1.51cto.com/www/delivery/ck.php?oaparams=2__bannerid=3769__zoneid=620__cb=f1f61e50c4__oadest=http%3A%2F%2Fedu.51cto.com%2Fpx%2Ftrain%2F49%3Fxiaoshou\' target=\'_blank\'>大数据自学路线图<"+"/a><"+"div id=\'beacon_f1f61e50c4\' style=\'position: absolute; left: 0px; top: 0px; visibility: hidden;\'><"+"img src=\'//gg1.51cto.com/www/delivery/lg.php?bannerid=3769&amp;campaignid=778&amp;zoneid=620&amp;loc=1&amp;referer=http%3A%2F%2Fwww.51cto.com%2F&amp;cb=f1f61e50c4\' width=\'0\' height=\'0\' alt=\'\' style=\'width: 0px; height: 0px;\' /><"+"/div>\n";
+document.write(OX_ef04ceef);
