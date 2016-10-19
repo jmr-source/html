@@ -1,8 +1,30 @@
 ﻿<!DOCTYPE html>
-<html><head lang="en">
+<html>
+	<head lang="en">
     <meta charset="UTF-8">
-    </head>
-<body>
+     <script type="text/javascript" src="../jmr_files/utils.js"></script>
+    <script type="text/javascript" src="../jmr_files/jquery-1.6.min.js"></script>
+	  <script type="text/javascript" src="../jmr_files/jquery.dropotron-1.0.js"></script>
+	  <script type="text/javascript" src="../jmr_files/jquery.slidertron-1.1.js"></script> 
+		<script type="text/javascript" src="../jmr_files/SimpleTree.js"></script>
+	  <link rel="stylesheet" type="text/css" href="../jmr_files/tree_themes/SimpleTree.css"/> 
+	   
+	    <script type="text/javascript">
+			$(function(){
+				$(".st_tree").SimpleTree({
+					click:function(a){
+					}
+				});
+			});
+			
+			function treego(a){
+				parent.window.location.href=a;
+			}
+			</script>
+ 
+  </head>
+<body> 
+	<div id="treediv" style="float:left; text-align:left; margin:0 50px 0 0; border:3px solid #999; padding:10px; width:80%; height:1000px; overflow:auto; position: fixed;" class="st_tree">
 	<ul name="treeshow">
                  			<li name="treeshowli">
                  				<a href="#" onclick="treego('preface.htm')">前言</a>
@@ -447,7 +469,95 @@
                  				<a href="#" onclick="treego('install-and-uninstall.htm')">安装与卸载</a>
                  			</li>
                  			
-                 		</ul>	
+                 		</ul>
+        </div> 
+         
+          <script type="text/javascript">
+     	 window.onload = function() {
+					treecontext();
+				}; 
+			
+			function treecontext()
+			{
+				//获取树的内容
+					var cookie_val = getTreeCookie("treecookie");
+					if(cookie_val != null && cookie_val != "")
+					{
+						cookie_val = cookie_val.substring(0,cookie_val.length - 1);
+						//字符串转为数组
+						var cookie_val2 = cookie_val.split(",");     
+						var cookie_val3 = "";
+						var cookie_val4 = "";
+						var treeshow = document.getElementsByName('treeshow'); 
+						var treeshowli = document.getElementsByName('treeshowli'); 
+						for(i=0;i<cookie_val2.length;i++){
+			       //cookie_val3 += cookie_val2[i] + ";";
+			       cookie_val4 += treeshow[i].getAttribute("show") + ",";
+			       treeshow[i].setAttribute("show",cookie_val2[i]);
+			       cookie_val3 += treeshow[i].getAttribute("show") + ";";
+			       if(cookie_val2[i] == "true")
+			       {
+			       		treeshow[i].setAttribute("style", "display:block;"); 
+			       		treeshowli[i].setAttribute("class", "folder open"); 
+			       }
+			       else
+			       {
+			        	if(i > 1)
+			        	{
+			        		treeshowli[i].setAttribute("class", "folder");
+			        	}
+			       }
+			       
+			   		}
+					}
+					//获取滚动条位置
+					var cookie_valx = getTreeCookie("treexcookie"); 
+					if(cookie_valx != null && cookie_valx != "")
+					{ 
+						document.getElementById('treediv').scrollTop=cookie_valx;//通过scrollTop设置滚动
+					}
+			}
+				
+			window.onbeforeunload = onbeforeunload_handler;  
+			function onbeforeunload_handler()
+			{
+				//记录树
+					var treeshow = document.getElementsByName('treeshow'); 
+			    var str = "";
+			    var strx = "";
+			    var stry = "";
+			    for(i=0;i<treeshow.length;i++){
+			        str += treeshow[i].getAttribute("show") + ",";
+			    } 
+			    var strx = document.getElementById("treediv").scrollTop;
+			    setTreeCookie("treecookie", str, 365);
+			    setTreeCookie("treexcookie", strx, 365); 
+			}
+			
+			function setTreeCookie(treename, treevalue, exdays){
+			    document.cookie = treename + "="+ treevalue;
+		     	var d = new Date();
+			    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+			    var expires = "expires="+d.toUTCString();
+			    document.cookie = treename + "=" + treevalue + "; " + expires;
+			}
+			
+			function getTreeCookie(treename){
+			     var name = treename + "=";
+				    var ca = document.cookie.split(';');
+				    for(var i=0; i<ca.length; i++) {
+				        var c = ca[i];
+				        while (c.charAt(0)==' ') c = c.substring(1);
+				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				    }
+				    return "";
+			} 
+			
+			function clearcookie(){
+			    setTreeCookie('treecookie', '','');
+			    setTreeCookie('treexcookie', '','');
+			} 
+    </script>
 										
 </body>
 </html>
