@@ -319,16 +319,11 @@
                  		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql58.htm">SQL ROUND</a><br/>  
                  		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql59.htm">SQL NOW</a><br/>  
                  		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql60.htm">SQL FORMAT</a><br/>  
-                 		
-                 		
-                 		
                  		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>服务端</b><br/> 
-                 		
-                 		
                  		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>移动端</b><br/>
                 	</div> 
-                	<div style="float:left; width:57%; line-height: 3;" > 
-										<h1>欢迎来到JMR</h1>
+                	<div style="float:left; width:57%; line-height: 3;" >
+                 		<iframe target="main" src="javascript1.html" width="100%" id="if" frameBorder="0" scrolling="no"></iframe> 
                  	</div> 
                 </div> 
             </div>
@@ -356,6 +351,28 @@
     <script type="text/javascript" src="jmr_files/xml.js"></script>
     <script type="text/javascript" src="jmr_files/layer.js"></script>
     <script type="text/javascript" src="jmr_files/main.js"></script>
+     
+    <script type="text/javascript">
+     	 window.onload = function() {
+					SetWinHeight();
+				}; 
+       	
+     	function SetWinHeight()   
+    	{  
+	     	var doc=document.getElementById("if");
+	     	if (doc && !window.opera)
+	     	{
+					if (doc.contentDocument && doc.contentDocument.body.offsetHeight)
+					{
+						doc.height = doc.contentDocument.body.offsetHeight;
+					} 
+					else if (doc.Document && doc.Document.body.scrollHeight)
+					{
+						doc.height = doc.Document.body.scrollHeight;
+					}
+				} 
+     	}
+    </script>
      
     
 </body></html>
