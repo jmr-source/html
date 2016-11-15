@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="jmr_files/main.css" type="text/css">
     <link type="image/x-icon" rel="icon" href="">
     <script type="text/javascript" src="jmr_files/utils.js"></script>
-    <script type="text/javascript" src="jmr_files/jquery-1.6.min.js"></script>
+    <script type="text/javascript" src="jmr_files/jquery-1.7.1.min.js"></script>
 	  <script type="text/javascript" src="jmr_files/jquery.dropotron-1.0.js"></script>
-	  <script type="text/javascript" src="jmr_files/jquery.slidertron-1.1.js"></script> 
+	  <script type="text/javascript" src="jmr_files/jquery.slidertron-1.1.js"></script>
+		<link href="jmr_files/css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
     <script type="text/javascript">
         platform();
         var targetProtocol = "https:";
@@ -25,25 +26,137 @@
             if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
                 window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
         window._projectId = bugCloseStorage.getItem('project_id');
+         
+          
+        //设置cookie
+				function setCookie(clanguage, cvalue, exdays) {
+				    var d = new Date();
+				    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				    var expires = "expires="+d.toUTCString();
+				    document.cookie = clanguage + "=" + cvalue + "; " + expires;
+				}
+				//获取cookie
+				function getCookie(cname) {
+				    var name = cname + "=";
+				    var ca = document.cookie.split(';');
+				    for(var i=0; i<ca.length; i++) {
+				        var c = ca[i];
+				        while (c.charAt(0)==' ') c = c.substring(1);
+				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				    }
+				    return "";
+				}
+				//清除cookie  
+				function clearCookie(name) {  
+				    setCookie(name, "", -1);  
+				}  
+				function checkCookie() {
+				    var clanguage = getCookie("clanguage");
+				    if (clanguage != "") {
+				    } else {
+				     	   var languagetype=navigator.appName;
+				     	   if (languagetype=="Netscape"){
+								    var languagelang = navigator.language;
+								}
+								else{
+								    var languagelang = navigator.userLanguage;
+								}
+								var languagelang2 = languagelang.substr(0,2);
+								if (languagelang2 == "en"){
+									setCookie("clanguage", 0, 365);
+								}else{
+									setCookie("clanguage", 1, 365);
+								}
+				    }
+				}
+				checkCookie(); 
     </script>
     
-     
      <script type="text/javascript"> 
+			function contactList(jsons){
+			var arr = eval(jsons);
+			for(var i=0; i<arr.length; i++){
+				var jsonObj = arr[i]; //获取json对象
+				document.getElementById("jmrhome").innerHTML = jsonObj.jmrhome;
+				document.getElementById("sitebanner").className = jsonObj.sitebanner;
+				document.getElementById("about").innerHTML = jsonObj.about;
+				document.getElementById("down").innerHTML = jsonObj.down;
+				document.getElementById("word").innerHTML = jsonObj.word;
+				document.getElementById("support").innerHTML = jsonObj.support;
+				document.getElementById("container").innerHTML = jsonObj.container;
+				document.getElementById("simple").innerHTML = jsonObj.simple;
+				document.getElementById("innovative").innerHTML = jsonObj.innovative;
+				document.getElementById("safe").innerHTML = jsonObj.safe;
+				document.getElementById("professional").innerHTML = jsonObj.professional;
+				//document.getElementById("containerfluid").innerHTML = jsonObj.containerfluid;
+				document.getElementById("company").innerHTML = jsonObj.company;
+				document.getElementById("qq").innerHTML = jsonObj.qq;
+				document.getElementById("address").innerHTML = jsonObj.address;
+				
+			}
+		}
+		
 			function pageInit(){
 				var contact = "";
 				var changeLanguage = document.getElementById("language").value;
-				if(changeLanguage == null || changeLanguage == "0")
+				if(changeLanguage == null || changeLanguage == "" )
 				{
-					
+						//获取cookie
+						var clanguage = getCookie("clanguage");
+						if (clanguage != "") {
+				        changeLanguage  = clanguage;
+				    } else {
+				        setCookie("clanguage", 0, 365);
+				    }
+				}
+				if(changeLanguage == "1")
+				{
+					setCookie("clanguage", 1, 365);
+					document.getElementById("language").value = 1;
+					contact = "[{sitebanner:'site-banner'," 
+										+ "jmrhome:'首页'," 
+										+ "about:'关于我们'," 
+										+ "down:'下载'," 
+										+ "word:'帮助文档'," 
+										+ "support:'官方服务(招商)'," 
+										+ "container:'简单，创新，安全，专业'," 
+										+ "simple:'简单易用'," 
+										+ "innovative:'创新功能'," 
+										+ "safe:'安全稳定'," 
+										+ "professional:'专业素质'," 
+										//+ "containerfluid:'全新的技术，不一样的体验'," 
+										+ "company:'厦门创欣佳软件开发有限公司'," 
+										+ "qq:'QQ群'," 
+										+ "address:'厦门软件园二期望海路61号N9C10'" 
+										
+										+ "}]";
 				}else
 				{
-					window.location.href="en/preface.htm";
+					setCookie("clanguage", 0, 365);
+					document.getElementById("language").value = 0;
+					contact = "[{sitebanner:'site-banner-en',"
+										+ "jmrhome:'Home'," 
+										+ "about:'About'," 
+										+ "down:'Download',"
+										+ "word:'Document',"
+										+ "support:'Official service(Attract investment)'," 
+										+ "container:'Simple, Innovative, Safe, Professional'," 
+										+ "simple:'Simple'," 
+										+ "innovative:'Innovative'," 
+										+ "safe:'Safe'," 
+										+ "professional:'Professional'," 
+										//+ "containerfluid:'New technology, not the same experience'," 
+										+ "company:'Xiamen Chuang Xin Jia Software Development Co., Ltd.'," 
+										+ "qq:'QQ'," 
+										+ "address:'Xiamen software park two Wang Hai Road No. 61 N9C10'" 
+										
+										+ "}]";
 				}
+				contactList(contact);
 			}
 		</script>
-      
 <link style="" id="layui_layer_skinlayercss" href="jmr_files/layer.css" rel="stylesheet"></head>
-<body>
+<body onload="pageInit();">
     <div id="wrapper">
         <!-- top start -->
         <div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
@@ -51,13 +164,16 @@
                 <div class="logo"><img src="jmr_files/editor-A.gif"> </div>
                 <div class="nav">
                     <div class="menu">
-                        <a href="jmr.html">首页</a>
-                        <a href="jmr_down.htm" target="_blank">下载</a>
-                        <a href="jmr_about.htm" target="_blank">关于我们</a> 
+                     	  <a href="jmr.html"><span id="jmrhome"></span></a>
+                        <a href="jmr_down.htm" target="_blank"><span id="down"></span></a>
+                        <a href="jmr_about.htm" target="_blank"><span id="about"></span></a>
+                        <a href="cn/preface.htm" target="_blank"><span id="word"></span></a>
+                        <a href="jmr_support.htm" target="_blank"><span id="support"></span></a> 
                         <div class="reg-login" style=""> 
                          	<select onchange="pageInit();" id="language">
-														<option selected value="0">中文</option>
-														<option value="1">English</option>
+                         		<option value="">请选择</option>
+														<option value="1">中文</option>
+														<option value="0">English</option>
 													</select>
                         </div>
                     </div>
@@ -65,314 +181,167 @@
             </div>
         </div>
         <!-- top end -->
-        <br/><br/><br/><br/>
+        <!-- banner 开始 -->
+        <div id='sitebanner'>
+        </div>
+        <!-- banner 结束 -->
         <!-- container start -->
-         <div class="container-fluid">	
-            <div class="cell bugclose-width">	
+         <br/> <br/>
+        <div class="container-fluid">
+            <div class="cell bugclose-width">
+             		<div id="one" class="contentslider">
+							  <div class="cs_wrapper">
+							    <div class="cs_slider">
+							      <div class="cs_article">
+							        <h2> <a href="#">Article Number One</a> </h2>
+							        <a href="#"> <img src="jmr_files/images/show_jmr1.png" alt="Artist's interpretation of article headline" /> </a>
+							        <p> Hendrerit tincidunt vero vel eorum claritatem. Soluta
+							          legunt quod qui dolore typi. Vel dolore soluta qui odio
+							          non. Sollemnes minim eorum feugiat nihil nobis. Gothica
+							          dolor in legentis nihil quinta. </p>
+							        <p> Iriure parum autem putamus lectores duis. Quam sit quis
+							          me me zzril. Facer etiam in lectores hendrerit etiam.
+							          Exerci lorem liber tincidunt nostrud decima. Mutationem
+							          est zzril ipsum facer nobis. </p>
+							        <a href="#" class="readmore">Read More</a> </div>
+							      <!-- End cs_article -->
+							      <div class="cs_article">
+							        <h2> <a href="#">Article Number Two</a> </h2>
+							        <a href="#"> <img src="jmr_files/images/show_jmr2.png" alt="Artist's interpretation of article headline" /> </a>
+							        <p> Nibh nihil et ex accumsan insitam. Qui lius congue
+							          hendrerit quam vero. Demonstraverunt molestie ipsum
+							          magna nobis sequitur. Ex diam euismod quis ii velit. </p>
+							        <p> In quam lectores placerat Investigationes illum. Diam
+							          sollemnes nihil lorem claram consectetuer. Eros nam
+							          placerat claritas claritatem congue. Adipiscing ut
+							          clari suscipit nulla habent. </p>
+							        <a href="#" class="readmore">Read More</a> </div>
+							      <!-- End cs_article -->
+							      <div class="cs_article">
+							        <h2> <a href="#">Article Number Three</a> </h2>
+							        <a href="#"> <img src="jmr_files/images/show_jmr3.png" alt="Artist's interpretation of article headline" /> </a>
+							        <p> Clari eum vel blandit notare quarta. Autem processus
+							          lectores augue iriure facit. Volutpat aliquip erat
+							          imperdiet ipsum tation. Typi luptatum ut
+							          demonstraverunt eros quam. Ut clari consectetuer
+							          tincidunt liber qui. </p>
+							        <p> Modo vel facilisis qui liber est. Eorum Investigationes
+							          processus adipiscing commodo ea. Id iis claritatem vero
+							          ea consequat. </p>
+							        <a href="#" class="readmore">Read More</a> </div>
+							      <!-- End cs_article -->
+							      <div class="cs_article">
+							        <h2> <a href="#">Article Number Four</a> </h2>
+							        <a href="#"> <img src="jmr_files/images/show_jmr4.png" alt="Artist's interpretation of article headline" /> </a>
+							        <p> Iis nostrud claritas quis sed qui. Ut nunc facilisi
+							          claritatem quinta sit. Assum ii liber diam zzril nobis.
+							          Qui nibh delenit fiant te illum. Delenit claritas ut
+							          exerci eros typi. </p>
+							        <p> Videntur vel euismod ut eleifend quis. Nobis aliquam
+							          nunc vero blandit illum. Lius placerat litterarum
+							          processus quam legere. Accumsan modo non at congue
+							          duis. Odio duis ut blandit feugait in. </p>
+							        <a href="#" class="readmore">Read More</a> </div>
+							      <!-- End cs_article -->
+							    </div>
+							    <!-- End cs_slider -->
+							  </div>
+							  <!-- End cs_wrapper -->
+							</div>
+							<!-- End contentslider -->
+							<script type="text/javascript" src="http://www.lanrenzhijia.com/ajaxjs/1.3.2/jquery-1.3.2.min.js"></script>
+							<script type="text/javascript" src="jmr_files/js/jquery.easing.1.3.js"></script>
+							<script type="text/javascript" src="jmr_files/js/jquery.ennui.contentslider.js"></script>
+							<script type="text/javascript">
+										$(function() {
+											$('#one').ContentSlider({
+												width : '900px',
+												height : '400px',
+												speed : 800,
+												easing : 'easeInOutBack'
+											});
+										});
+										$(function() {
+											$('#two').ContentSlider({
+												width : '600px',
+												height : '266px',
+												speed : 400,
+												easing : 'easeOutQuad',
+												textResize : true
+											});
+										});
+									</script>
+                <p class="title"><span id="container"></span></p>
                 <div class="row">
-                 	<br/>
-                 	<br/>
-                 	
-                 	<div style="float:left; text-align:left; padding:20px; border:2px solid #999; width:28%;"> 
-                 		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>JavaScript</b><br/>
-                 		<!-- JavaScript -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">JavaScript<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript1.htm">JavaScript 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript2.htm">JavaScript 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript3.htm">JavaScript 用法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript4.htm">JavaScript 语法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript5.htm">JavaScript 语句</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript6.htm">JavaScript 注释</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript7.htm">JavaScript 变量</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript8.htm">JavaScript 数据类型</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript9.htm">JavaScript 数据对象</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript10.htm">JavaScript 函数</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript11.htm">JavaScript 作用域</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript12.htm">JavaScript 事件</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript13.htm">JavaScript 运算符</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript14.htm">JavaScript 条件语句</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript15.htm">JavaScript 类型转换</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/javascript16.htm">JavaScript 正则表达式</a><br/> 
-                 		<!-- jQuery -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">jQuery<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery1.htm">jQuery 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery2.htm">jQuery 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery3.htm">jQuery 语法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery4.htm">jQuery 选择器</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery5.htm">jQuery 事件</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery6.htm">jQuery 捕获</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery7.htm">jQuery 设置</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery8.htm">jQuery 添加元素</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery9.htm">jQuery 删除元素</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery10.htm">jQuery CSS类</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery11.htm">jQuery load方法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery12.htm">jQuery get和post方法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery13.htm">jQuery 选择器</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery14.htm">jQuery 事件方法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/jquery15.htm">jQuery 效果方法</a><br/>  
-                 		<!-- AngularJS -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">AngularJS<br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs1.htm">AngularJS 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs2.htm">AngularJS 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs3.htm">AngularJS 表达式</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs4.htm">AngularJS 指令</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs5.htm">AngularJS 模型</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs6.htm">AngularJS 控制器</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs7.htm">AngularJS 过滤器</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs8.htm">AngularJS Service</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs9.htm">AngularJS Http</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs10.htm">AngularJS Select</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs11.htm">AngularJS 表格</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs12.htm">AngularJS SQL</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs13.htm">AngularJS 事件</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs14.htm">AngularJS 模块</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs15.htm">AngularJS 表单</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs16.htm">AngularJS 输入验证</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs17.htm">AngularJS API</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs18.htm">AngularJS 包含</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs19.htm">AngularJS 依赖注入</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/angularjs20.htm">AngularJS 应用</a><br/>
-                 		<!-- Node.js -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">Node.js<br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs1.htm">Node.js 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs2.htm">Node.js 安装配置</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs3.htm">Node.js 创建第一个应用</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs4.htm">Node.js 回调函数</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs5.htm">Node.js 事件循环</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs6.htm">Node.js 模块系统</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs7.htm">Node.js 函数</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs8.htm">Node.js 全局对象</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs9.htm">Node.js 常用工具</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs10.htm">Node.js 文件系统</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs11.htm">Node.js GET和POST请求</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs12.htm">Node.js 工具模块</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/nodejs13.htm">Node.js 多进程</a><br/> 
-                 		<!-- AJAX -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">AJAX<br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax1.htm">AJAX 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax2.htm">AJAX 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax3.htm">AJAX 实例</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax4.htm">XHR 创建对象</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax5.htm">XHR 请求</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax6.htm">XHR 响应</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax7.htm">XHR readyState</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax8.htm">AJAX ASP和PHP</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax9.htm">AJAX 数据库</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/ajax10.htm">AJAX XML</a><br/> 
-                 		<!-- JSON -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">JSON<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/json1.htm">JSON 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/json2.htm">JSON 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/json3.htm">JSON 语法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/json4.htm">JSON 使用</a><br/> 
-                 		
-                 		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>CSS</b><br/> 
-                 		<!-- HTML -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">HTML<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html1.htm">HTML 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html2.htm">HTML 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html3.htm">HTML 编辑器</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html4.htm">HTML 基础</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html5.htm">HTML 元素</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html6.htm">HTML 属性</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html7.htm">HTML 标题</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html8.htm">HTML 段落</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html9.htm">HTML 文本格式化</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html10.htm">HTML 链接</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html11.htm">HTML 头部</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html12.htm">HTML CSS</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html13.htm">HTML 图像</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html14.htm">HTML 表格</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html15.htm">HTML 列表</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html16.htm">HTML 区块</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html17.htm">HTML 布局</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html18.htm">HTML 表单</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html19.htm">HTML 框架</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html20.htm">HTML 颜色</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html21.htm">HTML 颜色名</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html22.htm">HTML 颜色值</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html23.htm">HTML 脚本</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html24.htm">HTML 字符实体</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html25.htm">HTML URL</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html26.htm">HTML 速查列表</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html27.htm">HTML 总结</a><br/> 
-                 		<!-- HTML5 -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">HTML5<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html51.htm">HTML5 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html52.htm">HTML5 浏览器支持</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html53.htm">HTML5 新元素</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html54.htm">HTML5 内联SVG</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html55.htm">HTML5 拖放</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html56.htm">HTML5 地理定位</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html57.htm">HTML5 视频</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html58.htm">HTML5 音频</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html59.htm">HTML5 Input类型</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html510.htm">HTML5 表单元素</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html511.htm">HTML5 表单属性</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html512.htm">HTML5 语义元素</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html513.htm">HTML5 Web存储</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html514.htm">HTML5 Web SQL</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html515.htm">HTML5 应用程序缓存</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html516.htm">HTML5 Web Workers</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html517.htm">HTML5 SSE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html518.htm">HTML5 WebSocket</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html519.htm">HTML5 测验</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/html520.htm">HTML5 代码规范</a><br/> 
-                 		<!-- CSS -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">CSS<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css1.htm">CSS 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css2.htm">CSS 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css3.htm">CSS 语法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css4.htm">CSS id和class选择器</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css5.htm">CSS 创建</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css6.htm">CSS 背景</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css7.htm">CSS 文本</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css8.htm">CSS 字体</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css9.htm">CSS 字体</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css10.htm">CSS 链接</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css11.htm">CSS 列表样式</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css12.htm">CSS 表格</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css13.htm">CSS 盒子模型</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css14.htm">CSS 边框</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css15.htm">CSS 轮廓属性</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css16.htm">CSS 外边距</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css17.htm">CSS 填充</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css18.htm">CSS 分组和嵌套</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css19.htm">CSS 尺寸</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css20.htm">CSS 显示</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css21.htm">CSS 定位</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css22.htm">CSS 浮动</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css23.htm">CSS 对齐</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css24.htm">CSS 组合选择符</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css25.htm">CSS 伪类</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css26.htm">CSS 伪元素</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css27.htm">CSS 导航栏</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css28.htm">CSS 下拉菜单</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css29.htm">CSS 图片廊</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css30.htm">CSS 图像透明和不透明</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css31.htm">CSS 图像拼合技术</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css32.htm">CSS 媒体类型</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css33.htm">CSS 属性选择器</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/css34.htm">CSS 总结</a><br/>  
-                 		
-                 		
-                 		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>数据库</b><br/> 
-                 		<!-- SQL -->
-                 		&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_folder_open.gif">SQL<br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql1.htm">SQL 教程</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql2.htm">SQL 简介</a><br/>
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql3.htm">SQL 语法</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql4.htm">SQL SELECT</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql5.htm">SQL WHERE</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql6.htm">SQL AND和OR</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql7.htm">SQL ORDER BY</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql8.htm">SQL INSERT INTO</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql9.htm">SQL UPDATE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql10.htm">SQL DELETE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql11.htm">SQL SELECT TOP</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql12.htm">SQL LIKE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql13.htm">SQL 通配符</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql14.htm">SQL IN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql15.htm">SQL BETWEEN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql16.htm">SQL 别名</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql17.htm">SQL JOIN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql18.htm">SQL INNER JOIN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql19.htm">SQL LEFT JOIN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql20.htm">SQL RIGHT JOIN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql21.htm">SQL FULL JOIN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql22.htm">SQL UNION</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql23.htm">SQL SELECT INTO</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql24.htm">SQL INSERT INTO SELECT</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql25.htm">SQL CREATE DB</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql26.htm">SQL CREATE TABLE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql27.htm">SQL 约束</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql28.htm">SQL NOT NULL</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql29.htm">SQL UNIQUE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql30.htm">SQL PRIMARY KEY</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql31.htm">SQL FOREIGN KEY</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql32.htm">SQL CHECK</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql33.htm">SQL DEFAULT</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql34.htm">SQL CREATE INDEX</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql35.htm">SQL DROP</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql36.htm">SQL ALTER</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql37.htm">SQL Auto Increment</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql38.htm">SQL 视图</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql39.htm">SQL 日期</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql40.htm">SQL NULL值</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql41.htm">SQL NULL函数</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql42.htm">SQL 通用数据类型</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql43.htm">SQL DB数据类型</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql44.htm">SQL 函数</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql45.htm">SQL AVG</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql46.htm">SQL COUNT</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql47.htm">SQL FIRST</a><br/> 
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql48.htm">SQL LAST</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql49.htm">SQL MAX</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql50.htm">SQL MIN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql51.htm">SQL SUM</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql52.htm">SQL GROUP BY</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql53.htm">SQL HAVING</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql54.htm">SQL UCASE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql55.htm">SQL LCASE</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql56.htm">SQL MID</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql57.htm">SQL LEN</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql58.htm">SQL ROUND</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql59.htm">SQL NOW</a><br/>  
-                 		&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/tree_themes/imgs/st_node.gif"><a href="cnjc/sql60.htm">SQL FORMAT</a><br/>  
-                 		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>服务端</b><br/> 
-                 		<img src="jmr_files/tree_themes/imgs/st_folder.gif"><b>移动端</b><br/>
-                	</div> 
-                	<div style="float:left; width:57%; line-height: 3;" >
-                 		<iframe target="main" src="javascript1.html" width="100%" id="if" frameBorder="0" scrolling="no"></iframe> 
-                 	</div> 
-                </div> 
+                    <div class="col-sm-3 col-xs-6">
+                        <i class="b1"></i>
+                        <dl>
+                            <dt><b><span id="simple"></span></b></dt>
+                            <dd>安装即用、无需部署</dd>
+                            <dd>灵活组织框架和项目</dd>
+                            <dd>只做必要的模板和操作</dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <i class="b2"></i>
+                        <dl>
+                            <dt><b><span id="innovative"></span></b></dt>
+                            <dd>可无限扩展的模型配置</dd>
+                            <dd>可跨语言的模板编写</dd>
+                            <dd>可对生成进行对比、删除和回滚</dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <i class="b3"></i>
+                        <dl>
+                            <dt><b><span id="safe"></span></b></dt>
+                            <dd>基于模型驱动开发</dd>
+                            <dd>良好的稳定性和扩展性</dd>
+                            <dd>生成自己风格安全可靠</dd>
+                        </dl>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <i class="b4"></i>
+                        <dl>
+                            <dt><b><span id="professional"></span></b></dt>
+                            <dd>开发工具多年经验</dd>
+                            <dd>为敏捷开发量身定做</dd>
+                            <dd>专注服务所有用户</dd>
+                        </dl>
+                    </div>
+                </div>
             </div>
         </div>
+        <!--
+        <div class="container-fluid wbg">
+            <div class="cell bugclose-width">
+                <p class="title"><span id="containerfluid"></span></p>
+                <img src="jmr_files/computer2x.png" width="100%">
+            </div>
+        </div>
+         -->
         <!-- container end -->
         <!-- footer start -->
         <footer class="site-footer" id="site-footer">
             <div class="linkUs">
                 <div class="bugclose-width">
                  	  <div>
-                        <img src="jmr_files/jmrimg10.png"> JMR：厦门创欣佳软件开发有限公司
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg6.png"> QQ群：212108669
+                        <img src="jmr_files/jmrimg10.png"> JMR：<span id="company"></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg6.png"> <span id="qq"></span>：212108669
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg7.png"> job_jmr@163.com
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg8.png"> 厦门软件园二期望海路61号N9C10
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="jmr_files/jmrimg8.png"> <span id="address"></span>
                     </div>  
                 </div>
             </div>
         </footer>
         <!-- footer end -->
     </div>
-    <script type="text/javascript" src="jmr_files/jquery.js"></script>
+    
+    <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript" src="jmr_files/bootstrap.js"></script>
     <script type="text/javascript" src="jmr_files/utils_002.js"></script>
     <script type="text/javascript" src="jmr_files/xml.js"></script>
     <script type="text/javascript" src="jmr_files/layer.js"></script>
     <script type="text/javascript" src="jmr_files/main.js"></script>
-     
-    <script type="text/javascript">
-     	 window.onload = function() {
-					SetWinHeight();
-				}; 
-       	
-     	function SetWinHeight()   
-    	{  
-	     	var doc=document.getElementById("if");
-	     	if (doc && !window.opera)
-	     	{
-					if (doc.contentDocument && doc.contentDocument.body.offsetHeight)
-					{
-						doc.height = doc.contentDocument.body.offsetHeight;
-					} 
-					else if (doc.Document && doc.Document.body.scrollHeight)
-					{
-						doc.height = doc.Document.body.scrollHeight;
-					}
-				} 
-     	}
-    </script>
-     
     
 </body></html>
