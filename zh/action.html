@@ -289,15 +289,21 @@ img {
   max-width: 100%
 }
 </style>
+<script type="text/javascript">
+	function parentGoTop(a){
+	parent.window.location.href=a;	
+	parent.scrollTo(0,0);
+	} 
+</script>
 </head>
 <body>
 <h1><div align="center">action</div></h1>
 <hr />
 <h3>目录:</h3>
 <ul>
-<li><a href="#1">前言</a></li>
-<li><a href="#2">创建Action</a></li>
-<li><a href="#3">使用Action</a></li>
+<li><a href="#" onclick="javascript:document.getElementById('1').scrollIntoView()">前言</a></li>
+<li><a href="#" onclick="javascript:document.getElementById('2').scrollIntoView()">创建Action</a></li>
+<li><a href="#" onclick="javascript:document.getElementById('3').scrollIntoView()">使用Action</a></li>
 </ul>
 <hr />
 <h2><span id="1">前言</span></h2>
@@ -371,10 +377,10 @@ img {
 </pre>
 <ul>
 <li>
-<a href="head-template-context.html">context - 上下文容器</a>
+<a href="#" onclick="javascript:parentGoTop('head-template-context.html');">context - 上下文容器</a>
 <ul>
-<li><a href="template-var.html">var - 变量</a></li>
-<li><a href="template-session-var.html">sessionVar - 全局变量</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('template-var.html');">var - 变量</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('template-session-var.html');">sessionVar - 全局变量</a></li>
 </ul>
 </li>
 </ul>
@@ -388,15 +394,15 @@ img {
 </pre>
 <ul>
 <li>
-<a href="head-tag-common.html">常规标签</a>
+<a href="#" onclick="javascript:parentGoTop('head-tag-common.html');">常规标签</a>
 <ul>
-<li><a href="tag-get.html">get - 获取变量</a></li>
-<li><a href="tag-set.html">set - 设置变量</a></li>
-<li><a href="tag-if.html">if - 判断</a>        
+<li><a href="#" onclick="javascript:parentGoTop('tag-get.html');">get - 获取变量</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('tag-set.html');">set - 设置变量</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('tag-if.html');">if - 判断</a>        
 </li>
-<li><a href="tag-elseif.html">elseif - 判断</a></li>
-<li><a href="tag-else.html">else - 判断</a> </li>
-<li><a href="tag-for.html">for - 循环迭代</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('tag-elseif.html');">elseif - 判断</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('tag-else.html');">else - 判断</a> </li>
+<li><a href="#" onclick="javascript:parentGoTop('tag-for.html');">for - 循环迭代</a></li>
 </ul>
 </li>
 </ul>

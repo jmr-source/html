@@ -1,313 +1,162 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<title>script-script</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">
-/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
-/* Author: Nicolas Hery - http://nicolashery.com */
-/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
-/* Source: https://github.com/nicolahery/markdownpad-github */
-
-/* RESET
-=============================================================================*/
-
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-/* BODY
-=============================================================================*/
-
-body {
-  font-family: Helvetica, arial, freesans, clean, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
-  padding: 20px;
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-body>*:first-child {
-  margin-top: 0 !important;
-}
-
-body>*:last-child {
-  margin-bottom: 0 !important;
-}
-
-/* BLOCKS
-=============================================================================*/
-
-p, blockquote, ul, ol, dl, table, pre {
-  margin: 15px 0;
-}
-
-/* HEADERS
-=============================================================================*/
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: bold;
-  -webkit-font-smoothing: antialiased;
-}
-
-h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
-  font-size: inherit;
-}
-
-h1 {
-  font-size: 28px;
-  color: #000;
-}
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #ccc;
-  color: #000;
-}
-
-h3 {
-  font-size: 18px;
-}
-
-h4 {
-  font-size: 16px;
-}
-
-h5 {
-  font-size: 14px;
-}
-
-h6 {
-  color: #777;
-  font-size: 14px;
-}
-
-body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
-  margin-top: 10px;
-}
-
-/* LINKS
-=============================================================================*/
-
-a {
-  color: #4183C4;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* LISTS
-=============================================================================*/
-
-ul, ol {
-  padding-left: 30px;
-}
-
-ul li > :first-child, 
-ol li > :first-child, 
-ul li ul:first-of-type, 
-ol li ol:first-of-type, 
-ul li ol:first-of-type, 
-ol li ul:first-of-type {
-  margin-top: 0px;
-}
-
-ul ul, ul ol, ol ol, ol ul {
-  margin-bottom: 0;
-}
-
-dl {
-  padding: 0;
-}
-
-dl dt {
-  font-size: 14px;
-  font-weight: bold;
-  font-style: italic;
-  padding: 0;
-  margin: 15px 0 5px;
-}
-
-dl dt:first-child {
-  padding: 0;
-}
-
-dl dt>:first-child {
-  margin-top: 0px;
-}
-
-dl dt>:last-child {
-  margin-bottom: 0px;
-}
-
-dl dd {
-  margin: 0 0 15px;
-  padding: 0 15px;
-}
-
-dl dd>:first-child {
-  margin-top: 0px;
-}
-
-dl dd>:last-child {
-  margin-bottom: 0px;
-}
-
-/* CODE
-=============================================================================*/
-
-pre, code, tt {
-  font-size: 12px;
-  font-family: Consolas, "Liberation Mono", Courier, monospace;
-}
-
-code, tt {
-  margin: 0 0px;
-  padding: 0px 0px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  background-color: #f8f8f8;
-  border-radius: 3px;
-}
-
-pre>code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent;
-}
-
-pre {
-  background-color: #f8f8f8;
-  border: 1px solid #ccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
-}
-
-pre code, pre tt {
-  background-color: transparent;
-  border: none;
-}
-
-kbd {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background-color: #DDDDDD;
-    background-image: linear-gradient(#F1F1F1, #DDDDDD);
-    background-repeat: repeat-x;
-    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
-    border-image: none;
-    border-radius: 2px 2px 2px 2px;
-    border-style: solid;
-    border-width: 1px;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    line-height: 10px;
-    padding: 1px 4px;
-}
-
-/* QUOTES
-=============================================================================*/
-
-blockquote {
-  border-left: 4px solid #DDD;
-  padding: 0 15px;
-  color: #777;
-}
-
-blockquote>:first-child {
-  margin-top: 0px;
-}
-
-blockquote>:last-child {
-  margin-bottom: 0px;
-}
-
-/* HORIZONTAL RULES
-=============================================================================*/
-
-hr {
-  clear: both;
-  margin: 15px 0;
-  height: 0px;
-  overflow: hidden;
-  border: none;
-  background: transparent;
-  border-bottom: 4px solid #ddd;
-  padding: 0;
-}
-
-/* TABLES
-=============================================================================*/
-
-table th {
-  font-weight: bold;
-}
-
-table th, table td {
-  border: 1px solid #ccc;
-  padding: 6px 13px;
-}
-
-table tr {
-  border-top: 1px solid #ccc;
-  background-color: #fff;
-}
-
-table tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-/* IMAGES
-=============================================================================*/
-
-img {
-  max-width: 100%
-}
-</style>
-</head>
+<!DOCTYPE html>
+<html><head lang="en">
+    <meta charset="UTF-8">
+    <title>JMR</title>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="renderer" content="webkit">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="../jmr_files/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="../jmr_files/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="../jmr_files/public.css" type="text/css">
+    <link rel="stylesheet" href="../jmr_files/main.css" type="text/css">
+    <link type="image/x-icon" rel="icon" href="">
+    <script type="text/javascript" src="../jmr_files/utils.js"></script>
+    <script type="text/javascript" src="../jmr_files/jquery-1.6.min.js"></script>
+	  <script type="text/javascript" src="../jmr_files/jquery.dropotron-1.0.js"></script>
+	  <script type="text/javascript" src="../jmr_files/jquery.slidertron-1.1.js"></script> 
+	  <script type="text/javascript" src="../jmr_files/SimpleTree.js"></script>
+	  <link rel="stylesheet" type="text/css" href="../jmr_files/tree_themes/SimpleTree.css"/>
+    <script type="text/javascript">
+        platform();
+        var targetProtocol = "https:";
+        var domain = window.location.host;
+        if (window.location.protocol != targetProtocol)
+            if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
+                window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
+        window._projectId = bugCloseStorage.getItem('project_id');
+    </script>
+     
+    	<script type="text/javascript">
+			$(function(){
+				$(".st_tree").SimpleTree({
+					click:function(a){
+					}
+				});
+			});
+			
+			function treego(a){
+				window.location.href=a;
+			}
+			</script>
+     
+     
+     <script type="text/javascript"> 
+			function pageInit(){
+				var contact = "";
+				var changeLanguage = document.getElementById("language").value;
+				if(changeLanguage == null || changeLanguage == "1")
+				{
+					
+				}else
+				{
+					window.location.href="../en/preface.htm";
+				}
+			}
+		</script>
+      
+<link style="" id="layui_layer_skinlayercss" href="../jmr_files/layer.css" rel="stylesheet"></head>
 <body>
-<h1><div align="center">&lt;% %&gt; - 脚本</div></h1>
-<hr />
-<h3>目录:</h3>
-<ul>
-<li><a href="#" onclick="javascript:document.getElementById('1').scrollIntoView()">格式与用法</a></li>
-<li><a href="#" onclick="javascript:document.getElementById('2').scrollIntoView()">原理</a></li>
-</ul>
-<hr />
-<h2><span id="1">格式与用法</span></h2>
-<p>格式：<font color="blue">&lt;% %&gt; </font>，在此可以写java代码和逻辑。</p>
-<p><img src="image/tag_script.png" /></p>
-<hr />
-<h2><span id="2">原理</span></h2>
-<p>查看这个模板的编译类后，可以看到，&lt;% %&gt;块的内容编译到方法generate()中。</p>
-<p><img src="image/tag_script_class.png" /></p>
-<hr />
-
-</body>
-</html>
-<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
+    <div id="wrapper">
+        <!-- top start -->
+					<div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
+			      <div class="bugclose-width">
+			          <div class="logo"><img src="../jmr_files/editor-A.gif"> </div>
+			          <div class="nav">
+			              <div class="menu">
+			               	<a href="../jmr.html">首页</a>
+                    <a href="../jmr_down.htm">下载</a>
+                    <a href="../jmr_about.htm">关于我们</a> 
+                    <a href="../jmr_support.htm">官方服务(招商)</a> 
+                    <div class="reg-login" style=""> 
+                     	<select onchange="pageInit();" id="language">
+												<option selected value="1">中文</option>
+												<option value="0">English</option>
+											</select>
+                    </div>
+			               
+			              </div>
+			          </div>
+			      </div>
+			   </div>	
+				<!-- top end -->
+        <br/><br/><br/><br/>
+        <!-- container start -->
+         <div class="container-fluid">	
+            <div class="cell bugclose-width">	
+                <div class="row">
+                 	<br/>
+                 	<br/>
+                 	<div style="float:left; text-align:left; margin:0 50px 0 0; padding:10px; width:23%; overflow:auto;"> 
+                	</div>
+                 	<div style="float:left; text-align:left; margin:0 50px 0 0; border:0px solid #999; padding:10px; width:20%; overflow:auto; position: fixed;">
+                 		<iframe src="tree.html" width="100%" height="600" frameBorder="0" scrolling="no"></iframe>
+                 	</div> 
+                 	<div style="float:left; text-align:left; width:70%; line-height: 3;" > 
+                 		<div style="margin: 0 auto; width:50%; height:50;" >
+	                 		<iframe src="advertisement-top.html" width="100%" frameBorder="0" scrolling="no"></iframe>
+	                 	</div>
+										<iframe target="main" src="script-script.htm" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
+                 	</div>  
+                 	<div style="float:left; text-align:left; padding:20px; width:2%;">
+                 		<iframe src="advertisement-right.html" width="100%" frameBorder="0" scrolling="no"></iframe>
+                 	</div>
+                </div>
+                <br/><br/><br/><br/>
+             		<div style="margin: 0 auto; width:20%; height:50;">
+               		<iframe src="advertisement-down.html" width="100%" frameBorder="0" scrolling="no"></iframe>
+               	</div> 
+            </div>
+        </div>
+        <!-- container end -->
+        <!-- footer start -->
+        <footer class="site-footer" id="site-footer">
+            <div class="linkUs">
+                <div class="bugclose-width">
+                 	  <div style="float:center; text-align:center;">
+                        <img src="../jmr_files/jmrimg10.png"> JMR：厦门创欣佳软件开发有限公司
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg6.png"> QQ群：212108669
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg7.png"> job_jmr@163.com
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg8.png"> 厦门软件园二期望海路61号N9C10
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    </div>   
+                    <div style="float:center; text-align:center;">
+                     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备案号：闽ICP备16012802号
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer end -->
+    </div>
+    <script type="text/javascript" src="../jmr_files/jquery.js"></script>
+    <script type="text/javascript" src="../jmr_files/bootstrap.js"></script>
+    <script type="text/javascript" src="../jmr_files/utils_002.js"></script>
+    <script type="text/javascript" src="../jmr_files/xml.js"></script>
+    <script type="text/javascript" src="../jmr_files/layer.js"></script>
+    <script type="text/javascript" src="../jmr_files/main.js"></script>
+     
+    <script type="text/javascript">
+     	 window.onload = function() {
+					SetWinHeight();
+				}; 
+       	
+     	function SetWinHeight()   
+    	{  
+	     	var doc=document.getElementById("if");
+	     	if (doc && !window.opera)
+	     	{
+					if (doc.contentDocument && doc.contentDocument.body.offsetHeight)
+					{
+						doc.height = doc.contentDocument.body.offsetHeight;
+					} 
+					else if (doc.Document && doc.Document.body.scrollHeight)
+					{
+						doc.height = doc.Document.body.scrollHeight;
+					}
+				} 
+     	}
+    </script>
+    
+</body></html>
