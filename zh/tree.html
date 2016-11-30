@@ -21,6 +21,7 @@
 				parent.window.location.href=a;
 			}
 			</script>
+			
  
   </head>
 <body> 
@@ -28,7 +29,7 @@
 	<ul name="treeshow">
 											<!-- 1-前言start -->
                  			<li name="treeshowli">
-                 				<a href="#" onclick="treego('preface.html')">前言</a>
+                 				<a href="#" onclick="treego('preface.html?aaa')">前言</a>
                  			</li>
                  			<!-- 1-前言end -->
                  			
@@ -478,8 +479,21 @@
          
           <script type="text/javascript">
      	 window.onload = function() {
+     	  	isclear();
 					treecontext();
 				}; 
+				
+			function isclear() 
+			{ 
+				var str=document.location.href; //取得整个地址栏
+				alert(str);
+   			var num=str.indexOf("?") 
+   			alert(num);
+				if(num > 0)
+				{
+					clearcookie();
+				}
+			}
 			
 			function treecontext()
 			{
@@ -561,6 +575,7 @@
 			    setTreeCookie('treecookie', '','');
 			    setTreeCookie('treexcookie', '','');
 			} 
+	
     </script>
 										
 </body>

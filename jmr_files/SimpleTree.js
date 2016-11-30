@@ -22,7 +22,8 @@ $(function(){
 			}/* option._init() End */
 			
 			/* 设置所有超链接不响应单击事件 */
-			this.find("a").click(function(){ $(this).parents("li").click(); return false; });
+			this.find("a").click(function(){ //$(this).parents("li").click(); 
+				return false; });
 			
 			/* 菜单项 <li> 接受单击 */
 			this.find("li").click(function(){
@@ -47,7 +48,7 @@ $(function(){
 				}
 				
 				/* 初始化菜单 */
-				option._init();
+				Option._init();
 			});
 			
 			this.find("li").hover(
