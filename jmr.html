@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html><head lang="en">
     <meta charset="UTF-8">
-    <title>JMR</title>
-    <meta http-equiv="pragma" content="no-cache">
+    <title>JMR</title> 
+		<meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
     <meta name="renderer" content="webkit">
@@ -13,151 +13,14 @@
     <link rel="stylesheet" href="jmr_files/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="jmr_files/public.css" type="text/css">
     <link rel="stylesheet" href="jmr_files/main.css" type="text/css">
-    <link type="image/x-icon" rel="icon" href="">
+    <link type="image/x-icon" rel="icon" href="jmr_files/jmrimglogo.png">
     <script type="text/javascript" src="jmr_files/utils.js"></script>
     <script type="text/javascript" src="jmr_files/jquery-1.7.1.min.js"></script>
 	  <script type="text/javascript" src="jmr_files/jquery.dropotron-1.0.js"></script>
 	  <script type="text/javascript" src="jmr_files/jquery.slidertron-1.1.js"></script>
 		<link href="jmr_files/css/jquery.ennui.contentslider.css" rel="stylesheet" type="text/css" media="screen,projection" />
-    <script type="text/javascript">
-        platform();
-        var targetProtocol = "https:";
-        var domain = window.location.host;
-        if (window.location.protocol != targetProtocol)
-            if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
-                window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
-        window._projectId = bugCloseStorage.getItem('project_id');
-         
-          
-        //设置cookie
-				function setCookie(clanguage, cvalue, exdays) {
-				    var d = new Date();
-				    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-				    var expires = "expires="+d.toUTCString();
-				    document.cookie = clanguage + "=" + cvalue + "; " + expires;
-				}
-				//获取cookie
-				function getCookie(cname) {
-				    var name = cname + "=";
-				    var ca = document.cookie.split(';');
-				    for(var i=0; i<ca.length; i++) {
-				        var c = ca[i];
-				        while (c.charAt(0)==' ') c = c.substring(1);
-				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
-				    }
-				    return "";
-				}
-				//清除cookie  
-				function clearCookie(name) {  
-				    setCookie(name, "", -1);  
-				}  
-				function checkCookie() {
-				    var clanguage = getCookie("clanguage");
-				    if (clanguage != "") {
-				    } else {
-				     	   var languagetype=navigator.appName;
-				     	   if (languagetype=="Netscape"){
-								    var languagelang = navigator.language;
-								}
-								else{
-								    var languagelang = navigator.userLanguage;
-								}
-								var languagelang2 = languagelang.substr(0,2);
-								if (languagelang2 == "en"){
-									setCookie("clanguage", 0, 365);
-								}else{
-									setCookie("clanguage", 1, 365);
-								}
-				    }
-				}
-				checkCookie(); 
-    </script>
-    
-     <script type="text/javascript"> 
-			function contactList(jsons){
-			var arr = eval(jsons);
-			for(var i=0; i<arr.length; i++){
-				var jsonObj = arr[i]; //获取json对象
-				document.getElementById("jmrhome").innerHTML = jsonObj.jmrhome;
-				document.getElementById("sitebanner").className = jsonObj.sitebanner;
-				document.getElementById("about").innerHTML = jsonObj.about;
-				document.getElementById("down").innerHTML = jsonObj.down;
-				document.getElementById("word").innerHTML = jsonObj.word;
-				document.getElementById("support").innerHTML = jsonObj.support;
-				document.getElementById("container").innerHTML = jsonObj.container;
-				document.getElementById("simple").innerHTML = jsonObj.simple;
-				document.getElementById("innovative").innerHTML = jsonObj.innovative;
-				document.getElementById("safe").innerHTML = jsonObj.safe;
-				document.getElementById("professional").innerHTML = jsonObj.professional;
-				//document.getElementById("containerfluid").innerHTML = jsonObj.containerfluid;
-				document.getElementById("company").innerHTML = jsonObj.company;
-				document.getElementById("qq").innerHTML = jsonObj.qq;
-				document.getElementById("address").innerHTML = jsonObj.address;
-				
-			}
-		}
-		
-			function pageInit(){
-				var contact = "";
-				var changeLanguage = document.getElementById("language").value;
-				if(changeLanguage == null || changeLanguage == "" )
-				{
-						//获取cookie
-						var clanguage = getCookie("clanguage");
-						if (clanguage != "") {
-				        changeLanguage  = clanguage;
-				    } else {
-				        setCookie("clanguage", 0, 365);
-				    }
-				}
-				if(changeLanguage == "1")
-				{
-					setCookie("clanguage", 1, 365);
-					document.getElementById("language").value = 1;
-					contact = "[{sitebanner:'site-banner'," 
-										+ "jmrhome:'首页'," 
-										+ "about:'关于我们'," 
-										+ "down:'下载'," 
-										+ "word:'帮助文档'," 
-										+ "support:'官方服务(招商)'," 
-										+ "container:'简单，创新，安全，专业'," 
-										+ "simple:'简单易用'," 
-										+ "innovative:'创新功能'," 
-										+ "safe:'安全稳定'," 
-										+ "professional:'专业素质'," 
-										//+ "containerfluid:'全新的技术，不一样的体验'," 
-										+ "company:'厦门创欣佳软件开发有限公司'," 
-										+ "qq:'QQ群'," 
-										+ "address:'厦门软件园二期望海路61号N9C10'" 
-										
-										+ "}]";
-				}else
-				{
-					setCookie("clanguage", 0, 365);
-					document.getElementById("language").value = 0;
-					contact = "[{sitebanner:'site-banner-en',"
-										+ "jmrhome:'Home'," 
-										+ "about:'About'," 
-										+ "down:'Download',"
-										+ "word:'Document',"
-										+ "support:'Official service(Attract investment)'," 
-										+ "container:'Simple, Innovative, Safe, Professional'," 
-										+ "simple:'Simple'," 
-										+ "innovative:'Innovative'," 
-										+ "safe:'Safe'," 
-										+ "professional:'Professional'," 
-										//+ "containerfluid:'New technology, not the same experience'," 
-										+ "company:'Xiamen Chuang Xin Jia Software Development Co., Ltd.'," 
-										+ "qq:'QQ'," 
-										+ "address:'Xiamen software park two Wang Hai Road No. 61 N9C10'" 
-										
-										+ "}]";
-				}
-				contactList(contact);
-			}
-		</script>
-<link style="" id="layui_layer_skinlayercss" href="jmr_files/layer.css" rel="stylesheet"></head>
-<body onload="pageInit();">
+		<link style="" id="layui_layer_skinlayercss" href="jmr_files/layer.css" rel="stylesheet"></head>
+<body onload="pageInit();"> 
     <div id="wrapper">
         <!-- top start -->
         <div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
@@ -347,5 +210,143 @@
     <script type="text/javascript" src="jmr_files/xml.js"></script>
     <script type="text/javascript" src="jmr_files/layer.js"></script>
     <script type="text/javascript" src="jmr_files/main.js"></script>
+     
+      <script type="text/javascript">
+        platform();
+        var targetProtocol = "https:";
+        var domain = window.location.host;
+        if (window.location.protocol != targetProtocol)
+            if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
+                window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
+        window._projectId = bugCloseStorage.getItem('project_id');
+         
+          
+        //设置cookie
+				function setCookie(clanguage, cvalue, exdays) {
+				    var d = new Date();
+				    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				    var expires = "expires="+d.toUTCString();
+				    document.cookie = clanguage + "=" + cvalue + "; " + expires;
+				}
+				//获取cookie
+				function getCookie(cname) {
+				    var name = cname + "=";
+				    var ca = document.cookie.split(';');
+				    for(var i=0; i<ca.length; i++) {
+				        var c = ca[i];
+				        while (c.charAt(0)==' ') c = c.substring(1);
+				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				    }
+				    return "";
+				}
+				//清除cookie  
+				function clearCookie(name) {  
+				    setCookie(name, "", -1);  
+				}  
+				function checkCookie() {
+				    var clanguage = getCookie("clanguage");
+				    if (clanguage != "") {
+				    } else {
+				     	   var languagetype=navigator.appName;
+				     	   if (languagetype=="Netscape"){
+								    var languagelang = navigator.language;
+								}
+								else{
+								    var languagelang = navigator.userLanguage;
+								}
+								var languagelang2 = languagelang.substr(0,2);
+								if (languagelang2 == "en"){
+									setCookie("clanguage", 0, 365);
+								}else{
+									setCookie("clanguage", 1, 365);
+								}
+				    }
+				}
+				checkCookie(); 
+    </script>
+    
+    <script type="text/javascript"> 
+			function contactList(jsons){
+			var arr = eval(jsons);
+			for(var i=0; i<arr.length; i++){
+				var jsonObj = arr[i]; //获取json对象
+				document.getElementById("jmrhome").innerHTML = jsonObj.jmrhome;
+				document.getElementById("sitebanner").className = jsonObj.sitebanner;
+				document.getElementById("about").innerHTML = jsonObj.about;
+				document.getElementById("down").innerHTML = jsonObj.down;
+				document.getElementById("word").innerHTML = jsonObj.word;
+				document.getElementById("support").innerHTML = jsonObj.support;
+				document.getElementById("container").innerHTML = jsonObj.container;
+				document.getElementById("simple").innerHTML = jsonObj.simple;
+				document.getElementById("innovative").innerHTML = jsonObj.innovative;
+				document.getElementById("safe").innerHTML = jsonObj.safe;
+				document.getElementById("professional").innerHTML = jsonObj.professional;
+				//document.getElementById("containerfluid").innerHTML = jsonObj.containerfluid;
+				document.getElementById("company").innerHTML = jsonObj.company;
+				document.getElementById("qq").innerHTML = jsonObj.qq;
+				document.getElementById("address").innerHTML = jsonObj.address;
+				
+			}
+		}
+		
+			function pageInit(){
+				var contact = "";
+				var changeLanguage = document.getElementById("language").value;
+				if(changeLanguage == null || changeLanguage == "" )
+				{
+						//获取cookie
+						var clanguage = getCookie("clanguage");
+						if (clanguage != "") {
+				        changeLanguage  = clanguage;
+				    } else {
+				        setCookie("clanguage", 0, 365);
+				    }
+				}
+				if(changeLanguage == "1")
+				{
+					setCookie("clanguage", 1, 365);
+					document.getElementById("language").value = 1;
+					contact = "[{sitebanner:'site-banner'," 
+										+ "jmrhome:'首页'," 
+										+ "about:'关于我们'," 
+										+ "down:'下载'," 
+										+ "word:'帮助文档'," 
+										+ "support:'官方服务(招商)'," 
+										+ "container:'简单，创新，安全，专业'," 
+										+ "simple:'简单易用'," 
+										+ "innovative:'创新功能'," 
+										+ "safe:'安全稳定'," 
+										+ "professional:'专业素质'," 
+										//+ "containerfluid:'全新的技术，不一样的体验'," 
+										+ "company:'厦门创欣佳软件开发有限公司'," 
+										+ "qq:'QQ群'," 
+										+ "address:'厦门软件园二期望海路61号N9C10'" 
+										
+										+ "}]";
+				}else
+				{
+					setCookie("clanguage", 0, 365);
+					document.getElementById("language").value = 0;
+					contact = "[{sitebanner:'site-banner-en',"
+										+ "jmrhome:'Home'," 
+										+ "about:'About'," 
+										+ "down:'Download',"
+										+ "word:'Document',"
+										+ "support:'Official service(Attract investment)'," 
+										+ "container:'Simple, Innovative, Safe, Professional'," 
+										+ "simple:'Simple'," 
+										+ "innovative:'Innovative'," 
+										+ "safe:'Safe'," 
+										+ "professional:'Professional'," 
+										//+ "containerfluid:'New technology, not the same experience'," 
+										+ "company:'Xiamen Chuang Xin Jia Software Development Co., Ltd.'," 
+										+ "qq:'QQ'," 
+										+ "address:'Xiamen software park two Wang Hai Road No. 61 N9C10'" 
+										
+										+ "}]";
+				}
+				contactList(contact);
+			}
+		</script>
     
 </body></html>
