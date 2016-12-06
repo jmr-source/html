@@ -114,10 +114,10 @@
 										+ "down:'下载'," 
 										+ "word:'帮助文档'," 
 										+ "support:'官方服务(招商)'," 
-										+ "version:'产品版本'," 
-										+ "versionaddress:'版本地址'," 
+										+ "version:'版本'," 
+										+ "versionaddress:'Eclipse在线安装地址'," 
 										+ "install:'安装说明'," 
-										+ "template:'产品模板'," 
+										+ "template:'产品demo'," 
 										+ "company:'厦门创欣佳软件开发有限公司'," 
 										+ "qq:'QQ群'," 
 										+ "address:'厦门软件园二期望海路61号N9C10'" 
@@ -150,12 +150,13 @@
 			function openinstall(){
 				var contact = "";
 				var changeLanguage = document.getElementById("language").value; 
-				if(changeLanguage == null || changeLanguage == "1") {
-					window.location.href="zh/install-and-uninstall.html";
-				}
-				else{ 
-					window.location.href="en/install-and-uninstall.html";
-				}
+				window.location.href="zh/install-and-uninstall.html" 
+				//if(changeLanguage == null || changeLanguage == "0") {
+				//	window.location.href="zh/install-and-uninstall.html";
+				//}
+				//else{
+				//	window.location.href="en/install-and-uninstall.html";
+				//}
 			}
 		</script>
 		
@@ -224,10 +225,8 @@
                  			  	http://www.jmr-source.com/downloads/jmr_1.0.0/site.xml
                  			 </td> 
                  			 <td style="vertical-align: middle">
-                 			  	demo-java <br/>
-                 			  	demo-php <br/> 
-                 			  	demo-android <br/> 
-                 			  	demo-ios <br/>
+                 			  	<a href="http://www.jmr-source.com/demo/demo.zip">demo</a> <br/>
+								<a href="http://www.jmr-source.com/demo/jmr.zip">demo-java</a> <br/>
                  			 </td>
                  		</tr>
                  	</table>
