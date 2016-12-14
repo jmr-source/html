@@ -100,6 +100,7 @@ span.reference a:hover{
 	width:95px;
 	height:41px;
 	text-decoration:none;
+	text-align:inherit;
 	outline:none;
 	font-size:16px;
 	color:#555;
