@@ -289,33 +289,40 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">标签</div></h1>
 <hr />
 <h3>介绍</h3>
 <pre>
-● 在"概览"中，您将了解模板的原理和结构。
-● 在"规范"中，对模板的命名规范有详细说明。
-● 在"指令"中，介绍了模板编译指令，导入指令还有注释的用法。
-● 在"脚本标签"中，介绍了&lt;%! %&gt;,&lt;% %&gt;,&lt;%= %&gt;的原理和用法。
-● 在"内置对象"中，介绍了out和context这2个内置对象。
-● 在"Jmr标签"中，例举了常用的jmr标签的用法。
+● 模型标签：通过模型标签，我们可以获得数据库模型、Java类模型，Xml模型等。
+● 常规标签：最常用的基本标签，使用好它们，可以代替大部分&lt;%%&gt;、&lt;%=%&gt;。
+● xml标签：如果您有xml模型，这时候就需要这些标签来操作它。
+● 合并标签：在模板中，除了使用注释的方式合并，也可以使用合并标签代替这些操作。
+● 嵌套标签：可以在模板中嵌套其它模板的标签。
+● 格式化标签：格式化内容，生成自己的风格的标签。
+● java标签：在编写java模板时，可以自动获取java包名和类名的标签
+● 任务标签：获取调用这个模板的任务信息。
 </pre>
 <h3>内容</h3>
 <ul>
-<li><a href="#" onclick="javascript:parentGoTop('template-preface.html');">概览</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-standard.html');">规范</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-instruction.html');">指令</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-script.html');">脚本标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-object.html');">内置对象</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-tag.html');">Jmr标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-entity.html');">模型标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-common.html');">常规标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-xml.html');">xml标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-merge.html');">合并标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-include.html');">嵌套标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-format.html');">格式化标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-java.html');">java标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-task.html');">任务标签</a></li>
 </ul>
 <hr />
 

@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">Hello Jmr</div></h1>
@@ -307,6 +310,11 @@ img {
 <li><a href="#" onclick="javascript:document.getElementById('4').scrollIntoView()">配置任务</a></li>
 <li><a href="#" onclick="javascript:document.getElementById('5').scrollIntoView()">运行任务</a></li>
 <li><a href="#" onclick="javascript:document.getElementById('6').scrollIntoView()">总结</a></li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/action/action.jmr.xml 任务中的 start/hello/hello</li>
 </ul>
 <hr />
 <h2><span id="1">Hello Jmr!</span></h2>

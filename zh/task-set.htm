@@ -289,15 +289,18 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
-<h1><div align="center">任务配置</div></h1>
+<h1><div align="center">任务 - 配置</div></h1>
 <hr />
 <h3>目录:</h3>
 <ul>
@@ -400,7 +403,7 @@ img {
 <p><img src="image/task-set23.png" /></p>
 <ul>
 <li>Action：点击浏览选择Action，点击
-<img src="image/task-set26.png" />或者<img src="image/task-set27.png" />可以打开Action文件。关于Action的用法请阅读：<a href="#" onclick="javascript:parentGoTop('model-action.html');">Action</a></li>
+<img src="image/task-set26.png" />或者<img src="image/task-set27.png" />可以打开Action文件。关于Action的用法请阅读：<a href="#" onclick="javascript:parentGoTop('action.html');">Action</a></li>
 </ul>
 <p><img src="image/task-set24.png" /></p>
 <p>Action必须选择父类是org.jmr.core.JmrActionSupport的类，对话框会自动匹配这些类，输入**会列出所有符合条件的类。选择的Action必须在同一个项目中（jmr文件所在项目）。</p>
@@ -417,14 +420,14 @@ img {
 任务类型：选择好任务类型能够更方便的执行任务。
 <ul>
 <li>新建：当文件不存在时为新建，执行任务，生成文件后会自动选择为覆盖。</li>
-<li>合并：文件中有合并标识的位置会被更新，其余部分不变。关于合并的详细内容请阅读：<a href="#" onclick="javascript:parentGoTop('task-type-merge.html');">合并使用</a>。</li>
+<li>合并：文件中有合并标识的位置会被更新，其余部分不变。关于合并的详细内容请阅读：<a href="#" onclick="javascript:parentGoTop('task-merge.html');">合并使用</a>。</li>
 <li>覆盖：文件已经存在，执行任务替换掉文件的所有内容。</li>
 </ul>
 </li>
 </ul>
 <p><img src="image/task-set31.png" /></p>
 <p>第一次运行任务的状态是新建，接下来都是以合并和覆盖为主。</p>
-<p>例如，spring、struts这2个任务都是往配置文件中添加注册信息，menu是在左侧栏目的界面中添加新的链接，所以它们的模式都是合并，其余的都是覆盖。合并还有更多的运用，请阅读：<a href="#" onclick="javascript:parentGoTop('task-type-merge.html');">合并使用</a>。</p>
+<p>例如，spring、struts这2个任务都是往配置文件中添加注册信息，menu是在左侧栏目的界面中添加新的链接，所以它们的模式都是合并，其余的都是覆盖。合并还有更多的运用，请阅读：<a href="#" onclick="javascript:parentGoTop('task-merge.html');">合并使用</a>。</p>
 <p><img src="image/task-set32.png" /></p>
 <ul>
 <li>目录：文件所在目录，点击浏览选择目录。</li>

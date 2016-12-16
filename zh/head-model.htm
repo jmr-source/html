@@ -289,33 +289,30 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">模型</div></h1>
 <hr />
 <h3>介绍</h3>
 <pre>
-● 在"概览"中，您将了解模板的原理和结构。
-● 在"规范"中，对模板的命名规范有详细说明。
-● 在"指令"中，介绍了模板编译指令，导入指令还有注释的用法。
-● 在"脚本标签"中，介绍了&lt;%! %&gt;,&lt;% %&gt;,&lt;%= %&gt;的原理和用法。
-● 在"内置对象"中，介绍了out和context这2个内置对象。
-● 在"Jmr标签"中，例举了常用的jmr标签的用法。
+● 在"转换"中，您将了解如何转换生成数据库、Java类、Xml模型。
+● 在"结构"中，您将了解模各模型的结构和如何增删改这些结构。
+● 在"预设"中，您将了解在模型转换的时候就把自定义的预设同步到模型中，减少您的工作量。
 </pre>
 <h3>内容</h3>
 <ul>
-<li><a href="#" onclick="javascript:parentGoTop('template-preface.html');">概览</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-standard.html');">规范</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-instruction.html');">指令</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-script.html');">脚本标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-object.html');">内置对象</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-tag.html');">Jmr标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-model-transform.html');">转换</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-model-structure.html');">结构</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-model-init.html');">预设</a></li>
 </ul>
 <hr />
 

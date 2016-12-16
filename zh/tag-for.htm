@@ -308,6 +308,14 @@ img {
 得到循环的集合，也可以得到变量相关的Ognl集合
 </pre>
 <pre>
+<b>valueScope（可选）</b>
+变量的作用域
+
+<b>属性</b>
+context:从context中得到变量（默认）
+session:从session中得到变量
+</pre>
+<pre>
 <b>var（必须）</b>
 存储集合的遍历对象
 </pre>
@@ -351,6 +359,11 @@ true:删除输出值的前后空格（包括换行符）
 true:已经有的重复内容仍然输出（默认）
 false:已经有的重复内容不再输出
 </pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 common/for/for</li>
+</ul>
 <h2>循环规则</h2>
 <p>从value中得到集合并设置到var中，&lt;set&gt;的value的用法同&lt;get&gt;的value，<br />
 能够从context，session中取值，var中为每次循环的元素。</p>

@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">模型结构 - entity（数据库、Java类）</div></h1>
@@ -310,6 +313,11 @@ img {
 </ul>
 </li>
 <li><a href="#" onclick="javascript:document.getElementById('5').scrollIntoView()">entity的应用</a></li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml 任务中的 model/entity</li>
 </ul>
 <h2>本章子内容</h2>
 <ul>

@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">模型预设 - 映射和转换</div></h1>
@@ -386,7 +389,6 @@ Jmr采用jdbc类型作为映射的标准的原因:
 * 搜索类型按钮：可以搜索出项目中包含的类型，暂时只支持搜索java类型。
 * 打开类型按钮：可以打开类型对应的源码，暂时只支持打开java源码。
 * 删除按钮：删除已经输入的类型。
-* 
 </pre>
 <p><img src="image/model_init_mapping_mapping7.png" /></p>
 <h2><span id="3">在模型中使用映射</span></h2>

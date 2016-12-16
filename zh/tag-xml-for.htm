@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">xml:for - xml循环迭代</div></h1>
@@ -336,10 +339,15 @@ true:删除输出值的前后空格（包括换行符）
 <b>delimiter（可选）</b>
 循环输出之间的分隔符
 </pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 xml/for/for</li>
+</ul>
 <h2>循环规则</h2>
 <p>select属性中，使用Xpath表达式得到被遍历的Xml节点，在var属性中，设置遍历的对象。</p>
 <p>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历。</p>
-<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/" target="_blank">Xpath教程</a>。</p>
+<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/">Xpath教程</a>。</p>
 <pre>这是一个xml文件</pre>
 <p><img src="image/tag_xml_add1.png" /></p>
 <p>我们将它添加到我们的模型后。</p>

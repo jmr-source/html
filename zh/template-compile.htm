@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">编译声明</div></h1>
@@ -320,7 +323,7 @@ img {
 <!--  
 模板中package="translated"，class="Hello"，正好对应起来。  
 所以命名的时候，2个不同模板的package+class不能是一样的，  
-否则可能会编译成同一个java类，执行生成的时候照成冲突，这也是命名规范中的一个要求(<a href="template-name.html#2">详细请点击</a>)。  
+否则可能会编译成同一个java类，执行生成的时候照成冲突，这也是命名规范中的一个要求(<a href="#" onclick="javascript:parentGoTop('template-name.html');">详细请点击</a>)。  
 比如一个模板hello.txt.jet的package是"translated"，class为"Hello\_txt"。  
 那么另一模板bye.txt.jet的package也是"translated"，class就不能再是"Hello\_txt"。
 -->

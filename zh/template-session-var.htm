@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">sessionVar - 全局变量</div></h1>
@@ -305,9 +308,14 @@ img {
 <li><a href="#" onclick="javascript:document.getElementById('2').scrollIntoView()">用法详解</a></li>
 </ul>
 <hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/template/template.jmr.xml 任务中的 object/context/sessionVar</li>
+</ul>
+<hr />
 <h2><span id="1">前言</span></h2>
 <p>context是内置的上下文对象，用来存放上下文的变量。</p>
-<p>var是context中设置的变量，如果一个任务有设置action，那它的生命周期只在当前任务的action和模板中传递，否则只存在于当前任务的模板中。关于var变量请阅读<a href="#" onclick="javascript:parentGoTop('template-var.html');">var - 变量</a>。</p>
+<p>var是context中设置的变量，如果一个任务有设置action，那它的生命周期只在当前任务的action和模板中传递，否则只存在于当前任务的模板中。关于var模板变量请阅读<a href="#" onclick="javascript:parentGoTop('template-var.html');">var - 模板变量</a>。</p>
 <pre>
    任务：Action
        ↓

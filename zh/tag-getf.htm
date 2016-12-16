@@ -289,16 +289,26 @@ img {
   max-width: 100%
 }
 </style>
+
+<script type="text/javascript">
+	function parentGoTop(a){
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
+	} 
+</script>
+
 </head>
 <body>
-<h1><div align="center">getf - 格式化获取变量/div&gt;</h1>
+<h1><div align="center">getf - 格式化获取变量</div></h1>
 <p>&lt;getf&gt;</p>
 <pre>
-得到变量值格式化字符串
+得到变量值格式化字符串。
+底层是调用java的方法MessageFormat.format(String pattern, Object... arguments)
 </pre>
 <h4>说明</h4>
 <pre>
-得到变量来替换掉字符串中占位符。
+得到变量来替换掉字符串中占位符。占位符为{0}、{1}、...、{n}
 </pre>
 <h4>属性</h4>
 <pre>
@@ -313,6 +323,19 @@ img {
 context:从context中得到变量（默认）
 session:从session中得到变量
 </pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 format/getf/getf</li>
+</ul>
+<h4>实例</h4>
+<p>getf的用法和get类似，可以参考get的使用方法：<a href="#" onclick="javascript:parentGoTop('tag-get.html');">get标签</a>。不同于get，getf不仅可以同时使用一到多个变量，而且可以使用站位符拼接内容，用法上更加灵活。</p>
+<p><img src="image/tag_getf1.png" /></p>
+<pre>
+运行结果：
+</pre>
+<p><img src="image/tag_getf2.png" /></p>
+
 </body>
 </html>
 <!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

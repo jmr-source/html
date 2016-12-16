@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">xml - xml对象</div></h1>
@@ -321,6 +324,11 @@ xml模型的名称（通过name指定）
 <b>relation（可选）</b>
 xml模型的关系（通过relation指定）
 </pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 model/xml/xml</li>
+</ul>
 <h4>实例</h4>
 <p>在模型中，有3个模型对象，分别来源于数据库、Java类和Xml文件。<br />
 &lt;xml&gt;标签可以读取来xml文件的模型。而entity对象则可通过&lt;entity&gt;标签。  </p>

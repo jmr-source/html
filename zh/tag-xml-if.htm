@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">xml:if - xml判断</div></h1>
@@ -325,6 +328,11 @@ or:或
 false:保留输出值的前后空白字符（默认）
 true:删除输出值的前后空格（包括换行符）
 </pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 xml/if/if</li>
+</ul>
 <h2>判断规则</h2>
 <p>使用Xpath表达式判断Xml。在test中，输入Xpath表达式，表达式成立，则执行xml:if块内的内容，不成立，则跳过或者进入下个判断语句快（如&lt;xml:elseif&gt;或&lt;xml:else&gt;）。</p>
 <p>常用判断符号</p>
@@ -339,7 +347,7 @@ or:或
 &lt;=:小于等于
 </pre>
 <p>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历。</p>
-<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/" target="_blank">Xpath教程</a>。</p>
+<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/">Xpath教程</a>。</p>
 <pre>这是一个xml文件</pre>
 <p><img src="image/tag_xml_add1.png" /></p>
 <p>我们将它添加到我们的模型后。</p>

@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">xml:set - 设置xml变量</div></h1>
@@ -315,10 +318,15 @@ img {
 <b>var（必须）</b>
 设置新的变量
 </pre>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 xml/set/set</li>
+</ul>
 <h2>使用方法</h2>
 <p>在select属性中，使用Xpath表达式得到xml的值，并在var属性中，设置新变量。</p>
 <p>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历。</p>
-<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/" target="_blank">Xpath教程</a>。</p>
+<p>关于Xpath表达式，请点击参考：<a href="http://www.w3school.com.cn/xpath/">Xpath教程</a>。</p>
 <pre>这是一个xml文件</pre>
 <p><img src="image/tag_xml_add1.png" /></p>
 <p>我们将它添加到我们的模型后。</p>

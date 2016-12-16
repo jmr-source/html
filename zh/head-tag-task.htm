@@ -289,19 +289,22 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">任务标签</div></h1>
 <hr />
 <h3>介绍</h3>
 <pre>
-在模板中，我们可以通过一系列以t开头的标签，获取调用这个模板的任务信息。
+在模板中，我们可以通过一系列以task开头的标签，获取调用这个模板的任务信息。
 下图中任务信息，对应指定的标签。
 </pre>
 <h3>任务标签</h3>
@@ -316,6 +319,11 @@ img {
 <li><a href="#" onclick="javascript:parentGoTop('tag-task-mode.html');">&lt;task:mode/&gt;</a>：生成文件模式(新建:new, 合并:merge, 覆盖:overlay)</li>
 </ul>
 <p><img src="image/tag_task_message.png" /></p>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/tag/tag.jmr.xml 任务中的 task/task/task</li>
+</ul>
 <h3>实例演示</h3>
 <hr />
 <p><img src="image/tag_task_template.png" /></p>

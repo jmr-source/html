@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">模型转换 - 数据库</div></h1>
@@ -395,7 +398,7 @@ chapter: id是主键，包括name和book_id等字段，其中book_id是外键，
 </ul>
 <p><img src="image/model_db_model2.png" /></p>
 <p>点击 <img src="image/model_db_expand.png" /> 打开每组的内容；
-关于数据库模型的结构，请参考：<a href="model-structure-db.html">结构 - 数据库</a>。</p>
+关于数据库模型的结构，请参考：<a href="#" onclick="javascript:parentGoTop('model-structure-db.html');">结构 - 数据库</a>。</p>
 <p>chapter表的book_id的外键是book表的id。
 可以按到book_id的isFk是true，fkEntityName关联的表是book，fkFieldName是id。</p>
 <p><img src="image/model_db_model3.png" /></p>

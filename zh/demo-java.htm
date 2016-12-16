@@ -289,18 +289,28 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;	
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">实战 - Java Web项目</div></h1>
 <hr />
 <h2>前言</h2>
 <p>Jmr如何运用到实际开发，如何给大家带来效率的提升和真实的价值，这才是大家最关心的。接下来通过一个实际Java Web项目来说明。</p>
+<hr />
+<h3>项目下载位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo-java</a>。</li>
+<li>jmr.sql中可以导入到mysql数据库。</li>
+<li>登录地址：localhost:8080/jmr。</li>
+</ul>
 <h2>具体内容</h2>
 <ul>
 <li><a href="#" onclick="javascript:parentGoTop('demo-java-model.html');">模型：</a>讲述项目的模型如何设计和预设方案</li>

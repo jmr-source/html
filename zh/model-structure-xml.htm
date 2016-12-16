@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">模型结构 - xml（xml文件）</div></h1>
@@ -303,6 +306,11 @@ img {
 <ul>
 <li><a href="#" onclick="javascript:document.getElementById('1').scrollIntoView()">xml的结构</a></li>
 <li><a href="#" onclick="javascript:document.getElementById('2').scrollIntoView()">xml的应用</a></li>
+</ul>
+<hr />
+<h3>例子位置：</h3>
+<ul>
+<li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml 任务中的 model/xml/xml</li>
 </ul>
 <h2>阅读前需要了解的知识</h2>
 <h4>模型</h4>

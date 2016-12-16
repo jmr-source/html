@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">模板命名规范</div></h1>
@@ -322,7 +325,7 @@ img {
 </ul>
 <!--
 * package + class不能重复，因为模板会编译成对应的java类，  
-  如果2个模板的package和class都是一样的，它们就会被编译成同一个java类，照成冲突(<a href="template-compile.html#1.1">详细请点击</a>)。  
+  如果2个模板的package和class都是一样的，它们就会被编译成同一个java类，照成冲突(<a href="#" onclick="javascript:parentGoTop('template-compile.html');">详细请点击</a>)。  
   比如一个模板hello.txt.jet的package是"translated"，class为"Hello\_txt"。  
   那么另一模板bye.txt.jet的package也是"translated"，class就不能再是"Hello\_txt"。
 -->

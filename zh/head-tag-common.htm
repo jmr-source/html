@@ -289,12 +289,15 @@ img {
   max-width: 100%
 }
 </style>
+
 <script type="text/javascript">
 	function parentGoTop(a){
-	parent.window.location.href=a;	
-	parent.scrollTo(0,0);
+	window.open(a);  
+	//parent.window.location.href=a;		
+	//parent.scrollTo(0,0);
 	} 
 </script>
+
 </head>
 <body>
 <h1><div align="center">常规标签</div></h1>
@@ -308,7 +311,7 @@ img {
 <ul>
 <li><a href="#" onclick="javascript:parentGoTop('tag-get.html');">get - 获取参数</a></li>
 <li><a href="#" onclick="javascript:parentGoTop('tag-set.html');">set - 设置参数</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('tag-if.html');"><a href="l">if - 判断</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('tag-if.html');">if - 判断</a></li>
 <li><a href="#" onclick="javascript:parentGoTop('tag-elseif.html');">elseif - 判断</a></li>
 <li><a href="#" onclick="javascript:parentGoTop('tag-else.html');">else - 判断</a></li>
 <li><a href="#" onclick="javascript:parentGoTop('tag-for.html');">for - 循环迭代</a></li>
