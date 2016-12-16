@@ -48,6 +48,7 @@
 	background:url(imgs/st_folder.gif); 
 	background-repeat:no-repeat; 
 	padding:0 0 0 20px; 
+	cursor:default;
 }
 
 /* 展开的父节点 */
@@ -56,8 +57,10 @@
 	background:url(imgs/st_folder_open.gif); 
 	background-repeat:no-repeat; 
 	padding:0 0 0 20px; 
+	cursor:default;
 }
 
 .st_tree .hover{
-	background-color:#ffa;
+	background-color:#ffa; 
+	cursor:default;
 }
