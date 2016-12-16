@@ -210,17 +210,17 @@
     width: 177px;
     height: 150px;
     display: inline-block;
-    background: url("../jmr_files/jiandan.png") top no-repeat;
+    background: url("../jmr_files/jiandan@2x.png") top no-repeat;
 }
 .container-fluid .cell .b2 {
-    background: url("../jmr_files/chuangx.png") top no-repeat;
+    background: url("../jmr_files/chuangx@2x.png") top no-repeat;
     background-size: contain;
 }
 .container-fluid .cell .b3 {
-    background: url("../jmr_files/anquan.png") top no-repeat;
+    background: url("../jmr_files/anquan@2x.png") top no-repeat;
 }
 .container-fluid .cell .b4 {
-    background: url("../jmr_files/zhuanye.png") top no-repeat;
+    background: url("../jmr_files/zhuanye@2x.png") top no-repeat;
 }
 .container-fluid .cell dl {
     text-align: center;
