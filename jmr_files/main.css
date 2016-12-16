@@ -89,7 +89,7 @@
 .container-banner {
     width: 100%;
     height: 200px;
-    background: url("../img/lianxi_bg.png?v11") center no-repeat;
+    background: url("../jmr_files/lianxi_bg.png?v11") center no-repeat;
     background-size: cover;
 }
 .container-banner .title {
@@ -127,7 +127,7 @@
 }
 .site-banner-deploy {
     height: 540px;
-    background: url("../img/tuiguangbannner.jpg?v12") center no-repeat;
+    background: url("../jmr_files/tuiguangbannner.jpg?v12") center no-repeat;
 }
 .site-banner .solgon {
     width: 100%;
@@ -183,7 +183,7 @@
     margin-top: 210px;
     width: 569px;
     height: 335px;
-    background: url("../img/banner_computer.png") top no-repeat;
+    background: url("../jmr_files/banner_computer.png") top no-repeat;
 }
 .site-banner-about {
     width: 100%;
@@ -210,17 +210,17 @@
     width: 177px;
     height: 150px;
     display: inline-block;
-    background: url("../img/jiandan.png") top no-repeat;
+    background: url("../jmr_files/jiandan.png") top no-repeat;
 }
 .container-fluid .cell .b2 {
-    background: url("../img/chuangx.png") top no-repeat;
+    background: url("../jmr_files/chuangx.png") top no-repeat;
     background-size: contain;
 }
 .container-fluid .cell .b3 {
-    background: url("../img/anquan.png") top no-repeat;
+    background: url("../jmr_files/anquan.png") top no-repeat;
 }
 .container-fluid .cell .b4 {
-    background: url("../img/zhuanye.png") top no-repeat;
+    background: url("../jmr_files/zhuanye.png") top no-repeat;
 }
 .container-fluid .cell dl {
     text-align: center;
@@ -337,7 +337,7 @@
 /* login reg Ò³Ãæ */
 .login-top,.reg-top {
     height: 220px;
-    background: url("../img/keyboard.jpg") center no-repeat;
+    background: url("../jmr_files/keyboard.jpg") center no-repeat;
     background-size: cover;
 }
 .login-top p,.reg-top p {
@@ -540,7 +540,7 @@
     margin-top: 130px;
     margin-bottom: 50px;
     border-left: solid 4px #00aeef;
-    background: url('../img/easybg.png') right top no-repeat #fff;
+    background: url('../jmr_files/easybg.png') right top no-repeat #fff;
 }
 .easyMenu {
     display: inline-block;
@@ -561,7 +561,7 @@
 }
 .easyMenu ul li span.actived {
     width: 179px;
-    background: url('../img/easyLi.png') left center no-repeat;
+    background: url('../jmr_files/easyLi.png') left center no-repeat;
     border: none;
     height: 83px;
     position: absolute;
@@ -738,7 +738,7 @@
         margin-top: 210px;
         width: 668px;
         height: 393px;
-        background: url("../img/banner_computer@2x.png") top no-repeat;
+        background: url("../jmr_files/banner_computer@2x.png") top no-repeat;
     }
     .container-fluid .cell .cell-col-5 i {
         font-size: 110px;
