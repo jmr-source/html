@@ -319,15 +319,13 @@ img {
 <ul>
 <li><a target="_blank" href="http://www.jmr-source.com/jmr_down.htm">demo</a>/model/model.jmr.xml 任务中的 model/entity</li>
 </ul>
-<h2>本章子内容</h2>
+<h2>本章内容</h2>
 <ul>
 <li>
 entity
 <ul>
 <li><a href="#" onclick="javascript:parentGoTop('model-structure-property.html');">property</a> - 属性</li>
-<li><a href="#" onclick="javascript:parentGoTop('model-structure-field.html');">field</a> - 字段</li>
-<li><a href="#" onclick="javascript:parentGoTop('model-structure-column.html');">column</a> - 列</li>
-<li><a href="#" onclick="javascript:parentGoTop('model-structure-data.html');">data</a> - 字段数据</li>
+<li><a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">Field、Column、Data</a> - 字段、列、字段数据</li>
 </ul>
 </li>
 </ul>
@@ -407,7 +405,7 @@ entity
 </li>
 </ul>
 <p><img src="image/model_structure_entity6.png" /></p>
-<p>我们可以新设修改属性，其中name可以通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field.html');">field - 字段</a>。</p>
+<p>我们可以新设修改属性，其中name可以通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">field - 字段</a>。</p>
 <p><img src="image/model_structure_entity9.png" /></p>
 <ul>
 <li>
@@ -421,7 +419,7 @@ entity
 </li>
 </ul>
 <p><img src="image/model_structure_entity7.png" /></p>
-<p>我们可以新设修改属性，其中type和fullType以jdbcType为原型，通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field.html');">field - 字段</a>。</p>
+<p>我们可以新设修改属性，其中type和fullType以jdbcType为原型，通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">field - 字段</a>。</p>
 <p>关于jdbcType：</p>
 <pre>
 不同数据库所支持的SQL类型之间有很大的不同，比如Oracle中有DECIMAL类型，
@@ -480,7 +478,7 @@ TIME, TIMESTAMP, TINYINT, VARBINARY, VARCHAR
 <li>isQuery列：字段是否被查询，在查询页面使用到。</li>
 </ul>
 <p><img src="image/model_structure_entity16.png" /></p>
-<p>关于新设和修改Column，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-column.html');">column - 列</a>。</p>
+<p>关于新设和修改Column，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">column - 列</a>。</p>
 <h3>Data（字段数据）</h3>
 <p>字段除了Column这样的公共属性外，每个字段自己还有私有的属性，它就是data。在data中，我们可以设定多个键值。</p>
 <p>选中任何字段后，都可以设置它的data。</p>
@@ -489,7 +487,7 @@ TIME, TIMESTAMP, TINYINT, VARBINARY, VARCHAR
 <p><img src="image/model_structure_entity18.png" /></p>
 <p>类型字段是一个下拉框select，select的option有2项，novel和magazine，value为0和1。</p>
 <p><img src="image/model_structure_entity19.png" /></p>
-<p>关于新设和修改Data，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-data.html');">data - 字段数据</a>。</p>
+<p>关于新设和修改Data，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">data - 字段数据</a>。</p>
 <h2><span id="3">视图(view)</span></h2>
 <p>数据库中有张视图vw_book_chapter，它是book表和chapter的关联查询，查询的结果是2个字段
 name和chapter_name。</p>
@@ -545,7 +543,7 @@ name和chapter_name。</p>
 </li>
 </ul>
 <p><img src="image/model_structure_entity26.png" /></p>
-<p>我们可以新设修改属性，其中name可以通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field.html');">field - 字段</a>。</p>
+<p>我们可以新设修改属性，其中name可以通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">field - 字段</a>。</p>
 <ul>
 <li>
 <p>类型：type和fullType用作语言的类型和完整类型，jdbcType和dbType为数据库类型的映射。</p>
@@ -558,7 +556,7 @@ name和chapter_name。</p>
 </li>
 </ul>
 <p><img src="image/model_structure_entity27.png" /></p>
-<p>我们可以新设修改属性，其中type和fullType以jdbcType为原型，通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field.html');">field - 字段</a>。</p>
+<p>我们可以新设修改属性，其中type和fullType以jdbcType为原型，通过转换和预设得到新的值，更详细的内容，请阅读：<a href="#" onclick="javascript:parentGoTop('model-structure-field-column-data.html');">field - 字段</a>。</p>
 <p>区别于数据库模型，java类模的字段只有默认和类型2个部分。</p>
 <h2><span id="5">entity的应用</span></h2>
 <p>在模板中，使用&lt;entity&gt;标签调用模型。</p>
