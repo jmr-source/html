@@ -7,7 +7,7 @@
     <meta http-equiv="expires" content="0">
     <meta name="renderer" content="webkit">
     <meta name="keywords" content="jmr,jmr教程,jmr代码生成,代码生成" />
-    <meta name="description" content="JMR是一款能为公司提高效率，减少成本，解决开发问题的跨框架，跨语言，跨项目且简单易学的软件自动化生成代码工具。" />
+    <meta name="description" content="专注于代码生成的Eclipse插件，编写模板可以生成任何代码，任何项目和框架都可以使用。" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
     <link rel="stylesheet" href="../jmr_files/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="../jmr_files/font-awesome.css" type="text/css">
@@ -20,15 +20,6 @@
 	  <script type="text/javascript" src="../jmr_files/jquery.slidertron-1.1.js"></script> 
 	  <script type="text/javascript" src="../jmr_files/SimpleTree.js"></script>
 	  <link rel="stylesheet" type="text/css" href="../jmr_files/tree_themes/SimpleTree.css"/>
-    <script type="text/javascript">
-        platform();
-        var targetProtocol = "https:";
-        var domain = window.location.host;
-        if (window.location.protocol != targetProtocol)
-            if(domain == 'www.bugclose.com' || domain == 'bugclose.com')
-                window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
-        window._projectId = bugCloseStorage.getItem('project_id');
-    </script>
      
     	<script type="text/javascript">
 			$(function(){
@@ -39,7 +30,8 @@
 			});
 			
 			function treego(a){
-				window.location.href=a;
+				parent.window.location.href=a;	
+				parent.scrollTo(0,0);
 			}
 			</script>
      
@@ -67,10 +59,10 @@
 			          <div class="logo"><img src="../jmr_files/editor-A.gif"> </div>
 			          <div class="nav">
 			              <div class="menu">
-			               	<a href="../jmr.html">首页</a>
-                    <a href="../jmr_down.htm">下载</a>
-                    <a href="../jmr_about.htm">关于我们</a> 
-                    <a href="../jmr_support.htm">官方服务</a> 
+			               	<a href="http://www.jmr-source.com/jmr.html">首页</a>
+                    <a href="http://www.jmr-source.com/jmr_down.htm">下载</a>
+                    <a href="http://www.jmr-source.com/jmr_about.htm">关于我们</a> 
+                    <a href="http://www.jmr-source.com/jmr_support.htm">官方服务</a> 
                     <div class="reg-login" style=""> 
                      	<select onchange="pageInit();" id="language">
 												<option selected value="1">中文</option>
@@ -98,6 +90,9 @@
                  	<div style="float:left; text-align:left; width:70%; line-height: 3;" > 
                  		<div style="margin: 0 auto; width:50%; height:50;" >
 	                 		<iframe src="advertisement-top.html" width="100%" frameBorder="0" scrolling="no"></iframe>
+	                 	</div>
+	                 	<div style="float:left; text-align:left; margin: 0 auto; width:50%; height:50;" >
+	                 		<a href="#" onclick="treego('http://www.jmr-source.com/zh/head-model.html')"><span style="color:#4183C4;">模型</span></a> -> <a href="#" onclick="treego('http://www.jmr-source.com/zh/head-model-transform.html')"><span style="color:#4183C4;">转换</span></a> -> <a href="#" onclick="treego('http://www.jmr-source.com/zh/model-java.html')"><span style="color:#4183C4;">Java类</span></a>
 	                 	</div>
 										<iframe target="main" src="model-java.htm" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
                  	</div>  

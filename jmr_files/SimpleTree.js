@@ -22,9 +22,10 @@ $(function(){
 			}/* option._init() End */
 			
 			/* 设置所有超链接不响应单击事件 */
-			this.find("a").click(function(){ 
-				//$(this).parents("li").click(); 
-				return false; });
+			this.find("a").click(function(){
+				$(this).parents("li").click(); 	
+				return true; 
+			});
 			
 			/* 菜单项 <li> 接受单击 */
 			this.find("li").click(function(){
@@ -42,11 +43,14 @@ $(function(){
 				 * 如果当前节点下面包含子菜单，并且其 show 属性的值为 true，则修改其 show 属性为 false
 				 * 否则修改其 show 属性为 true
 				 */
+			//alert(typeof(a));
+			//if(typeof(a)=="undefined"){
 				if($(this).next("ul").attr("show")=="true"){
 					$(this).next("ul").attr("show","false");					
 				}else{
 					$(this).next("ul").attr("show","true");
 				}
+			//}
 				
 				/* 初始化菜单 */
 				option._init();
