@@ -34,24 +34,79 @@
 				parent.scrollTo(0,0);
 			}
 			</script>
+			
+			  <script type="text/javascript">
+          
+        //设置cookie
+				function setCookie(clanguage, cvalue, exdays) {
+				    var d = new Date();
+				    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+				    var expires = "expires="+d.toUTCString();
+				    document.cookie = clanguage + "=" + cvalue + "; " + expires;
+				}
+				//获取cookie
+				function getCookie(cname) {
+				    var name = cname + "=";
+				    var ca = document.cookie.split(';');
+				    for(var i=0; i<ca.length; i++) {
+				        var c = ca[i];
+				        while (c.charAt(0)==' ') c = c.substring(1);
+				        if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+				    }
+				    return "";
+				}
+				//清除cookie  
+				function clearCookie(name) {  
+				    setCookie(name, "", -1);  
+				}  
+				function checkCookie() {
+				    var clanguage = getCookie("clanguage");
+				    if (clanguage != "") {
+				    } else {
+				     	   var languagetype=navigator.appName;
+				     	   if (languagetype=="Netscape"){
+								    var languagelang = navigator.language;
+								}
+								else{
+								    var languagelang = navigator.userLanguage;
+								}
+								var languagelang2 = languagelang.substr(0,2);
+								if (languagelang2 == "en"){
+									setCookie("clanguage", 0, 365);
+								}else{
+									setCookie("clanguage", 1, 365);
+								}
+				    }
+				}
+				checkCookie(); 
+    </script>
      
      
      <script type="text/javascript"> 
 			function pageInit(){
-				var contact = "";
 				var changeLanguage = document.getElementById("language").value;
-				if(changeLanguage == null || changeLanguage == "1")
+				if(changeLanguage == null || changeLanguage == "" )
+				{
+						//获取cookie
+						var clanguage = getCookie("clanguage");
+						if (clanguage != "") {
+				        changeLanguage  = clanguage;
+				    } else {
+				        setCookie("clanguage", 0, 365);
+				    }
+				}
+				if(changeLanguage == "1")
 				{
 					
 				}else
 				{
-					window.location.href="../en/preface.htm";
+					window.location.href="../en/preface.html";
 				}
 			}
 		</script>
       
 <link style="" id="layui_layer_skinlayercss" href="../jmr_files/layer.css" rel="stylesheet"></head>
-<body>
+<body onload="pageInit();">
     <div id="wrapper">
         <!-- top start -->
 					<div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
@@ -65,7 +120,7 @@
                     <a href="http://www.jmr-source.com/jmr_support.htm">官方服务</a> 
                     <div class="reg-login" style=""> 
                      	<select onchange="pageInit();" id="language">
-												<option selected value="1">中文</option>
+												<option value="1">中文</option>
 												<option value="0">English</option>
 											</select>
                     </div>
@@ -85,14 +140,11 @@
                  	<div style="float:left; text-align:left; margin:0 50px 0 0; padding:10px; width:23%; overflow:auto;"> 
                 	</div>
                  	<div style="float:left; text-align:left; margin:0 50px 0 0; border:0px solid #999; padding:10px; width:20%; overflow:auto; position: fixed;">
-                 		<iframe src="tree.html" width="100%" height="600" frameBorder="0" scrolling="no"></iframe>
+                 		<iframe src="tree.html" width="100%" id="showTree" height="900" frameBorder="0" scrolling="no"></iframe>
                  	</div> 
                  	<div style="float:left; text-align:left; width:70%; line-height: 3;" > 
                  		<div style="margin: 0 auto; width:50%; height:50;" >
 	                 		<iframe src="advertisement-top.html" width="100%" frameBorder="0" scrolling="no"></iframe>
-	                 	</div>
-	                 	<div style="float:left; text-align:left; margin: 0 auto; width:50%; height:50;" >
-	                 		<a href="#" onclick="treego('http://www.jmr-source.com/zh/demo-java.html')"><span style="color:#4183C4;">实战</span></a> -> 模板 -> model -> dao -> <a href="#" onclick="treego('http://www.jmr-source.com/zh/demo-java-dao.html')"><span style="color:#4183C4;">dao</span></a>
 	                 	</div>
 										<iframe target="main" src="demo-java-dao.htm" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
                  	</div>  
@@ -108,22 +160,9 @@
         </div>
         <!-- container end -->
         <!-- footer start -->
-        <footer class="site-footer" id="site-footer">
-            <div class="linkUs">
-                <div class="bugclose-width">
-                 	  <div style="float:center; text-align:center;">
-                        <img src="../jmr_files/jmrimg10.png"> JMR：厦门创欣佳软件开发有限公司
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg6.png"> QQ群：212108669
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg7.png"> job_jmr@163.com
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../jmr_files/jmrimg8.png"> 厦门软件园二期望海路61号N9C10
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    </div>   
-                    <div style="float:center; text-align:center;">
-                     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备案号：闽ICP备16012802号
-                    </div>
-                </div>
-            </div>
-        </footer>
+         <div style="float:left; text-align:left; width:100%; height:100;" > 
+          	<iframe src="footer.html" width="100%" height="100" frameBorder="0" scrolling="no"></iframe>
+       	</div>  
         <!-- footer end -->
     </div>
     <script type="text/javascript" src="../jmr_files/jquery.js"></script>
@@ -152,8 +191,14 @@
 						doc.height = doc.Document.body.scrollHeight;
 					}
 				} 
-     	}
+			}
+			
+			document.getElementById("showTree").onload = function () {
+				$("#showTree").contents().find("#treedivli92").addClass('hover2');
+			} 
+			
     </script>
+
      
     <script>
 		(function(){
