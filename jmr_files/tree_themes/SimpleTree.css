@@ -43,8 +43,7 @@
 .st_tree ul li ul li{}
 
 /* 子菜单的父节点 */
-.st_tree .folder{ 
-	list-style-image:url(imgs/st_icon.png); 
+.st_tree .folder{  
 	background:url(imgs/st_folder.gif); 
 	background-repeat:no-repeat; 
 	padding:0 0 0 20px; 
@@ -53,7 +52,6 @@
 
 /* 展开的父节点 */
 .st_tree .open{ 
-	list-style-image:url(imgs/st_icon_open.png); 
 	background:url(imgs/st_folder_open.gif); 
 	background-repeat:no-repeat; 
 	padding:0 0 0 20px; 
@@ -62,5 +60,11 @@
 
 .st_tree .hover{
 	background-color:#ffa; 
+	cursor:default;
+}
+
+
+.st_tree .hover2{ 
+	background-color:#66B3FF; 
 	cursor:default;
 }
