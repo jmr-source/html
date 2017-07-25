@@ -293,21 +293,21 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
 
 </head>
 <body>
-<h1><div align="center">menu(menu.jsp.jet) - 生成菜单栏链接</div></h1>
+<h1><div align="center">menu(menu.jsp.jet) - 添加链接到菜单栏</div></h1>
 <h2>功能描述</h2>
-<p>在项目左侧菜单栏生成链接。</p>
+<p>添加链接到菜单栏。</p>
 <h2>阅读前需要了解的知识：</h2>
 <h4>任务</h4>
 <ul>
-<li><a href="#" onclick="javascript:parentGoTop('task-set.html');">配置</a> </li>
-<li><a href="#" onclick="javascript:parentGoTop('task-type-merge.html');">合并</a> </li>
+<li><a href="#" onclick="javascript:parentGoTop('task-set.html');">配置</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('task-type-merge.html');">合并</a></li>
 </ul>
 <h4>标签</h4>
 <ul>
@@ -326,15 +326,23 @@ img {
 <h2>任务和模型</h2>
 <p><img src="image/demo-java-menu-task.png" /></p>
 <ul>
-<li>模型：shop</li>
+<li>模型组：shop</li>
+<li>模型：book</li>
 </ul>
 <pre>
-当前任务的模型名称是shop，包含一个java实体模型book，book的relation值是one；
+当前任务的模型组名称是shop，它包含一个java实体模型book，book的relation值是one；
 我们在模板中会通过&lt;entity&gt;得到它。
 
 关于本demo的模型结构，详细内容请点击：<a href="#" onclick="javascript:parentGoTop('demo-java-model.html');">模型结构</a> 
 </pre>
+<p>有2种方式设置模型：</p>
+<ul>
+<li>选择模型组（如shop）：&lt;entity&gt;中需要指定relation。这种选法一般应用于模板中需要得到多个模型，比如many-to-one many-to-many等情况。</li>
+</ul>
 <p><img src="image/demo-java-model1.png" /></p>
+<ul>
+<li>选择模型（如book）<b>（本例选择）</b>：&lt;entity&gt;中无需指定relation，这种方法用于模板只需要单个模型。当然，这种方式也可以指定relation。</li>
+</ul>
 <p><img src="image/demo-java-model2.png" /></p>
 <ul>
 <li>
@@ -355,10 +363,10 @@ img {
 <p>我们采用insert标签，可以在相同id的位置插入合并内容；模板中只要写入合并内容即可。</p>
 <p>Class和class为需要拼接的头字母大小写的类名，插入对应的配置。</p>
 <ul>
-<li>得到entity，它的relation为one，对应的模型为book，新设变量object指向one。</li>
+<li>entity设置新设变量object指向被选中的模型。</li>
 <li>设置变量Class，作为头子母大写部分，通过object.property(&quot;Class&quot;)得到，值是Book。</li>
 <li>设置变量class，作为头子母小写部分，通过object.property(&quot;class&quot;)得到，值是book。</li>
-<li>使用m:insert 设置id等于menu，和被合并文件的标识统一。</li>
+<li>使用insert 设置id等于menu，和被合并文件的标识统一。</li>
 </ul>
 <p><img src="image/demo-java-menu-template3.png" /></p>
 <pre>

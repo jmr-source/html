@@ -293,47 +293,42 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
 
 </head>
 <body>
-<p><a href="#" onclick="javascript:parentGoTop('tag-insert.html');">查看文档请点此</a></p>
-<h1><div align="center">insert - 插入</div></h1>
+<p><a href="#" onclick="javascript:parentGoTop('tag-insert.html');">More about please click...</a></p>
+<h1><div align="center">insert - Merge insert</div></h1>
 <p>&lt;insert&gt;</p>
 <pre>
-合并使用的插入标签
+Merge insert 
 </pre>
-<h4>说明</h4>
+<h4>Introduce</h4>
 <pre>
-和以下标识作用一样：
+The same as the following：
 insert_start id="..."
 insert_end
 
-在模板中，用于插入合并，被合并文件如果有同样id的标识，会在其后插入新内容。
+New content is inserted at the same id part in the merged file.
 
-模版中：
+template:
 &lt;insert id="..."&gt;
  ..(2)..
 &lt;/insert&gt;
 
-文件合并位置同样id的部分：
+the same id in merged file:
 insert_start id="..."
   ..(1)..
 insert_end
 
-合并后：
+After merge:
 insert_start id="..."
   ..(1)..
   ..(2)..
 insert_end
-</pre>
-<h4>属性</h4>
-<pre>
-<b>var（必须）</b>
-合并插入的id
 </pre>
 </body>
 </html>

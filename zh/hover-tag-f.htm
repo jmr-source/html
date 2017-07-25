@@ -293,7 +293,7 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
@@ -327,6 +327,23 @@ img {
 <b>属性</b>
 context:从context中得到变量（默认）
 session:从session中得到变量
+</pre>
+<h4>其它</h4>
+<pre>
+这个标签有2种格式
+1.&lt;f parrten="" values=""/&gt;
+
+e.g.
+&lt;f var="s" set value="'Hello Jmr!'"/&gt;
+&lt;f partten="Demo: %s" values="s"/&gt;
+-->Demo: Hello Jmr!
+
+2.&lt;f parrten=""&gt;&lt;/f&gt;
+
+e.g.
+&lt;f var="s" set value="'Hello Jmr!'"/&gt;
+&lt;f partten="Demo: %s"&gt;&lt;get value="s"/&gt;&lt;/f&gt;
+-->Demo: Hello Jmr!
 </pre>
 </body>
 </html>

@@ -293,7 +293,7 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
@@ -301,30 +301,32 @@ img {
 </head>
 <body>
 <h1><div align="center">标签</div></h1>
+<p>Jmr标签类似于Jsp标签。和Jsp、Asp一样，&lt;%%&gt;中的代码往往比较冗余，影响可读性。而使用标签后，不仅仅大大提高模板的可读性，同时也可以很好的实现前后台的分离。</p>
+<h2>Jmr标签基于Ognl的体系</h2>
+<p>Jmr标签最大的特点就是实现Ognl体系，可以方便的调用变量的属性和方法。</p>
+<p>如下例子，先通过set标签设置一个String类型，再通过get标签可以得到它的全部属性和方法。</p>
+<p><img src="image/tag_ognl.png" /></p>
+<p>可以看到，通过标签，可以自由的操作对象的属性和方法，得到我们想要的值。</p>
+<p><img src="image/tag_ognl_example.png" /></p>
+<h2>Jmr标签实现前后台分离</h2>
+<p>在Action中设置变量，传递到模板中使用。</p>
+<p>如下例子，在Action中设置String、List变量，在模板中分别通过get标签和for标签遍历获取。</p>
+<p><img src="image/tag_action.png" /></p>
+<h2>Jmr标签展示模型结构</h2>
+<p>Jmr标签能够方便的得到模型的结构和信息。</p>
+<p><img src="image/model_structure_entity28.png" /></p>
 <hr />
-<h3>介绍</h3>
-<pre>
-● 模型标签：通过模型标签，我们可以获得数据库模型、Java类模型，Xml模型等。
-● 常规标签：最常用的基本标签，使用好它们，可以代替大部分&lt;%%&gt;、&lt;%=%&gt;。
-● xml标签：如果您有xml模型，这时候就需要这些标签来操作它。
-● 合并标签：在模板中，除了使用注释的方式合并，也可以使用合并标签代替这些操作。
-● 嵌套标签：可以在模板中嵌套其它模板的标签。
-● 格式化标签：格式化内容，生成自己的风格的标签。
-● java标签：在编写java模板时，可以自动获取java包名和类名的标签
-● 任务标签：获取调用这个模板的任务信息。
-</pre>
-<h3>内容</h3>
+<h3>更多详细内容</h3>
 <ul>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-entity.html');">模型标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-common.html');">常规标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-xml.html');">xml标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-merge.html');">合并标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-include.html');">嵌套标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-format.html');">格式化标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-java.html');">java标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-tag-task.html');">任务标签</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-entity.html');">模型标签</a>：通过模型标签，我们可以获得数据库模型、Java类模型，Xml模型等。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-common.html');">常规标签</a>：最常用的基本标签，使用好它们，可以代替大部分&lt;%%&gt;、&lt;%=%&gt;。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-xml.html');">xml标签</a>：如果有xml模型，这时候就需要这些标签来操作。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-merge.html');">合并标签</a>：在合并模式中用于合并的标签。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-include.html');">嵌套标签</a>：可以在模板中嵌套其它模板的标签。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-format.html');">格式化标签</a>：格式化内容的标签。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-java.html');">java标签</a>：在编写java模板时，可以自动获取java包名和类名的标签。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-tag-task.html');">任务标签</a>：获取调用这个模板的任务信息。</li>
 </ul>
-<hr />
 
 </body>
 </html>

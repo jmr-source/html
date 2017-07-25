@@ -293,16 +293,16 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
 
 </head>
 <body>
-<h1><div align="center">update(update.jsp.jet) - 编辑页面</div></h1>
+<h1><div align="center">update(update.jsp.jet) - 生成编辑页面</div></h1>
 <h2>功能描述</h2>
-<p>生成新增页面。</p>
+<p>生成编辑页面。</p>
 <h2>阅读前需要了解的知识：</h2>
 <h4>任务</h4>
 <ul>
@@ -326,15 +326,23 @@ img {
 <h2>任务和模型</h2>
 <p><img src="image/demo-java-update-task.png" /></p>
 <ul>
-<li>模型：shop</li>
+<li>模型组：shop</li>
+<li>模型：book</li>
 </ul>
 <pre>
-当前任务的模型名称是shop，包含一个java实体模型book，book的relation值是one；
+当前任务的模型组名称是shop，它包含一个java实体模型book，book的relation值是one；
 我们在模板中会通过&lt;entity&gt;得到它。
 
 关于本demo的模型结构，详细内容请点击：<a href="#" onclick="javascript:parentGoTop('demo-java-model.html');">模型结构</a> 
 </pre>
+<p>有2种方式设置模型：</p>
+<ul>
+<li>选择模型组（如shop）：&lt;entity&gt;中需要指定relation。这种选法一般应用于模板中需要得到多个模型，比如many-to-one many-to-many等情况。</li>
+</ul>
 <p><img src="image/demo-java-model1.png" /></p>
+<ul>
+<li>选择模型（如book）<b>（本例选择）</b>：&lt;entity&gt;中无需指定relation，这种方法用于模板只需要单个模型。当然，这种方式也可以指定relation。</li>
+</ul>
 <p><img src="image/demo-java-model2.png" /></p>
 <ul>
 <li>模板：add.jsp.jet</li>
@@ -343,27 +351,24 @@ img {
 我们为这个模型新设了以下属性：
 Class：头字母大写的名称，可以作为类名或者需要头字母大写的部分，它的值是"Book"。
 class：头字母小写的名称，可以作为头字母小写的部分，它的值是"book"。
-menu：界面菜单栏的名称，它的值是"book"。
+menu：界面菜单栏的名称，它的值是"Book"。
 </pre>
 <ul>
-<li>生成目录：/jmr/WebContent/views/${one.class}，如果目录不存在会自动创建。</li>
+<li>生成目录：/jmr/WebContent/views/${class}，如果目录不存在会自动创建。</li>
 </ul>
 <p><img src="image/demo-java-update-template1.png" /></p>
 <ul>
-<li>文件名：${one.class}Update</li>
+<li>文件名：${class}Update</li>
 </ul>
 <p><img src="image/demo-java-update-template2.png" /></p>
 <p><img src="image/demo-java-update-template3.png" /></p>
 <ul>
 <li>扩展名：我们生成的是jsp页面，所以扩展名为jsp</li>
 </ul>
-<h2>模板详解</h2>
-<p>为了得到模型的代码提示，选好jmr文件和对应的模型shop。</p>
-<p><img src="image/demo-java-template-select-model.png" /></p>
 <h2>初始化</h2>
 <p><img src="image/demo-java-update-template4.png" /></p>
 <ul>
-<li>得到entity，它的relation为one，对应的模型为book，新设变量object指向one。</li>
+<li>entity设置新设变量object指向被选中的模型。</li>
 <li>设置变量menu，作为标题或者菜单，通过object.property(&quot;menu&quot;)得到，值是Book。</li>
 <li>设置变量class，作为头子母小写部分，通过object.property(&quot;class&quot;)得到，值是book。</li>
 </ul>
@@ -399,7 +404,7 @@ for field : object.fields object.isEdit
   &lt;/tr&gt;
 &lt;/table&gt;
 </pre>
-<p>和新增字段类似，但多了一些赋值操作</p>
+<p>和新增页面类似，但多了一些赋值操作</p>
 <p><img src="image/demo-java-update-template6.png" /></p>
 <p>field.property(&quot;isEdit&quot;) == true判断字段是否可编辑，可编辑的字段才需要填写内容，id作为主键，不需要显示在列表中。</p>
 <p><img src="image/demo-java-view-isEdit.png" /></p>

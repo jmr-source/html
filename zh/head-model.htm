@@ -293,7 +293,7 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
@@ -301,18 +301,37 @@ img {
 </head>
 <body>
 <h1><div align="center">模型</div></h1>
+<p>Jmr的模型是从数据库、Xml等转换而来的。模型不仅存储着表的信息，我们还可以扩展模型的结构，添加我们需要的属性，以便不同代码模块的生成。</p>
+<h2>模型的来源</h2>
+<p>我们可以通过配置，连接几乎所有的数据库。<br />
+表或者视图可以转换成模型，模型保存在Jmr文件中，可以被任务使用。</p>
+<p><img src="image/model_get.png" /></p>
+<h2>模型的设置</h2>
+<p>有2种方式设置模型：</p>
+<ul>
+<li>选择模型组（如shop）：&lt;entity&gt;中需要指定relation。这种选法一般应用于模板中需要得到多个模型，比如many-to-one many-to-many等情况。</li>
+</ul>
+<p><img src="image/demo-java-model1.png" /></p>
+<ul>
+<li>选择模型（如book）：&lt;entity&gt;中无需指定relation，这种方法用于模板只需要单个模型。当然，这种方式也可以指定relation。</li>
+</ul>
+<p><img src="image/demo-java-model2.png" /></p>
+<h2>模型的使用</h2>
+<p>以一个Java实体类的生成为例子，模型在模版中被调用的方法如下：</p>
+<ul>
+<li>使用entity标签，指定relation得到对应模型，并设置成一个变量，如下的object。</li>
+<li>使用for标签遍历object的字段集fields，可以生成import导入、类的成员变量，类的构造方法、get/set方法等。</li>
+</ul>
+<p>注意：在模板中可以选择模型，写代码可以得到完整的提示。将鼠标放在属性上还可以看到详细的结构信息，开发者可以方便的编写模板，查看详细的变量值。</p>
+<p><img src="image/model_structure_entity28.png" /></p>
+<p>生成的实体类代码。</p>
+<p><img src="image/model_entity.png" /></p>
 <hr />
-<h3>介绍</h3>
-<pre>
-● 在"转换"中，您将了解如何转换生成数据库、Java类、Xml模型。
-● 在"结构"中，您将了解模各模型的结构和如何增删改这些结构。
-● 在"预设"中，您将了解在模型转换的时候就把自定义的预设同步到模型中，减少您的工作量。
-</pre>
 <h3>内容</h3>
 <ul>
-<li><a href="#" onclick="javascript:parentGoTop('head-model-transform.html');">转换</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-model-structure.html');">结构</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-model-init.html');">预设</a></li>
+<li><a href="#" onclick="javascript:parentGoTop('head-model-transform.html');">转换</a>：您将了解如何转换生成数据库、Java类、Xml模型。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-model-structure.html');">结构</a>：您将了解模各模型的结构和如何增删改这些结构。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-model-init.html');">预设</a>：您将了解转换模型时，将预设信息设置入模型，减少您的工作量。</li>
 </ul>
 <hr />
 

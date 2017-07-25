@@ -293,7 +293,7 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
@@ -302,7 +302,7 @@ img {
 <body>
 <h1><div align="center">entity(entity.java.jet) - 实体类</div></h1>
 <h2>功能描述</h2>
-<p>生成java实体类，可作为各种语言的实体类生成做参考。</p>
+<p>生成java实体类（可作为其他语言的实体类的参考）。</p>
 <h2>阅读前需要了解的知识：</h2>
 <h4>任务</h4>
 <ul>
@@ -329,29 +329,37 @@ img {
 <h2>任务和模型</h2>
 <p><img src="image/demo-java-entity-task.png" /></p>
 <ul>
-<li>模型：shop</li>
+<li>模型组：shop</li>
+<li>模型：book</li>
 </ul>
 <pre>
-当前任务的模型名称是shop，包含一个java实体模型book，book的relation值是one；
+当前任务的模型组名称是shop，它包含一个java实体模型book，book的relation值是one；
 我们在模板中会通过&lt;entity&gt;得到它。
 
 关于本demo的模型结构，详细内容请点击：<a href="#" onclick="javascript:parentGoTop('demo-java-model.html');">模型结构</a> 
 </pre>
+<p>有2种方式设置模型：</p>
+<ul>
+<li>选择模型组（如shop）：&lt;entity&gt;中需要指定relation。这种选法一般应用于模板中需要得到多个模型，比如many-to-one many-to-many等情况。</li>
+</ul>
 <p><img src="image/demo-java-model1.png" /></p>
+<ul>
+<li>选择模型（如book）<b>（本例选择）</b>：&lt;entity&gt;中无需指定relation，这种方法用于模板只需要单个模型。当然，这种方式也可以指定relation。</li>
+</ul>
 <p><img src="image/demo-java-model2.png" /></p>
 <ul>
 <li>
 <p>模板：entity.java.jet</p>
 </li>
 <li>
-<p>文件名：${one.Class}</p>
+<p>文件名：${Class}</p>
 </li>
 </ul>
 <pre>
 我们为这个模型新设了以下属性：
 Class：头字母大写的名称，可以作为类名或者需要头字母大写的部分，它的值是"Book"。
 class：头字母小写的名称，可以作为头字母小写的部分，它的值是"book"。
-menu：界面菜单栏的名称，它的值是"book"。
+menu：界面菜单栏的名称，它的值是"Book"。
 </pre>
 <p><img src="image/demo-java-model3.png" /></p>
 <ul>
@@ -363,15 +371,12 @@ menu：界面菜单栏的名称，它的值是"book"。
 <p><img src="image/demo-java-entity-getVar1.png" />
 <img src="image/demo-java-entity-getVar2.png" /></p>
 <hr />
-<h2>模板详解</h2>
-<p>为了得到模型的代码提示，选好jmr文件和对应的模型shop。</p>
-<p><img src="image/demo-java-template-select-model.png" /></p>
 <h2>生成包路径、导入类和类名</h2>
 <p><img src="image/demo-java-entity-template1.png" /></p>
 <ul>
 <li>使用java:package自动得到当前包名。</li>
-<li>entity的relation为one，对应的模型为book，新设变量object指向one。</li>
-<li>使用java:class得到类名，类名为任务的文件名：${one.className}的值，为Book。</li>
+<li>entity设置新设变量object指向被选中的模型。</li>
+<li>使用java:class得到类名，类名为任务的文件名：${Class}的值，为Book。</li>
 <li>使用for循环object字段集合fields，得到每个字段field的fullType，其中duplicate属性设置为false，如果循环的内容一样，则不再重复输出。此处java.lang.Integer相同，没必要重复输出。</li>
 </ul>
 <p><img src="image/demo-java-entity-template2.png" /></p>
@@ -391,7 +396,7 @@ menu：界面菜单栏的名称，它的值是"book"。
 <li>使用java:class生成类名，for循环生成字段的参数列表，结构是字段类型+字段名，for循环生成字段的赋值，结构是this.字段名 = 字段名。</li>
 </ul>
 <pre>
-字段名：name和字段类型：type
+模型中的name和type
 </pre>
 <p><img src="image/demo-java-entity-template6.png" /></p>
 <pre>

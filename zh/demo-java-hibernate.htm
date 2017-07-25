@@ -293,7 +293,7 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
@@ -325,47 +325,49 @@ img {
 <h2>任务和模型</h2>
 <p><img src="image/demo-java-hibernate-task.png" /></p>
 <ul>
-<li>模型：shop</li>
+<li>模型组：shop</li>
+<li>模型：book</li>
 </ul>
 <pre>
-当前任务的模型名称是shop，包含一个java实体模型book，book的relation值是one；
+当前任务的模型组名称是shop，它包含一个java实体模型book，book的relation值是one；
 我们在模板中会通过&lt;entity&gt;得到它。
 
 关于本demo的模型结构，详细内容请点击：<a href="#" onclick="javascript:parentGoTop('demo-java-model.html');">模型结构</a> 
 </pre>
+<p>有2种方式设置模型：</p>
+<ul>
+<li>选择模型组（如shop）：&lt;entity&gt;中需要指定relation。这种选法一般应用于模板中需要得到多个模型，比如many-to-one many-to-many等情况。</li>
+</ul>
 <p><img src="image/demo-java-model1.png" /></p>
+<ul>
+<li>选择模型（如book）<b>（本例选择）</b>：&lt;entity&gt;中无需指定relation，这种方法用于模板只需要单个模型。当然，这种方式也可以指定relation。</li>
+</ul>
 <p><img src="image/demo-java-model2.png" /></p>
 <ul>
 <li>
 <p>模板：hbm.xml.jet</p>
 </li>
 <li>
-<p>文件名：${one.Class}</p>
+<p>文件名：${Class}</p>
 </li>
 </ul>
 <pre>
 我们为这个模型新设了以下属性：
 Class：头字母大写的名称，可以作为类名或者需要头字母大写的部分，它的值是"Book"。
 class：头字母小写的名称，可以作为头字母小写的部分，它的值是"book"。
-menu：界面菜单栏的名称，它的值是"book"。
-
-关于本demo的模型结构，详细内容请点击：<a href="#" onclick="javascript:parentGoTop('demo-java-head-model-structure.html');">模型结构</a>
+menu：界面菜单栏的名称，它的值是"Book"。
 </pre>
 <p><img src="image/demo-java-model3.png" /></p>
 <ul>
 <li>扩展名：我们生成的是hibernate配置文件，所以扩展名为hbm.xml</li>
 </ul>
-<h2>模板详解</h2>
-<p>为了得到模型的代码提示，选好jmr文件和对应的模型shop。</p>
-<p><img src="image/demo-java-template-select-model.png" /></p>
 <h2>初始化</h2>
 <p><img src="image/demo-java-hibernate-template1.png" /></p>
 <ul>
-<li>得到entity，它的relation为one，对应的模型为book，新设变量object指向one。</li>
+<li>entity设置新设变量object指向被选中的模型。</li>
 <li>设置变量table，作为表名，表名即使模型名，模型名是从数据库表名转换而来的。</li>
 <li>设置变量Class，作为类名，通过object.property(&quot;Class&quot;)得到。</li>
 </ul>
-<p><img src="image/demo-java-model-name.png" /></p>
 <p><img src="image/demo-java-model3.png" /></p>
 <p><img src="image/demo-java-hibernate-template2.png" /></p>
 <h2>生成映射</h2>

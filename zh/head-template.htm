@@ -293,7 +293,7 @@ img {
 <script type="text/javascript">
 	function parentGoTop(a){
 	window.open(a);  
-	//parent.window.location.href=a;		
+	//parent.window.location.href=a;	
 	//parent.scrollTo(0,0);
 	} 
 </script>
@@ -301,26 +301,76 @@ img {
 </head>
 <body>
 <h1><div align="center">模板</div></h1>
-<hr />
-<h3>介绍</h3>
+<p>Jmr采用Eclipse Jet做为模板，它是一个和Jsp类似的模板引擎。</p>
+<h1>语法</h1>
+<p>本章学习Jet的基础语法，更详细请内容请阅读本章的子章节。</p>
+<h2>脚本</h2>
+<p>脚本程序可以包含任意量的Java语句、变量、方法或表达式，只要它们在脚本语言中是有效的。<br />
+和Jsp的&lt;% %&gt;的一样。  </p>
+<p>脚本的语法格式：</p>
 <pre>
-● 在"概览"中，您将了解模板的原理和结构。
-● 在"规范"中，对模板的命名规范有详细说明。
-● 在"指令"中，介绍了模板编译指令，导入指令还有注释的用法。
-● 在"脚本标签"中，介绍了&lt;%! %&gt;,&lt;% %&gt;,&lt;%= %&gt;的原理和用法。
-● 在"内置对象"中，介绍了out和context这2个内置对象。
-● 在"标签"中，例举了常用标签的用法。
+&lt;% 代码片段 %&gt;
 </pre>
-<h3>内容</h3>
+<h2>表达式</h2>
+<p>表达式中包含的脚本语言表达式，先被转化成String，然后插入到表达式出现的地方。<br />
+表达式元素中可以包含任何符合Java语言规范的表达式，但是不能使用分号来结束表达式。<br />
+和Jsp的&lt;%= %&gt;的一样。  </p>
+<p>表达式的语法格式：</p>
+<pre>
+&lt;%=表达式%&gt;
+</pre>
+<p>程序示例： </p>
+<p><img src="image/tag_script.png" /></p>
+<h2>声明</h2>
+<p>声明语句可以声明一个或多个变量、方法；相当于类变量和类方法。<br />
+和Jsp的&lt;%! %&gt;的一样。</p>
+<p>声明的语法格式：</p>
+<pre>
+&lt;%! declaration; [ declaration; ]+ ... %&gt;
+</pre>
+<p>程序示例：  </p>
+<p><img src="image/tag_delcare.png" /></p>
+<h2>注释</h2>
+<p>注释块中的内容会被屏蔽，不会被用于生成。可用于单行注释，也可以多行注释。</p>
+<p>注释的语法格式：</p>
+<pre>
+&lt;%-- 注释内容 --%&gt;
+</pre>
+<p><img src="image/template_comment.png" /></p>
+<h1>指令</h1>
+<p>Jet指令用来设置整个模板页面相关的属性，如编译指令和导入指令。</p>
+<h2>编译指令</h2>
+<p>模板文件第一行都有编译指令，模板会被自动编译成Java类，原理和Jsp编译成Java Class类似。<br />
+编译类指定了这个Java Class的包名和类名，开发者不需要关心具体的编译类。</p>
+<p>编译指令的语法格式：</p>
+<pre>
+&lt;%@jet package="包名" class="类名" ...  %&gt;
+</pre>
+<h4>包含的属性</h4>
 <ul>
-<li><a href="#" onclick="javascript:parentGoTop('template-preface.html');">概览</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-standard.html');">规范</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-instruction.html');">指令</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-script.html');">脚本标签</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-object.html');">内置对象</a></li>
-<li><a href="#" onclick="javascript:parentGoTop('head-template-tag.html');">标签</a></li>
+<li>package（必填）：编译的包名，新建时默认为translated，可以自定义为XX.XX.XX的包结构。</li>
+<li>class（必填）：编译的类名，请按Java命名规范填写类名。</li>
+<li>startTag、endTag（可选）：Jet默认的startTag是：&lt;%，endTag是：%&gt;，我们可以重新指定。</li>
 </ul>
+<h2>导入指令</h2>
+<p>导入要使用的Java类，Jet模板所在项目的依赖都可以导入。</p>
+<p>导入指令的语法格式：</p>
+<pre>
+&lt;%@jet imports="..."%&gt;
+</pre>
+<p>比如导入List</p>
+<p><img src="image/import_imports_help.png" /></p>
+<p>可以指定具体“包名.类名”，也可以指定“包名.*”；写法和Jsp的&lt;%@ page import=&quot;...&quot; %&gt;用法一样。</p>
+<p><img src="image/import_compare.png" /></p>
 <hr />
+<h3>更多详细内容</h3>
+<ul>
+<li><a href="#" onclick="javascript:parentGoTop('template-preface.html');">概览</a>：您将了解模板的原理和结构。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-template-standard.html');">规范</a>：您将了解模板的命名规范。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-template-instruction.html');">指令</a>：您将了解模板编译指令，导入指令还有注释的用法。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-template-script.html');">脚本标签</a>：您将了解&lt;%! %&gt;,&lt;% %&gt;,&lt;%= %&gt;的原理和用法。</li>
+<li><a href="#" onclick="javascript:parentGoTop('head-template-object.html');">内置对象</a>：您将了解out和context这2个内置对象。</li>
+</ul>
 
 </body>
 </html>
