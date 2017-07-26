@@ -22,21 +22,14 @@
 	  <link rel="stylesheet" type="text/css" href="../jmr_files/tree_themes/SimpleTree.css"/>
      
     	<script type="text/javascript">
-			$(function(){
-				$(".st_tree").SimpleTree({
-					click:function(a){
-					}
-				});
-			});
 			
 			function treego(a){
 				parent.window.location.href=a;	
 				parent.scrollTo(0,0);
 			}
 			</script>
-     
-     
-       <script type="text/javascript">
+			
+			  <script type="text/javascript">
           
         //设置cookie
 				function setCookie(clanguage, cvalue, exdays) {
@@ -107,7 +100,7 @@
 		</script>
       
 <link style="" id="layui_layer_skinlayercss" href="../jmr_files/layer.css" rel="stylesheet"></head>
-<body>
+<body onload="pageInit();">
     <div id="wrapper">
         <!-- top start -->
 					<div style="background-color: rgba(0, 0, 0, 0.3);" class="site-top">
@@ -147,9 +140,6 @@
                  		<div style="margin: 0 auto; width:50%; height:50;" >
 	                 		<iframe src="advertisement-top.html" width="100%" frameBorder="0" scrolling="no"></iframe>
 	                 	</div>
-	                 	<div style="float:left; text-align:left; margin: 0 auto; width:50%; height:50;" >
-	                 		<a href="#" onclick="treego('http://www.jmr-source.com/zh/demo-java.html')"><span style="color:#4183C4;">实战</span></a> -> <a href="#" onclick="treego('http://www.jmr-source.com/zh/demo-java-model.html')"><span style="color:#4183C4;">模型</span></a>
-	                 	</div>
 										<iframe target="main" src="demo-java-model.htm" width="100%" id="if" frameBorder="0" scrolling="no"></iframe>
                  	</div>  
                  	<div style="float:left; text-align:left; padding:20px; width:2%;">
@@ -163,11 +153,6 @@
             </div>
         </div>
         <!-- container end -->
-        <!-- footer start -->
-         <div style="float:left; text-align:left; width:100%; height:100;" > 
-          	<iframe src="footer.html" width="100%" height="100" frameBorder="0" scrolling="no"></iframe>
-       	</div>  
-        <!-- footer end -->
     </div>
     <script type="text/javascript" src="../jmr_files/jquery.js"></script>
     <script type="text/javascript" src="../jmr_files/bootstrap.js"></script>
@@ -195,13 +180,14 @@
 						doc.height = doc.Document.body.scrollHeight;
 					}
 				} 
-     	}
-     	
-     	document.getElementById("showTree").onload = function () {
-				$("#showTree").contents().find("#treedivli85").addClass('hover2');
+			}
+			
+			document.getElementById("showTree").onload = function () {
+				$("#showTree").contents().find("#treedivli123").addClass('hover2');
 			} 
 			
     </script>
+
      
     <script>
 		(function(){
